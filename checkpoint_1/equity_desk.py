@@ -545,18 +545,21 @@ def row_values(cells: list[str]) -> list[str]:
 
 
 def earnings_evidence(release_path: Path) -> list[str]:
-    """Read quarterly total revenue and diluted EPS from release table rows."""
+    """Read consolidated quarterly sales or revenue and diluted EPS table rows."""
     rows = table_rows(release_path)
     evidence: dict[str, tuple[list[str], list[str]]] = {}
     for index, cells in enumerate(rows):
         label = cells[0].strip()
+        # Issuers can add a table-footnote marker to a consolidated label,
+        # for example ``Total net sales (1)``. It does not make the row a
+        # segment row, so remove only a trailing marker before testing it.
+        plain_label = re.sub(r"\s*\(\d+\)\s*$", "", label)
         values = row_values(cells)
         if len(values) < 2:
             continue
-        # Releases vary between "Total revenue" and "Total revenues".  Do
-        # not accept a currency-adjusted or segment row as the consolidated
-        # reported result.
-        if re.fullmatch(r"total revenues?", label, re.IGNORECASE):
+        # Releases use either "Total revenue" or "Total net sales" for the
+        # consolidated result. Do not accept a segment or adjusted row.
+        if re.fullmatch(r"total (?:net )?revenues?|total net sales", plain_label, re.IGNORECASE):
             evidence.setdefault("Total revenue", (cells, values[:2]))
         elif (re.fullmatch(r"diluted", label, re.IGNORECASE)
               or re.search(r"diluted.*(?:earnings|net income)\s+per\s+(?:common\s+)?share", label, re.IGNORECASE)):

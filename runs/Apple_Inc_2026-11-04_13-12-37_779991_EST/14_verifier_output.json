@@ -1,0 +1,566 @@
+{
+  "marks": [
+    {
+      "line": "4",
+      "number": "2026",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L14 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=14",
+      "correction": ""
+    },
+    {
+      "line": "4",
+      "number": "$479",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L14 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=14",
+      "correction": ""
+    },
+    {
+      "line": "5",
+      "number": "$114.5",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L12 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=12",
+      "correction": ""
+    },
+    {
+      "line": "5",
+      "number": "12",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L12 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=12",
+      "correction": ""
+    },
+    {
+      "line": "6",
+      "number": "$132.175",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L364 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=364",
+      "correction": ""
+    },
+    {
+      "line": "6",
+      "number": "$2.10",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L12 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=12",
+      "correction": ""
+    },
+    {
+      "line": "8",
+      "number": "$145.097",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L396 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=396",
+      "correction": ""
+    },
+    {
+      "line": "12",
+      "number": "(4",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "12",
+      "number": "5)",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "16",
+      "number": "12",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L12 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=12",
+      "correction": ""
+    },
+    {
+      "line": "18",
+      "number": "(4",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "18",
+      "number": "5)",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "19",
+      "number": "18",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L13 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=13",
+      "correction": ""
+    },
+    {
+      "line": "22",
+      "number": "$9.041",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L409 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=409",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "24",
+      "number": "(4",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "24",
+      "number": "5)",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "28",
+      "number": "$28",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L14 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=14",
+      "correction": ""
+    },
+    {
+      "line": "32",
+      "number": "5",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "32",
+      "number": "5",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "34",
+      "number": "15.1%",
+      "mark": "wrong",
+      "detail": "recomputed value is 1.150597965691162795168216147",
+      "source": "kind=ratio | operation=divide | inputs=478834000000;416161000000 | result=0.1506 | definition=Revenue growth",
+      "correction": "115.06% [Revenue growth from quoted inputs]"
+    },
+    {
+      "line": "34",
+      "number": "$478.8",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=478834000000;416161000000 | result=0.1506 | definition=Revenue growth",
+      "correction": "1.150597965691162795168216147 [Revenue growth from quoted inputs]"
+    },
+    {
+      "line": "34",
+      "number": "2026",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=478834000000;416161000000 | result=0.1506 | definition=Revenue growth",
+      "correction": "1.150597965691162795168216147 [Revenue growth from quoted inputs]"
+    },
+    {
+      "line": "36",
+      "number": "$158.1",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=158063000000;478834000000 | result=0.3301 | definition=Operating margin",
+      "correction": "0.3300997840587761103012735102 [Operating margin from quoted inputs]"
+    },
+    {
+      "line": "36",
+      "number": "1.7",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=158063000000;478834000000 | result=0.3301 | definition=Operating margin",
+      "correction": "0.3300997840587761103012735102 [Operating margin from quoted inputs]"
+    },
+    {
+      "line": "36",
+      "number": "33.0%",
+      "mark": "correct",
+      "detail": "ratio recomputed",
+      "source": "kind=ratio | operation=divide | inputs=158063000000;478834000000 | result=0.3301 | definition=Operating margin",
+      "correction": ""
+    },
+    {
+      "line": "38",
+      "number": "(46.8%",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:OperatingIncomeLoss | period=2025-09-28:2026-09-26 | value=158063000000",
+      "correction": "158063000000 [XBRL us-gaap:OperatingIncomeLoss | 2025-09-28:2026-09-26]"
+    },
+    {
+      "line": "38",
+      "number": "2026",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:OperatingIncomeLoss | period=2025-09-28:2026-09-26 | value=158063000000",
+      "correction": "158063000000 [XBRL us-gaap:OperatingIncomeLoss | 2025-09-28:2026-09-26]"
+    },
+    {
+      "line": "38",
+      "number": "(41.4%",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:OperatingIncomeLoss | period=2025-09-28:2026-09-26 | value=158063000000",
+      "correction": "158063000000 [XBRL us-gaap:OperatingIncomeLoss | 2025-09-28:2026-09-26]"
+    },
+    {
+      "line": "38",
+      "number": "2025",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:OperatingIncomeLoss | period=2025-09-28:2026-09-26 | value=158063000000",
+      "correction": "158063000000 [XBRL us-gaap:OperatingIncomeLoss | 2025-09-28:2026-09-26]"
+    },
+    {
+      "line": "41",
+      "number": "5",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "41",
+      "number": "5",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "43",
+      "number": "$145.1",
+      "mark": "correct",
+      "detail": "exact XBRL fact match",
+      "source": "kind=xbrl | tag=us-gaap:NetCashProvidedByUsedInOperatingActivities | period=2025-09-28:2026-09-26 | value=145097000000",
+      "correction": ""
+    },
+    {
+      "line": "43",
+      "number": "30.2%",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:NetCashProvidedByUsedInOperatingActivities | period=2025-09-28:2026-09-26 | value=145097000000",
+      "correction": "145097000000 [XBRL us-gaap:NetCashProvidedByUsedInOperatingActivities | 2025-09-28:2026-09-26]"
+    },
+    {
+      "line": "43",
+      "number": "$9.0",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:NetCashProvidedByUsedInOperatingActivities | period=2025-09-28:2026-09-26 | value=145097000000",
+      "correction": "145097000000 [XBRL us-gaap:NetCashProvidedByUsedInOperatingActivities | 2025-09-28:2026-09-26]"
+    },
+    {
+      "line": "45",
+      "number": "$136.1",
+      "mark": "wrong",
+      "detail": "recomputed value is 1.604877779006747041256498175E-8",
+      "source": "kind=ratio | operation=divide | inputs=145097000000;9041000000 | result=136056000000 | definition=Free cash flow",
+      "correction": "16.04877779006747041256498175 [Free cash flow from quoted inputs]"
+    },
+    {
+      "line": "47",
+      "number": "103%",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:NetIncomeLoss | period=2025-09-28:2026-09-26 | value=132175000000",
+      "correction": "132175000000 [XBRL us-gaap:NetIncomeLoss | 2025-09-28:2026-09-26]"
+    },
+    {
+      "line": "50",
+      "number": "4",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "50",
+      "number": "5",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "52",
+      "number": "142.3%",
+      "mark": "correct",
+      "detail": "ratio recomputed",
+      "source": "kind=ratio | operation=divide | inputs=132175000000;92913000000 | result=1.4226 | definition=Return on average equity",
+      "correction": ""
+    },
+    {
+      "line": "52",
+      "number": "2026",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=132175000000;92913000000 | result=1.4226 | definition=Return on average equity",
+      "correction": "1.422567347949156738023742641 [Return on average equity from quoted inputs]"
+    },
+    {
+      "line": "52",
+      "number": "$132.2",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=132175000000;92913000000 | result=1.4226 | definition=Return on average equity",
+      "correction": "1.422567347949156738023742641 [Return on average equity from quoted inputs]"
+    },
+    {
+      "line": "52",
+      "number": "$92.9",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=132175000000;92913000000 | result=1.4226 | definition=Return on average equity",
+      "correction": "1.422567347949156738023742641 [Return on average equity from quoted inputs]"
+    },
+    {
+      "line": "54",
+      "number": "0.70",
+      "mark": "correct",
+      "detail": "ratio recomputed",
+      "source": "kind=ratio | operation=divide | inputs=78114000000;112093000000 | result=0.6969 | definition=Debt to equity",
+      "correction": ""
+    },
+    {
+      "line": "54",
+      "number": "$78.1",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=78114000000;112093000000 | result=0.6969 | definition=Debt to equity",
+      "correction": "0.6968677794331492599894730269 [Debt to equity from quoted inputs]"
+    },
+    {
+      "line": "54",
+      "number": "$112.1",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=78114000000;112093000000 | result=0.6969 | definition=Debt to equity",
+      "correction": "0.6968677794331492599894730269 [Debt to equity from quoted inputs]"
+    },
+    {
+      "line": "56",
+      "number": "$90.7",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:LongTermDebtNoncurrent | period=2025-09-28:2026-09-26 | value=68208000000",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "56",
+      "number": "$78.1",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:LongTermDebtNoncurrent | period=2025-09-28:2026-09-26 | value=68208000000",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "59",
+      "number": "3",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "59",
+      "number": "5",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "61",
+      "number": "$354.02",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=354.02;8.98 | result=39.42 | definition=P/E",
+      "correction": "39.42316258351893095768374165 [P/E from quoted inputs]"
+    },
+    {
+      "line": "61",
+      "number": "39.4",
+      "mark": "correct",
+      "detail": "ratio recomputed",
+      "source": "kind=ratio | operation=divide | inputs=354.02;8.98 | result=39.42 | definition=P/E",
+      "correction": ""
+    },
+    {
+      "line": "61",
+      "number": "$8.98",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=354.02;8.98 | result=39.42 | definition=P/E",
+      "correction": "39.42316258351893095768374165 [P/E from quoted inputs]"
+    },
+    {
+      "line": "63",
+      "number": "44.4",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:EarningsPerShareDiluted | period=2025-09-28:2026-09-26 | value=8.98",
+      "correction": "8.98 [XBRL us-gaap:EarningsPerShareDiluted | 2025-09-28:2026-09-26]"
+    },
+    {
+      "line": "63",
+      "number": "$17.95",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:EarningsPerShareDiluted | period=2025-09-28:2026-09-26 | value=8.98",
+      "correction": "8.98 [XBRL us-gaap:EarningsPerShareDiluted | 2025-09-28:2026-09-26]"
+    },
+    {
+      "line": "63",
+      "number": "15.1",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:EarningsPerShareDiluted | period=2025-09-28:2026-09-26 | value=8.98",
+      "correction": "8.98 [XBRL us-gaap:EarningsPerShareDiluted | 2025-09-28:2026-09-26]"
+    },
+    {
+      "line": "63",
+      "number": "$23.49",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:EarningsPerShareDiluted | period=2025-09-28:2026-09-26 | value=8.98",
+      "correction": "8.98 [XBRL us-gaap:EarningsPerShareDiluted | 2025-09-28:2026-09-26]"
+    },
+    {
+      "line": "66",
+      "number": "2026",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L14 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=14",
+      "correction": ""
+    },
+    {
+      "line": "66",
+      "number": "$28",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L14 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=14",
+      "correction": ""
+    },
+    {
+      "line": "66",
+      "number": "$28",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L14 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=14",
+      "correction": ""
+    },
+    {
+      "line": "69",
+      "number": "$136.1",
+      "mark": "wrong",
+      "detail": "recomputed value is 1.604877779006747041256498175E-8",
+      "source": "kind=ratio | operation=divide | inputs=145097000000;9041000000 | result=136056000000 | definition=Free cash flow",
+      "correction": "16.04877779006747041256498175 [Free cash flow from quoted inputs]"
+    },
+    {
+      "line": "69",
+      "number": "2026",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=145097000000;9041000000 | result=136056000000 | definition=Free cash flow",
+      "correction": "16.04877779006747041256498175 [Free cash flow from quoted inputs]"
+    },
+    {
+      "line": "69",
+      "number": "39.1%",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=145097000000;9041000000 | result=136056000000 | definition=Free cash flow",
+      "correction": "1604.88% [Free cash flow from quoted inputs]"
+    },
+    {
+      "line": "69",
+      "number": "$102.1",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=145097000000;9041000000 | result=136056000000 | definition=Free cash flow",
+      "correction": "16.04877779006747041256498175 [Free cash flow from quoted inputs]"
+    },
+    {
+      "line": "73",
+      "number": "18",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L13 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=13",
+      "correction": ""
+    },
+    {
+      "line": "75",
+      "number": "$28",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L14 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=14",
+      "correction": ""
+    },
+    {
+      "line": "78",
+      "number": "$145.097",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L396 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=396",
+      "correction": ""
+    },
+    {
+      "line": "78",
+      "number": "$28",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L396 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=396",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "88",
+      "number": "2026",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L396 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=396",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "88",
+      "number": "$145.097",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L396 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=396",
+      "correction": ""
+    },
+    {
+      "line": "88",
+      "number": "$28",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L396 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=396",
+      "correction": "No correction supported by the cited filing line."
+    }
+  ],
+  "semantic_check": "- **Period Error (Cash Flow):** The report states, \"Cash generated by operating activities totaled $145.097 billion in the fourth quarter.\" This is incorrect. The $145.097 billion figure is for **Fiscal Year 2026**, not the fourth quarter. The 8-K exhibit (line 14) explicitly states: \"We generated **$28 billion** in operating cash flow during the quarter.\"\n  - *Correction:* The fourth-quarter operating cash flow was $28 billion. The $145.097 billion figure applies to the full fiscal year (2025-09-28 to 2026-09-26), as confirmed by the XBRL tag `us-gaap:NetCashProvidedByUsedInOperatingActivities` for period `2025-09-28:2026-09-26` in the facts.\n\n- **Period Error (CapEx):** The report states, \"Capital investment in property, plant, and equipment was $9.041 billion in the fourth quarter.\" This is incorrect. The $9.041 billion figure is for **Fiscal Year 2026**. The filing text provided for the 8-K does not specify a quarterly CapEx amount, but the XBRL tag `us-gaap:PaymentsToAcquirePropertyPlantAndEquipment` in the facts is for the full fiscal year period (`2025-09-28:2026-09-26`).\n  - *Correction:* The $9.041 billion CapEx figure represents the full fiscal year, not the fourth quarter.\n\n- **Definition Error (Debt to Equity):** The report claims \"Total debt-to-equity was 0.70x... with $78.1 billion in total debt.\" The XBRL facts show `LongTermDebtNoncurrent` at $68.208 billion and `LongTermDebtCurrent` at $9.906 billion, totaling $78.114 billion. While the arithmetic is correct, the report later cites a source tag `us-gaap:LongTermDebtNoncurrent` with a value of $68.208 billion to support the reduction from $90.7 billion to $78.1 billion. The prior year total debt is $90.678 billion ($78.328B + $12.350B). The current year total debt is $78.114 billion. The claim of reduction is semantically correct, but the specific source tag cited in the report snippet for the debt figure ($68.208B) only represents the non-current portion, not the total debt of $78.1B.\n  - *Correction:* The $78.1 billion total debt is the sum of `us-gaap:LongTermDebtNoncurrent` ($68.208B) and `us-gaap:LongTermDebtCurrent` ($9.906B). The source tag cited in the report for the $78.1B figure is incomplete.\n\n- **Semantic Error (FCF Insight):** The Insight states, \"Apple\u2019s fiscal 2026 fourth quarter operating cash flow was $145.097 billion.\" This repeats the period error above.\n  - *Correction:* The fourth-quarter operating cash flow was $28 billion.",
+  "verified_report": "/Users/douglasbuckeridge/Documents/Mastering AI For Finance/fin67110-fall2026/runs/Apple_Inc_2026-11-04_13-12-37_779991_EST/verified_report.md"
+}

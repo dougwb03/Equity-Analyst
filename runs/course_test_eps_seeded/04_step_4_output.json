@@ -1,0 +1,237 @@
+{
+  "fiscal_year_end": "2026-08-30",
+  "prior_fiscal_year_end": "2025-08-31",
+  "concepts": {
+    "total_revenue": {
+      "label": "Total revenue",
+      "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "current": {
+        "start": "2025-09-01",
+        "end": "2026-08-30",
+        "val": 303154000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2026"
+      },
+      "prior": {
+        "start": "2024-09-02",
+        "end": "2025-08-31",
+        "val": 275235000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2025"
+      },
+      "reported_label": "Total revenue",
+      "definition": "Consolidated total revenue as reported on the statement of operations",
+      "filing": "0000909832-26-000093"
+    },
+    "operating_income": {
+      "label": "Operating income",
+      "tag": "us-gaap:OperatingIncomeLoss",
+      "current": {
+        "start": "2025-09-01",
+        "end": "2026-08-30",
+        "val": 11685000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2026"
+      },
+      "prior": {
+        "start": "2024-09-02",
+        "end": "2025-08-31",
+        "val": 10383000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2025"
+      }
+    },
+    "net_income": {
+      "label": "Net income",
+      "tag": "us-gaap:NetIncomeLoss",
+      "current": {
+        "start": "2025-09-01",
+        "end": "2026-08-30",
+        "val": 9226000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2026"
+      },
+      "prior": {
+        "start": "2024-09-02",
+        "end": "2025-08-31",
+        "val": 8099000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2025"
+      }
+    },
+    "diluted_eps": {
+      "label": "Diluted EPS",
+      "tag": "us-gaap:EarningsPerShareDiluted",
+      "current": {
+        "start": "2025-09-01",
+        "end": "2026-08-30",
+        "val": 20.76,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2026"
+      },
+      "prior": {
+        "start": "2024-09-02",
+        "end": "2025-08-31",
+        "val": 18.21,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2025"
+      }
+    },
+    "stockholders_equity": {
+      "label": "Stockholders' equity",
+      "tag": "us-gaap:StockholdersEquity",
+      "current": {
+        "end": "2026-08-30",
+        "val": 35803000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2026Q3I"
+      },
+      "prior": {
+        "end": "2025-08-31",
+        "val": 29164000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2025Q3I"
+      }
+    },
+    "long_term_debt": {
+      "label": "Long-term debt",
+      "tag": "us-gaap:LongTermDebtNoncurrent",
+      "current": {
+        "end": "2026-08-30",
+        "val": 3914000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2026Q3I"
+      },
+      "prior": {
+        "end": "2025-08-31",
+        "val": 5713000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2025Q3I"
+      }
+    },
+    "current_debt": {
+      "label": "Current portion of long-term debt",
+      "tag": "us-gaap:LongTermDebtCurrent",
+      "current": {
+        "end": "2026-08-30",
+        "val": 2248000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2026Q3I"
+      },
+      "prior": {
+        "end": "2025-08-31",
+        "val": 75000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2025Q3I"
+      }
+    },
+    "cash_from_operations": {
+      "label": "Cash from operations",
+      "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "current": {
+        "start": "2025-09-01",
+        "end": "2026-08-30",
+        "val": 15817000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2026"
+      },
+      "prior": {
+        "start": "2024-09-02",
+        "end": "2025-08-31",
+        "val": 13335000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2025"
+      }
+    },
+    "capex": {
+      "label": "Additions to property and equipment",
+      "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "current": {
+        "start": "2025-09-01",
+        "end": "2026-08-30",
+        "val": 6435000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2026"
+      },
+      "prior": {
+        "start": "2024-09-02",
+        "end": "2025-08-31",
+        "val": 5498000000,
+        "accn": "0000909832-26-000093",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-10-07",
+        "frame": "CY2025"
+      }
+    }
+  }
+}

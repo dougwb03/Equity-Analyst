@@ -1,0 +1,9 @@
+{
+  "manager_review": "APPROVED",
+  "rework": {
+    "role": "Financial Analyst",
+    "part": "Valuation Insights",
+    "feedback": "The final Insight line must name a saved filing and one exact line."
+  },
+  "review_format_valid": true
+}

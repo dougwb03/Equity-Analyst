@@ -1,0 +1,625 @@
+{
+  "peer_data": [
+    {
+      "ticker": "WMT",
+      "facts": [
+        {
+          "key": "total_revenue",
+          "label": "Total revenue",
+          "period": "current",
+          "value": 713163000000.0,
+          "tag": "us-gaap:Revenues",
+          "filing": "0000104169-26-000055",
+          "start": "2025-02-01",
+          "end": "2026-01-31",
+          "definition": "Consolidated total revenue as reported on the statement of operations"
+        },
+        {
+          "key": "total_revenue",
+          "label": "Total revenue",
+          "period": "prior",
+          "value": 680985000000.0,
+          "tag": "us-gaap:Revenues",
+          "filing": "0000104169-26-000055",
+          "start": "2024-02-01",
+          "end": "2025-01-31",
+          "definition": "Consolidated total revenue as reported on the statement of operations"
+        },
+        {
+          "key": "operating_income",
+          "label": "Operating income",
+          "period": "current",
+          "value": 29825000000,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "filing": "0000104169-26-000055",
+          "start": "2025-02-01",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "operating_income",
+          "label": "Operating income",
+          "period": "prior",
+          "value": 29348000000,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "filing": "0000104169-26-000055",
+          "start": "2024-02-01",
+          "end": "2025-01-31",
+          "definition": null
+        },
+        {
+          "key": "net_income",
+          "label": "Net income",
+          "period": "current",
+          "value": 21893000000,
+          "tag": "us-gaap:NetIncomeLoss",
+          "filing": "0000104169-26-000055",
+          "start": "2025-02-01",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "net_income",
+          "label": "Net income",
+          "period": "prior",
+          "value": 19436000000,
+          "tag": "us-gaap:NetIncomeLoss",
+          "filing": "0000104169-26-000055",
+          "start": "2024-02-01",
+          "end": "2025-01-31",
+          "definition": null
+        },
+        {
+          "key": "diluted_eps",
+          "label": "Diluted EPS",
+          "period": "current",
+          "value": 2.73,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "filing": "0000104169-26-000055",
+          "start": "2025-02-01",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "diluted_eps",
+          "label": "Diluted EPS",
+          "period": "prior",
+          "value": 2.41,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "filing": "0000104169-26-000055",
+          "start": "2024-02-01",
+          "end": "2025-01-31",
+          "definition": null
+        },
+        {
+          "key": "stockholders_equity",
+          "label": "Stockholders' equity",
+          "period": "current",
+          "value": 99617000000,
+          "tag": "us-gaap:StockholdersEquity",
+          "filing": "0000104169-26-000055",
+          "start": null,
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "stockholders_equity",
+          "label": "Stockholders' equity",
+          "period": "prior",
+          "value": 91013000000,
+          "tag": "us-gaap:StockholdersEquity",
+          "filing": "0000104169-26-000055",
+          "start": null,
+          "end": "2025-01-31",
+          "definition": null
+        },
+        {
+          "key": "long_term_debt",
+          "label": "Long-term debt",
+          "period": "current",
+          "value": 34624000000.0,
+          "tag": "us-gaap:LongTermDebtNoncurrent",
+          "filing": "0000104169-26-000055",
+          "start": null,
+          "end": "2026-01-31",
+          "definition": "Noncurrent debt balance-sheet line"
+        },
+        {
+          "key": "long_term_debt",
+          "label": "Long-term debt",
+          "period": "prior",
+          "value": 33401000000.0,
+          "tag": "us-gaap:LongTermDebtNoncurrent",
+          "filing": "0000104169-26-000055",
+          "start": null,
+          "end": "2025-01-31",
+          "definition": "Noncurrent debt balance-sheet line"
+        },
+        {
+          "key": "current_debt",
+          "label": "Long-term debt due within one year",
+          "period": "current",
+          "value": 3542000000.0,
+          "tag": "us-gaap:LongTermDebtCurrent",
+          "filing": "0000104169-26-000055",
+          "start": null,
+          "end": "2026-01-31",
+          "definition": "Current portion of long-term debt balance-sheet line"
+        },
+        {
+          "key": "current_debt",
+          "label": "Long-term debt due within one year",
+          "period": "prior",
+          "value": 2598000000.0,
+          "tag": "us-gaap:LongTermDebtCurrent",
+          "filing": "0000104169-26-000055",
+          "start": null,
+          "end": "2025-01-31",
+          "definition": "Current portion of long-term debt balance-sheet line"
+        },
+        {
+          "key": "cash_from_operations",
+          "label": "Cash from operations",
+          "period": "current",
+          "value": 41565000000,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "filing": "0000104169-26-000055",
+          "start": "2025-02-01",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "cash_from_operations",
+          "label": "Cash from operations",
+          "period": "prior",
+          "value": 36443000000,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "filing": "0000104169-26-000055",
+          "start": "2024-02-01",
+          "end": "2025-01-31",
+          "definition": null
+        },
+        {
+          "key": "capex",
+          "label": "Additions to property and equipment",
+          "period": "current",
+          "value": 26642000000,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "filing": "0000104169-26-000055",
+          "start": "2025-02-01",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "capex",
+          "label": "Additions to property and equipment",
+          "period": "prior",
+          "value": 23783000000,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "filing": "0000104169-26-000055",
+          "start": "2024-02-01",
+          "end": "2025-01-31",
+          "definition": null
+        }
+      ],
+      "operating_margin": {
+        "value": 0.041820733829433104,
+        "arithmetic": "operating income / total revenue"
+      }
+    },
+    {
+      "ticker": "TGT",
+      "facts": [
+        {
+          "key": "total_revenue",
+          "label": "Total revenue",
+          "period": "current",
+          "value": 104780000000.0,
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "filing": "0000027419-26-000016",
+          "start": "2025-02-02",
+          "end": "2026-01-31",
+          "definition": "Net sales; the consolidated statement does not report a separate total-revenue line"
+        },
+        {
+          "key": "total_revenue",
+          "label": "Total revenue",
+          "period": "prior",
+          "value": 106566000000.0,
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "filing": "0000027419-26-000016",
+          "start": "2024-02-04",
+          "end": "2025-02-01",
+          "definition": "Net sales; the consolidated statement does not report a separate total-revenue line"
+        },
+        {
+          "key": "operating_income",
+          "label": "Operating income",
+          "period": "current",
+          "value": 5117000000,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "filing": "0000027419-26-000016",
+          "start": "2025-02-02",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "operating_income",
+          "label": "Operating income",
+          "period": "prior",
+          "value": 5566000000,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "filing": "0000027419-26-000016",
+          "start": "2024-02-04",
+          "end": "2025-02-01",
+          "definition": null
+        },
+        {
+          "key": "net_income",
+          "label": "Net income",
+          "period": "current",
+          "value": 3705000000,
+          "tag": "us-gaap:NetIncomeLoss",
+          "filing": "0000027419-26-000016",
+          "start": "2025-02-02",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "net_income",
+          "label": "Net income",
+          "period": "prior",
+          "value": 4091000000,
+          "tag": "us-gaap:NetIncomeLoss",
+          "filing": "0000027419-26-000016",
+          "start": "2024-02-04",
+          "end": "2025-02-01",
+          "definition": null
+        },
+        {
+          "key": "diluted_eps",
+          "label": "Diluted EPS",
+          "period": "current",
+          "value": 8.13,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "filing": "0000027419-26-000016",
+          "start": "2025-02-02",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "diluted_eps",
+          "label": "Diluted EPS",
+          "period": "prior",
+          "value": 8.86,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "filing": "0000027419-26-000016",
+          "start": "2024-02-04",
+          "end": "2025-02-01",
+          "definition": null
+        },
+        {
+          "key": "stockholders_equity",
+          "label": "Stockholders' equity",
+          "period": "current",
+          "value": 16165000000,
+          "tag": "us-gaap:StockholdersEquity",
+          "filing": "0000027419-26-000016",
+          "start": null,
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "stockholders_equity",
+          "label": "Stockholders' equity",
+          "period": "prior",
+          "value": 14666000000,
+          "tag": "us-gaap:StockholdersEquity",
+          "filing": "0000027419-26-000016",
+          "start": null,
+          "end": "2025-02-01",
+          "definition": null
+        },
+        {
+          "key": "long_term_debt",
+          "label": "Long-term debt and other borrowings",
+          "period": "current",
+          "value": 14326000000.0,
+          "tag": "us-gaap:LongTermDebtAndCapitalLeaseObligations",
+          "filing": "0000027419-26-000016",
+          "start": null,
+          "end": "2026-01-31",
+          "definition": "Noncurrent debt balance-sheet line"
+        },
+        {
+          "key": "long_term_debt",
+          "label": "Long-term debt and other borrowings",
+          "period": "prior",
+          "value": 14304000000.0,
+          "tag": "us-gaap:LongTermDebtAndCapitalLeaseObligations",
+          "filing": "0000027419-26-000016",
+          "start": null,
+          "end": "2025-02-01",
+          "definition": "Noncurrent debt balance-sheet line"
+        },
+        {
+          "key": "current_debt",
+          "label": "Current portion of long-term debt and other borrowings",
+          "period": "current",
+          "value": 2130000000.0,
+          "tag": "us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent",
+          "filing": "0000027419-26-000016",
+          "start": null,
+          "end": "2026-01-31",
+          "definition": "Current portion of long-term debt balance-sheet line"
+        },
+        {
+          "key": "current_debt",
+          "label": "Current portion of long-term debt and other borrowings",
+          "period": "prior",
+          "value": 1636000000.0,
+          "tag": "us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent",
+          "filing": "0000027419-26-000016",
+          "start": null,
+          "end": "2025-02-01",
+          "definition": "Current portion of long-term debt balance-sheet line"
+        },
+        {
+          "key": "cash_from_operations",
+          "label": "Cash from operations",
+          "period": "current",
+          "value": 6562000000,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "filing": "0000027419-26-000016",
+          "start": "2025-02-02",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "cash_from_operations",
+          "label": "Cash from operations",
+          "period": "prior",
+          "value": 7367000000,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "filing": "0000027419-26-000016",
+          "start": "2024-02-04",
+          "end": "2025-02-01",
+          "definition": null
+        },
+        {
+          "key": "capex",
+          "label": "Additions to property and equipment",
+          "period": "current",
+          "value": 3727000000,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "filing": "0000027419-26-000016",
+          "start": "2025-02-02",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "capex",
+          "label": "Additions to property and equipment",
+          "period": "prior",
+          "value": 2891000000,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "filing": "0000027419-26-000016",
+          "start": "2024-02-04",
+          "end": "2025-02-01",
+          "definition": null
+        }
+      ],
+      "operating_margin": {
+        "value": 0.048835655659477,
+        "arithmetic": "operating income / total revenue"
+      }
+    },
+    {
+      "ticker": "BJ",
+      "facts": [
+        {
+          "key": "total_revenue",
+          "label": "Total revenue",
+          "period": "current",
+          "value": 21457274000.0,
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "filing": "0001531152-26-000007",
+          "start": "2025-02-02",
+          "end": "2026-01-31",
+          "definition": "Consolidated total revenue as reported on the statement of operations"
+        },
+        {
+          "key": "total_revenue",
+          "label": "Total revenue",
+          "period": "prior",
+          "value": 20501804000.0,
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "filing": "0001531152-26-000007",
+          "start": "2024-02-04",
+          "end": "2025-02-01",
+          "definition": "Consolidated total revenue as reported on the statement of operations"
+        },
+        {
+          "key": "operating_income",
+          "label": "Operating income",
+          "period": "current",
+          "value": 816604000,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "filing": "0001531152-26-000007",
+          "start": "2025-02-02",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "operating_income",
+          "label": "Operating income",
+          "period": "prior",
+          "value": 772206000,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "filing": "0001531152-26-000007",
+          "start": "2024-02-04",
+          "end": "2025-02-01",
+          "definition": null
+        },
+        {
+          "key": "net_income",
+          "label": "Net income",
+          "period": "current",
+          "value": 578377000,
+          "tag": "us-gaap:NetIncomeLoss",
+          "filing": "0001531152-26-000007",
+          "start": "2025-02-02",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "net_income",
+          "label": "Net income",
+          "period": "prior",
+          "value": 534417000,
+          "tag": "us-gaap:NetIncomeLoss",
+          "filing": "0001531152-26-000007",
+          "start": "2024-02-04",
+          "end": "2025-02-01",
+          "definition": null
+        },
+        {
+          "key": "diluted_eps",
+          "label": "Diluted EPS",
+          "period": "current",
+          "value": 4.38,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "filing": "0001531152-26-000007",
+          "start": "2025-02-02",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "diluted_eps",
+          "label": "Diluted EPS",
+          "period": "prior",
+          "value": 4,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "filing": "0001531152-26-000007",
+          "start": "2024-02-04",
+          "end": "2025-02-01",
+          "definition": null
+        },
+        {
+          "key": "stockholders_equity",
+          "label": "Stockholders' equity",
+          "period": "current",
+          "value": 2197659000,
+          "tag": "us-gaap:StockholdersEquity",
+          "filing": "0001531152-26-000007",
+          "start": null,
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "stockholders_equity",
+          "label": "Stockholders' equity",
+          "period": "prior",
+          "value": 1847454000,
+          "tag": "us-gaap:StockholdersEquity",
+          "filing": "0001531152-26-000007",
+          "start": null,
+          "end": "2025-02-01",
+          "definition": null
+        },
+        {
+          "key": "long_term_debt",
+          "label": "Long-term debt",
+          "period": "current",
+          "value": 399099000.0,
+          "tag": "us-gaap:LongTermDebtNoncurrent",
+          "filing": "0001531152-26-000007",
+          "start": null,
+          "end": "2026-01-31",
+          "definition": "Noncurrent debt balance-sheet line"
+        },
+        {
+          "key": "long_term_debt",
+          "label": "Long-term debt",
+          "period": "prior",
+          "value": 398807000.0,
+          "tag": "us-gaap:LongTermDebtNoncurrent",
+          "filing": "0001531152-26-000007",
+          "start": null,
+          "end": "2025-02-01",
+          "definition": "Noncurrent debt balance-sheet line"
+        },
+        {
+          "key": "cash_from_operations",
+          "label": "Cash from operations",
+          "period": "current",
+          "value": 1030056000,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "filing": "0001531152-26-000007",
+          "start": "2025-02-02",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "cash_from_operations",
+          "label": "Cash from operations",
+          "period": "prior",
+          "value": 900872000,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "filing": "0001531152-26-000007",
+          "start": "2024-02-04",
+          "end": "2025-02-01",
+          "definition": null
+        },
+        {
+          "key": "capex",
+          "label": "Additions to property and equipment",
+          "period": "current",
+          "value": 702048000,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "filing": "0001531152-26-000007",
+          "start": "2025-02-02",
+          "end": "2026-01-31",
+          "definition": null
+        },
+        {
+          "key": "capex",
+          "label": "Additions to property and equipment",
+          "period": "prior",
+          "value": 587983000,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "filing": "0001531152-26-000007",
+          "start": "2024-02-04",
+          "end": "2025-02-01",
+          "definition": null
+        },
+        {
+          "key": "short_term_debt",
+          "label": "Short-term debt",
+          "period": "current",
+          "value": 120000000.0,
+          "tag": "us-gaap:DebtCurrent",
+          "filing": "0001531152-26-000007",
+          "start": null,
+          "end": "2026-01-31",
+          "definition": "Short-term debt balance-sheet line; it is not labeled as a current portion of long-term debt"
+        },
+        {
+          "key": "short_term_debt",
+          "label": "Short-term debt",
+          "period": "prior",
+          "value": 175000000.0,
+          "tag": "us-gaap:DebtCurrent",
+          "filing": "0001531152-26-000007",
+          "start": null,
+          "end": "2025-02-01",
+          "definition": "Short-term debt balance-sheet line; it is not labeled as a current portion of long-term debt"
+        }
+      ],
+      "operating_margin": {
+        "value": 0.03805721080879146,
+        "arithmetic": "operating income / total revenue"
+      }
+    }
+  ]
+}
