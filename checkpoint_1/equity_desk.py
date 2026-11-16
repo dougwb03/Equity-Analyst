@@ -557,15 +557,15 @@ def earnings_evidence(release_path: Path) -> list[str]:
         values = row_values(cells)
         if len(values) < 2:
             continue
-        # Releases use either "Total revenue" or "Total net sales" for the
-        # consolidated result. Do not accept a segment or adjusted row.
-        if re.fullmatch(r"total (?:net )?revenues?|total net sales", plain_label, re.IGNORECASE):
+        # Releases use "Revenue", "Total revenue", or "Total net sales"
+        # for the consolidated result. Do not accept a segment or adjusted row.
+        if re.fullmatch(r"(?:total )?(?:net )?revenues?|total net sales", plain_label, re.IGNORECASE):
             evidence.setdefault("Total revenue", (cells, values[:2]))
         elif (re.fullmatch(r"diluted", label, re.IGNORECASE)
-              or re.search(r"diluted.*(?:earnings|net income)\s+per\s+(?:common\s+)?share", label, re.IGNORECASE)):
+              or re.search(r"diluted.*(?:earnings|net income|net loss)\s+per\s+(?:common\s+)?share", label, re.IGNORECASE)):
             context = " ".join(" ".join(row) for row in rows[max(0, index - 8):index])
             if (re.search(r"(earnings|income)\s+per\s+(common\s+)?share", context, re.IGNORECASE)
-                    or re.search(r"diluted.*(?:earnings|net income)\s+per\s+(?:common\s+)?share", label, re.IGNORECASE)):
+                    or re.search(r"diluted.*(?:earnings|net income|net loss)\s+per\s+(?:common\s+)?share", label, re.IGNORECASE)):
                 evidence.setdefault("Diluted EPS", (cells, values[:2]))
 
     missing = [label for label in ("Total revenue", "Diluted EPS") if label not in evidence]
@@ -742,7 +742,8 @@ def reduce_research_packet(packet: dict[str, Any], instructions: str, maximum_in
 
 def filing_source(filing: Filing) -> dict[str, str]:
     return {"form": filing.form, "accession": filing.accession,
-            "filed": filing.filing_date, "report_period": filing.report_date}
+            "filed": filing.filing_date, "accepted": filing.accepted,
+            "report_period": filing.report_date}
 
 
 def source_facts(facts: dict[str, Any]) -> list[dict[str, Any]]:

@@ -772,16 +772,16 @@ def verifier_graph() -> Any:
     graph = StateGraph(DeskState); graph.add_node("verifier", verifier_node); graph.add_edge(START, "verifier"); graph.add_edge("verifier", END); return graph.compile()
 
 
-def new_run_dir(company: str, suffix: str = "") -> Path:
+def new_run_dir(company: str, suffix: str = "", base: Path | None = None) -> Path:
     stamp = datetime.now().astimezone().strftime("%Y-%m-%d_%H-%M-%S_%f_%Z")
-    path = ROOT / "runs" / f"{sec.clean_name(company)}_{stamp}{suffix}"; path.mkdir(parents=True, exist_ok=False); return path
+    path = (base or ROOT / "runs") / f"{sec.clean_name(company)}_{stamp}{suffix}"; path.mkdir(parents=True, exist_ok=False); return path
 
 
 def run_full(args: argparse.Namespace) -> None:
     bootstrap = sec.EdgarClient(); cik, company = sec.resolve_ticker(bootstrap, args.ticker.upper())
-    run_dir = new_run_dir(company)
+    run_dir = new_run_dir(company, base=ROOT / "runs" / "live" if args.live else None)
     state: DeskState = {"ticker": args.ticker.upper(), "peers": sec.peer_tickers(args.peers), "price": args.price, "model": args.model, "run_dir": str(run_dir), "cik": cik, "company": company, "role_outputs": {}}
-    save_json(run_dir / "run_manifest.json", {"ticker": state["ticker"], "company": company, "cik": cik, "created_at": datetime.now().astimezone().isoformat()})
+    save_json(run_dir / "run_manifest.json", {"ticker": state["ticker"], "company": company, "cik": cik, "created_at": datetime.now().astimezone().isoformat(), "live": args.live})
     full_graph().invoke(state)
     print(f"Run folder: {run_dir}")
 
@@ -810,6 +810,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("ticker", nargs="?", help="SEC ticker symbol")
     parser.add_argument("--peers", nargs="+", default=[], help="Peer ticker symbols, comma-separated or space-separated")
     parser.add_argument("--price", type=float, help="Optional share price for P/E")
+    parser.add_argument("--live", action="store_true", help="Save the run in runs/live for the weekly live record")
     parser.add_argument("--verify-only", type=Path, help="Path to a saved run folder")
     parser.add_argument("--model", default=os.environ.get("OPENAI_MODEL", "qwen3.8:27b"), help="OpenAI-compatible model name")
     args = parser.parse_args()

@@ -1,0 +1,582 @@
+{
+  "marks": [
+    {
+      "line": "4",
+      "number": "2026",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L22 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=22",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "4",
+      "number": "$3.661",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L20 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=20",
+      "correction": ""
+    },
+    {
+      "line": "4",
+      "number": "$1.365",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L22 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=22",
+      "correction": ""
+    },
+    {
+      "line": "4",
+      "number": "2025",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L22 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=22",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "6",
+      "number": "$9",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L12 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=12",
+      "correction": ""
+    },
+    {
+      "line": "10",
+      "number": "1",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "10",
+      "number": "4",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "10",
+      "number": "5",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "12",
+      "number": "2026",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L22 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=22",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "12",
+      "number": "$3.661",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L20 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=20",
+      "correction": ""
+    },
+    {
+      "line": "12",
+      "number": "$1",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L12 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=12",
+      "correction": ""
+    },
+    {
+      "line": "12",
+      "number": "168%",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L12 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=12",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "12",
+      "number": "$1.365",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L22 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=22",
+      "correction": ""
+    },
+    {
+      "line": "12",
+      "number": "2025",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L22 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=22",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "12",
+      "number": "$3.661",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L20 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=20",
+      "correction": ""
+    },
+    {
+      "line": "12",
+      "number": "2026",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L22 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=22",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "12",
+      "number": "$9",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L12 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=12",
+      "correction": ""
+    },
+    {
+      "line": "14",
+      "number": "2",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "14",
+      "number": "4",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "14",
+      "number": "5",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "18",
+      "number": "3",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "18",
+      "number": "3",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "18",
+      "number": "5",
+      "mark": "unsupported",
+      "detail": "no recognized source",
+      "source": "none",
+      "correction": "No correction supported by the saved filings or facts."
+    },
+    {
+      "line": "20",
+      "number": "62%",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L72 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=72",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "20",
+      "number": "2026",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L72 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=72",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "20",
+      "number": "61%",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L72 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=72",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "20",
+      "number": "2025",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L72 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=72",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "20",
+      "number": "6%",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L72 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=72",
+      "correction": ""
+    },
+    {
+      "line": "20",
+      "number": "4%",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L72 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=72",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "20",
+      "number": "$709",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L12 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=12",
+      "correction": "$9 [8-K_exhibit_99_1.txt:L12]"
+    },
+    {
+      "line": "24",
+      "number": "2025",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=5131000000;1915000000 | result=1.6794 | definition=revenue growth",
+      "correction": "2.679373368146214099216710183 [revenue growth from quoted inputs]"
+    },
+    {
+      "line": "24",
+      "number": "167.9%",
+      "mark": "wrong",
+      "detail": "recomputed value is 2.679373368146214099216710183",
+      "source": "kind=ratio | operation=divide | inputs=5131000000;1915000000 | result=1.6794 | definition=revenue growth",
+      "correction": "267.94% [revenue growth from quoted inputs]"
+    },
+    {
+      "line": "24",
+      "number": "$5,131",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=5131000000;1915000000 | result=1.6794 | definition=revenue growth",
+      "correction": "2.679373368146214099216710183 [revenue growth from quoted inputs]"
+    },
+    {
+      "line": "24",
+      "number": "$324",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=5131000000;1915000000 | result=1.6794 | definition=revenue growth",
+      "correction": "2.679373368146214099216710183 [revenue growth from quoted inputs]"
+    },
+    {
+      "line": "24",
+      "number": "2024",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=5131000000;1915000000 | result=1.6794 | definition=revenue growth",
+      "correction": "2.679373368146214099216710183 [revenue growth from quoted inputs]"
+    },
+    {
+      "line": "24",
+      "number": "$46",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=5131000000;1915000000 | result=1.6794 | definition=revenue growth",
+      "correction": "2.679373368146214099216710183 [revenue growth from quoted inputs]"
+    },
+    {
+      "line": "24",
+      "number": "2025",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=5131000000;1915000000 | result=1.6794 | definition=revenue growth",
+      "correction": "2.679373368146214099216710183 [revenue growth from quoted inputs]"
+    },
+    {
+      "line": "24",
+      "number": "0.9%",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=5131000000;1915000000 | result=1.6794 | definition=revenue growth",
+      "correction": "267.94% [revenue growth from quoted inputs]"
+    },
+    {
+      "line": "24",
+      "number": "2025",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=5131000000;1915000000 | result=1.6794 | definition=revenue growth",
+      "correction": "2.679373368146214099216710183 [revenue growth from quoted inputs]"
+    },
+    {
+      "line": "24",
+      "number": "16.9%",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=5131000000;1915000000 | result=1.6794 | definition=revenue growth",
+      "correction": "267.94% [revenue growth from quoted inputs]"
+    },
+    {
+      "line": "24",
+      "number": "2024",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=ratio | operation=divide | inputs=5131000000;1915000000 | result=1.6794 | definition=revenue growth",
+      "correction": "2.679373368146214099216710183 [revenue growth from quoted inputs]"
+    },
+    {
+      "line": "26",
+      "number": "$3,058",
+      "mark": "correct",
+      "detail": "exact XBRL fact match",
+      "source": "kind=xbrl | tag=us-gaap:NetCashProvidedByUsedInOperatingActivities | period=2025-01-01:2025-12-31 | value=3058000000",
+      "correction": ""
+    },
+    {
+      "line": "26",
+      "number": "2025",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:NetCashProvidedByUsedInOperatingActivities | period=2025-01-01:2025-12-31 | value=3058000000",
+      "correction": "3058000000 [XBRL us-gaap:NetCashProvidedByUsedInOperatingActivities | 2025-01-01:2025-12-31]"
+    },
+    {
+      "line": "26",
+      "number": "$10,309",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:NetCashProvidedByUsedInOperatingActivities | period=2025-01-01:2025-12-31 | value=3058000000",
+      "correction": "3058000000 [XBRL us-gaap:NetCashProvidedByUsedInOperatingActivities | 2025-01-01:2025-12-31]"
+    },
+    {
+      "line": "26",
+      "number": "(7,251)",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:NetCashProvidedByUsedInOperatingActivities | period=2025-01-01:2025-12-31 | value=3058000000",
+      "correction": "3058000000 [XBRL us-gaap:NetCashProvidedByUsedInOperatingActivities | 2025-01-01:2025-12-31]"
+    },
+    {
+      "line": "26",
+      "number": "$7,926",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:NetCashProvidedByUsedInOperatingActivities | period=2025-01-01:2025-12-31 | value=3058000000",
+      "correction": "3058000000 [XBRL us-gaap:NetCashProvidedByUsedInOperatingActivities | 2025-01-01:2025-12-31]"
+    },
+    {
+      "line": "26",
+      "number": "$21,373",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:NetCashProvidedByUsedInOperatingActivities | period=2025-01-01:2025-12-31 | value=3058000000",
+      "correction": "3058000000 [XBRL us-gaap:NetCashProvidedByUsedInOperatingActivities | 2025-01-01:2025-12-31]"
+    },
+    {
+      "line": "26",
+      "number": "2025",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:NetCashProvidedByUsedInOperatingActivities | period=2025-01-01:2025-12-31 | value=3058000000",
+      "correction": "3058000000 [XBRL us-gaap:NetCashProvidedByUsedInOperatingActivities | 2025-01-01:2025-12-31]"
+    },
+    {
+      "line": "26",
+      "number": "6.41",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:NetCashProvidedByUsedInOperatingActivities | period=2025-01-01:2025-12-31 | value=3058000000",
+      "correction": "3058000000 [XBRL us-gaap:NetCashProvidedByUsedInOperatingActivities | 2025-01-01:2025-12-31]"
+    },
+    {
+      "line": "26",
+      "number": "1.92",
+      "mark": "unsupported",
+      "detail": "no listed source supports this number",
+      "source": "kind=xbrl | tag=us-gaap:NetCashProvidedByUsedInOperatingActivities | period=2025-01-01:2025-12-31 | value=3058000000",
+      "correction": "3058000000 [XBRL us-gaap:NetCashProvidedByUsedInOperatingActivities | 2025-01-01:2025-12-31]"
+    },
+    {
+      "line": "30",
+      "number": "$9",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L12 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=12",
+      "correction": ""
+    },
+    {
+      "line": "32",
+      "number": "$846",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L12 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=12",
+      "correction": "$9 [8-K_exhibit_99_1.txt:L12]"
+    },
+    {
+      "line": "32",
+      "number": "2026",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L72 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=72",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "32",
+      "number": "(19)",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L47 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=47",
+      "correction": ""
+    },
+    {
+      "line": "34",
+      "number": "$310",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L38 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=38",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "34",
+      "number": "$846",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L38 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=38",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "34",
+      "number": "$52",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L38 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=38",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "34",
+      "number": "$207",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L38 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=38",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "42",
+      "number": "$310",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L38 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=38",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "42",
+      "number": "$846",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L38 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=38",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "42",
+      "number": "$52",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L38 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=38",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "42",
+      "number": "$207",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L38 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=38",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "44",
+      "number": "2026",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L28 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=28",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "44",
+      "number": "$207",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L28 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=28",
+      "correction": ""
+    },
+    {
+      "line": "44",
+      "number": "298%",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L28 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=28",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "44",
+      "number": "$52",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L28 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=28",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "44",
+      "number": "2025",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L28 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=28",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "46",
+      "number": "2026",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L28 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=28",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "46",
+      "number": "$207",
+      "mark": "correct",
+      "detail": "8-K_exhibit_99_1.txt:L28 contains the formatted number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=28",
+      "correction": ""
+    },
+    {
+      "line": "46",
+      "number": "298%",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L28 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=28",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "46",
+      "number": "$52",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L28 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=28",
+      "correction": "No correction supported by the cited filing line."
+    },
+    {
+      "line": "46",
+      "number": "2025",
+      "mark": "wrong",
+      "detail": "8-K_exhibit_99_1.txt:L28 does not contain the cited number",
+      "source": "kind=line | file=8-K_exhibit_99_1.txt | line=28",
+      "correction": "No correction supported by the cited filing line."
+    }
+  ],
+  "semantic_check": "**Semantic Verification Results**\n\n**1. Debt Totals and Ratios (Valuation Insights & Investment Recommendation)**\nThe report states: \"Total debt rose from $7,926 million to $21,373 million in 2025, raising the debt-to-equity ratio to 6.41x versus 1.92x in the prior period.\"\n*   **Error:** The source XBRL tags provided (`us-gaap:LongTermDebtNoncurrent`) only capture *long-term* debt (non-current), not *total* debt. \n    *   **2025 Total Debt:** According to facts, Long-term debt (non-current) is $14,665M and Current portion is $6,708M. Total = $21,373M. This matches the report\u2019s figure, *but* the cited XBRL tag (`us-gaap:LongTermDebtNoncurrent` value: 14,665,000,000) does **not** equal the claimed total debt of $21,373M. The source citation is mismatched to the claim.\n    *   **2024 Total Debt:** Long-term (non-current) was $5,458M and Current portion was $2,468M. Total = $7,926M. Again, the report claims total debt, but the context implies reliance on the non-current tag.\n    *   **Debt-to-Equity Ratio:** \n        *   2025: $21,373M / $3,335M (Equity) = 6.41x. Correct.\n        *   2024: $7,926M / $(-414M) (Equity). **Error:** You cannot calculate a meaningful debt-to-equity ratio when equity is negative. The report states \"1.92x\". This is **semantically invalid**. A positive ratio of 1.92x is impossible with negative equity ($ -414M). The calculation likely used absolute value or a different equity figure not present in the facts. \n*   **Correction:** The 2024 debt-to-equity ratio of 1.92x is unsupported and semantically erroneous due to negative stockholders' equity ($-414M). No valid correction can be derived from the supplied facts because the ratio is undefined/meaningless when equity is negative. The 2025 debt total of $21,373M is correct (sum of current and long-term debt) but the source citation points to a tag representing only the $14,665M non-current portion.\n\n**2. Operating Income Margin (Valuation Insights)**\nThe report states: \"The resulting operating margin is -0.9% in fiscal 2025, a sharp deterioration from the 16.9% margin achieved in fiscal 2024.\"\n*   **Verification:** \n    *   2025: Operating Income ($-46M) / Revenue ($5,131M) = -0.896% \u2248 -0.9%. Correct.\n    *   2024: Operating Income ($324M) / Revenue ($1,915M) = 16.92% \u2248 16.9%. Correct.\n*   **Status:** No semantic error.\n\n**3. Q3 2026 Operating Income Growth (Insight Lines)**\nThe report states: \"Third quarter 2026 GAAP operating income was $207 million, a 298% increase over the $52 million reported in the same quarter of 2025.\"\n*   **Verification:** \n    *   Q3 2026 OpInc: $207M (L28).\n    *   Q3 2025 OpInc: $52M (L30).\n    *   Growth: ($207 - $52) / $52 = 155 / 52 = 298.07%. Correct.\n*   **Status:** No semantic error.\n\n**4. Interest Expense Comparison (Insight Lines)**\nThe report states: \"CoreWeave\u2019s interest expense, net, more than tripled year-over-year from $310 million to $846 million...\"\n*   **Verification:** \n    *   Q3 2026 Interest Expense: $846M (L38).\n    *   Q3 2025 Interest Expense: $310M (L40).\n    *   \"More than tripled\": $310M * 3 = $930M. $846M is **less than** triple ($310M * 2.73). \n*   **Error:** The claim that interest expense \"more than tripled\" is mathematically and semantically false. It increased by ~173% (or 2.73x), which is \"more than doubled\" but **not** \"more than tripled.\"\n*   **Correction:** Replace \"more than tripled\" with \"increased by 173%\" or \"more than doubled.\" Source: 8-K_exhibit_99_1.txt, L38 (846) and L40 (310).\n\n**5. Adjusted EBITDA Margin (Strategic Durability)**\nThe report states: \"Adjusted EBITDA margin expanded to 62% in Q3 2026 from 61% in Q3 2025...\"\n*   **Verification:** L72 shows 62%, L74 shows 61%. Correct.\n*   **Status:** No semantic error.\n\n**6. Net Loss (Strategic Durability)**\nThe report states: \"...the company still reported a net loss of $709 million...\"\n*   **Verification:** L43 shows (709). Correct.\n*   **Status:** No semantic error.\n\n**Summary of Errors:**\n1.  **Interest Expense Growth:** Claimed \"more than tripled\" ($310M to $846M is 2.73x). **Correction:** \"more than doubled\" or \"increased 173%\".\n2.  **2024 Debt-to-Equity:** Claimed 1.92x. **Correction:** Unsupported. Equity was negative ($-414M), making the ratio invalid. No valid correction supported by facts.\n3.  **Debt Source Mismatch:** Total debt figures cited with XBRL tag for *non-current* debt only. **Correction:** Ensure source citation includes both `us-gaap:LongTermDebtNoncurrent` and `us-gaap:LongTermDebtCurrent` tags to support the total debt claim.",
+  "verified_report": "/Users/douglasbuckeridge/Documents/Mastering AI For Finance/fin67110-fall2026/runs/live/CoreWeave_Inc_2026-11-15_20-19-50_123121_EST/verified_report.md"
+}

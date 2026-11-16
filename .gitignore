@@ -3,4 +3,6 @@
 __pycache__/
 .DS_Store
 .vscode/
-runs/
+runs/*
+!runs/live/
+!runs/live/**

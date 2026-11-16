@@ -1,0 +1,232 @@
+{
+  "fiscal_year_end": "2025-12-31",
+  "prior_fiscal_year_end": "2024-12-31",
+  "concepts": {
+    "total_revenue": {
+      "label": "Total revenue",
+      "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "current": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "val": 5131000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02",
+        "frame": "CY2025"
+      },
+      "prior": {
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "val": 1915000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02",
+        "frame": "CY2024"
+      },
+      "reported_label": "Total revenue",
+      "definition": "Consolidated total revenue as reported on the statement of operations",
+      "filing": "0001769628-26-000104"
+    },
+    "operating_income": {
+      "label": "Operating income",
+      "tag": "us-gaap:OperatingIncomeLoss",
+      "current": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "val": -46000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02",
+        "frame": "CY2025"
+      },
+      "prior": {
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "val": 324000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02",
+        "frame": "CY2024"
+      }
+    },
+    "net_income": {
+      "label": "Net income",
+      "tag": "us-gaap:NetIncomeLoss",
+      "current": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "val": -1167000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02"
+      },
+      "prior": {
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "val": -863000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02",
+        "frame": "CY2024"
+      }
+    },
+    "diluted_eps": {
+      "label": "Diluted EPS",
+      "tag": "us-gaap:EarningsPerShareDiluted",
+      "current": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "val": -2.81,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02",
+        "frame": "CY2025"
+      },
+      "prior": {
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "val": -4.3,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02",
+        "frame": "CY2024"
+      }
+    },
+    "stockholders_equity": {
+      "label": "Stockholders' equity",
+      "tag": "us-gaap:StockholdersEquity",
+      "current": {
+        "end": "2025-12-31",
+        "val": 3335000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02"
+      },
+      "prior": {
+        "end": "2024-12-31",
+        "val": -414000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02"
+      }
+    },
+    "long_term_debt": {
+      "label": "Long-term debt",
+      "tag": "us-gaap:LongTermDebtNoncurrent",
+      "current": {
+        "end": "2025-12-31",
+        "val": 14665000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02"
+      },
+      "prior": {
+        "end": "2024-12-31",
+        "val": 5458000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02",
+        "frame": "CY2024Q4I"
+      }
+    },
+    "current_debt": {
+      "label": "Current portion of long-term debt",
+      "tag": "us-gaap:LongTermDebtCurrent",
+      "current": {
+        "end": "2025-12-31",
+        "val": 6708000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02"
+      },
+      "prior": {
+        "end": "2024-12-31",
+        "val": 2468000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02",
+        "frame": "CY2024Q4I"
+      }
+    },
+    "cash_from_operations": {
+      "label": "Cash from operations",
+      "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "current": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "val": 3058000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02",
+        "frame": "CY2025"
+      },
+      "prior": {
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "val": 2749000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02",
+        "frame": "CY2024"
+      }
+    },
+    "capex": {
+      "label": "Additions to property and equipment",
+      "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "current": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "val": 10309000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02",
+        "frame": "CY2025"
+      },
+      "prior": {
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "val": 8702000000,
+        "accn": "0001769628-26-000104",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-02",
+        "frame": "CY2024"
+      }
+    }
+  }
+}
