@@ -1,0 +1,16 @@
+{
+  "client_purchase_size": 100000,
+  "valuation": {
+    "method": "owner_cash_flow_multiple",
+    "low_rate": 4,
+    "mid_rate": 6
+  },
+  "conviction": {
+    "high_if_all_of": [
+      "owner_cash_flow",
+      "low_value_per_share",
+      "price",
+      "liquidity"
+    ]
+  }
+}
