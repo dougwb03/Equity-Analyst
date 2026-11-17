@@ -39,6 +39,28 @@ Start the local browser page:
 streamlit run app.py
 ```
 
+## One-command desk
+
+The desk uses a pipeline join. The agent team saves its filing run first. The
+worksheet reads that saved folder. The hook then checks the worksheet itself.
+The final desk report stays in the same folder. No role recomputes a skill
+number.
+
+Run the full desk for one ticker:
+
+```bash
+python3 desk.py --ticker TICKER --live
+```
+
+Run the cited spinoff screen without selecting a name:
+
+```bash
+python3 desk.py --screen --start-date YYYY-MM-DD
+```
+
+The `--ticker` command stops at the first failed part and keeps the saved run
+folder for replay. It prints the elapsed seconds for each pipeline part.
+
 On the page, enter a ticker, optional peers, and an optional share price, then
 select **Run agent team**. The page shows each node as it starts and displays
 the verified report when the mandatory Verifier completes. The terminal
