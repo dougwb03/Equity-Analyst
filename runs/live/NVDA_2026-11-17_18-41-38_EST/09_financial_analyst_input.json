@@ -1,0 +1,523 @@
+{
+  "task": "Prepare cited financial analysis.",
+  "context": {
+    "filings": {
+      "10-K": {
+        "form": "10-K",
+        "accession": "0001045810-26-000021",
+        "filed": "2026-02-25",
+        "accepted": "2026-02-25 16:42:19",
+        "report_period": "2026-01-25"
+      },
+      "10-Q": {
+        "form": "10-Q",
+        "accession": "0001045810-26-000075",
+        "filed": "2026-08-26",
+        "accepted": "2026-08-26 16:36:00",
+        "report_period": "2026-07-26"
+      },
+      "8-K": {
+        "form": "8-K",
+        "accession": "0001045810-26-000088",
+        "filed": "2026-11-17",
+        "accepted": "2026-11-17 16:20:51",
+        "report_period": "2026-11-17"
+      }
+    },
+    "price": null,
+    "step_4_facts": [
+      {
+        "key": "total_revenue",
+        "label": "Total revenue",
+        "period": "current",
+        "value": 215938000000,
+        "tag": "us-gaap:Revenues",
+        "filing": "0001045810-26-000021",
+        "start": "2025-01-27",
+        "end": "2026-01-25",
+        "definition": "Consolidated total revenue as reported on the statement of operations"
+      },
+      {
+        "key": "total_revenue",
+        "label": "Total revenue",
+        "period": "prior",
+        "value": 130497000000,
+        "tag": "us-gaap:Revenues",
+        "filing": "0001045810-26-000021",
+        "start": "2024-01-29",
+        "end": "2025-01-26",
+        "definition": "Consolidated total revenue as reported on the statement of operations"
+      },
+      {
+        "key": "operating_income",
+        "label": "Operating income",
+        "period": "current",
+        "value": 130387000000,
+        "tag": "us-gaap:OperatingIncomeLoss",
+        "filing": "0001045810-26-000021",
+        "start": "2025-01-27",
+        "end": "2026-01-25",
+        "definition": null
+      },
+      {
+        "key": "operating_income",
+        "label": "Operating income",
+        "period": "prior",
+        "value": 81453000000,
+        "tag": "us-gaap:OperatingIncomeLoss",
+        "filing": "0001045810-26-000021",
+        "start": "2024-01-29",
+        "end": "2025-01-26",
+        "definition": null
+      },
+      {
+        "key": "net_income",
+        "label": "Net income",
+        "period": "current",
+        "value": 120067000000,
+        "tag": "us-gaap:NetIncomeLoss",
+        "filing": "0001045810-26-000021",
+        "start": "2025-01-27",
+        "end": "2026-01-25",
+        "definition": null
+      },
+      {
+        "key": "net_income",
+        "label": "Net income",
+        "period": "prior",
+        "value": 72880000000,
+        "tag": "us-gaap:NetIncomeLoss",
+        "filing": "0001045810-26-000021",
+        "start": "2024-01-29",
+        "end": "2025-01-26",
+        "definition": null
+      },
+      {
+        "key": "diluted_eps",
+        "label": "Diluted EPS",
+        "period": "current",
+        "value": 4.9,
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "filing": "0001045810-26-000021",
+        "start": "2025-01-27",
+        "end": "2026-01-25",
+        "definition": null
+      },
+      {
+        "key": "diluted_eps",
+        "label": "Diluted EPS",
+        "period": "prior",
+        "value": 2.94,
+        "tag": "us-gaap:EarningsPerShareDiluted",
+        "filing": "0001045810-26-000021",
+        "start": "2024-01-29",
+        "end": "2025-01-26",
+        "definition": null
+      },
+      {
+        "key": "stockholders_equity",
+        "label": "Stockholders' equity",
+        "period": "current",
+        "value": 157293000000,
+        "tag": "us-gaap:StockholdersEquity",
+        "filing": "0001045810-26-000021",
+        "start": null,
+        "end": "2026-01-25",
+        "definition": null
+      },
+      {
+        "key": "stockholders_equity",
+        "label": "Stockholders' equity",
+        "period": "prior",
+        "value": 79327000000,
+        "tag": "us-gaap:StockholdersEquity",
+        "filing": "0001045810-26-000021",
+        "start": null,
+        "end": "2025-01-26",
+        "definition": null
+      },
+      {
+        "key": "long_term_debt",
+        "label": "Long-term debt",
+        "period": "current",
+        "value": 7469000000,
+        "tag": "us-gaap:LongTermDebtNoncurrent",
+        "filing": "0001045810-26-000021",
+        "start": null,
+        "end": "2026-01-25",
+        "definition": null
+      },
+      {
+        "key": "long_term_debt",
+        "label": "Long-term debt",
+        "period": "prior",
+        "value": 8463000000,
+        "tag": "us-gaap:LongTermDebtNoncurrent",
+        "filing": "0001045810-26-000021",
+        "start": null,
+        "end": "2025-01-26",
+        "definition": null
+      },
+      {
+        "key": "current_debt",
+        "label": "Current portion of long-term debt",
+        "period": "current",
+        "value": 999000000,
+        "tag": "us-gaap:LongTermDebtCurrent",
+        "filing": "0001045810-26-000021",
+        "start": null,
+        "end": "2026-01-25",
+        "definition": null
+      },
+      {
+        "key": "current_debt",
+        "label": "Current portion of long-term debt",
+        "period": "prior",
+        "value": 0,
+        "tag": "us-gaap:LongTermDebtCurrent",
+        "filing": "0001045810-26-000021",
+        "start": null,
+        "end": "2025-01-26",
+        "definition": null
+      },
+      {
+        "key": "cash_from_operations",
+        "label": "Cash from operations",
+        "period": "current",
+        "value": 102718000000,
+        "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "filing": "0001045810-26-000021",
+        "start": "2025-01-27",
+        "end": "2026-01-25",
+        "definition": null
+      },
+      {
+        "key": "cash_from_operations",
+        "label": "Cash from operations",
+        "period": "prior",
+        "value": 64089000000,
+        "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+        "filing": "0001045810-26-000021",
+        "start": "2024-01-29",
+        "end": "2025-01-26",
+        "definition": null
+      },
+      {
+        "key": "capex",
+        "label": "Additions to property and equipment",
+        "period": "current",
+        "value": 6042000000,
+        "tag": "us-gaap:PaymentsToAcquireProductiveAssets",
+        "filing": "0001045810-26-000021",
+        "start": "2025-01-27",
+        "end": "2026-01-25",
+        "definition": null
+      },
+      {
+        "key": "capex",
+        "label": "Additions to property and equipment",
+        "period": "prior",
+        "value": 3236000000,
+        "tag": "us-gaap:PaymentsToAcquireProductiveAssets",
+        "filing": "0001045810-26-000021",
+        "start": "2024-01-29",
+        "end": "2025-01-26",
+        "definition": null
+      }
+    ],
+    "step_5_ratios": [
+      {
+        "name": "Revenue growth",
+        "value": 0.654735357900948,
+        "arithmetic": "(revenue - prior revenue) / prior revenue",
+        "inputs": [
+          {
+            "key": "total_revenue",
+            "label": "Total revenue",
+            "period": "current",
+            "value": 215938000000,
+            "tag": "us-gaap:Revenues",
+            "filing": "0001045810-26-000021",
+            "start": "2025-01-27",
+            "end": "2026-01-25",
+            "definition": "Consolidated total revenue as reported on the statement of operations"
+          },
+          {
+            "key": "total_revenue",
+            "label": "Total revenue",
+            "period": "prior",
+            "value": 130497000000,
+            "tag": "us-gaap:Revenues",
+            "filing": "0001045810-26-000021",
+            "start": "2024-01-29",
+            "end": "2025-01-26",
+            "definition": "Consolidated total revenue as reported on the statement of operations"
+          }
+        ]
+      },
+      {
+        "name": "Operating margin",
+        "value": 0.6038168363141272,
+        "arithmetic": "operating income / revenue",
+        "inputs": [
+          {
+            "key": "total_revenue",
+            "label": "Total revenue",
+            "period": "current",
+            "value": 215938000000,
+            "tag": "us-gaap:Revenues",
+            "filing": "0001045810-26-000021",
+            "start": "2025-01-27",
+            "end": "2026-01-25",
+            "definition": "Consolidated total revenue as reported on the statement of operations"
+          },
+          {
+            "key": "total_revenue",
+            "label": "Total revenue",
+            "period": "prior",
+            "value": 130497000000,
+            "tag": "us-gaap:Revenues",
+            "filing": "0001045810-26-000021",
+            "start": "2024-01-29",
+            "end": "2025-01-26",
+            "definition": "Consolidated total revenue as reported on the statement of operations"
+          },
+          {
+            "key": "operating_income",
+            "label": "Operating income",
+            "period": "current",
+            "value": 130387000000,
+            "tag": "us-gaap:OperatingIncomeLoss",
+            "filing": "0001045810-26-000021",
+            "start": "2025-01-27",
+            "end": "2026-01-25",
+            "definition": null
+          },
+          {
+            "key": "operating_income",
+            "label": "Operating income",
+            "period": "prior",
+            "value": 81453000000,
+            "tag": "us-gaap:OperatingIncomeLoss",
+            "filing": "0001045810-26-000021",
+            "start": "2024-01-29",
+            "end": "2025-01-26",
+            "definition": null
+          }
+        ]
+      },
+      {
+        "name": "Return on average equity",
+        "value": 1.014850815653791,
+        "arithmetic": "net income / ((current equity + prior equity) / 2)",
+        "inputs": [
+          {
+            "key": "net_income",
+            "label": "Net income",
+            "period": "current",
+            "value": 120067000000,
+            "tag": "us-gaap:NetIncomeLoss",
+            "filing": "0001045810-26-000021",
+            "start": "2025-01-27",
+            "end": "2026-01-25",
+            "definition": null
+          },
+          {
+            "key": "net_income",
+            "label": "Net income",
+            "period": "prior",
+            "value": 72880000000,
+            "tag": "us-gaap:NetIncomeLoss",
+            "filing": "0001045810-26-000021",
+            "start": "2024-01-29",
+            "end": "2025-01-26",
+            "definition": null
+          },
+          {
+            "key": "stockholders_equity",
+            "label": "Stockholders' equity",
+            "period": "current",
+            "value": 157293000000,
+            "tag": "us-gaap:StockholdersEquity",
+            "filing": "0001045810-26-000021",
+            "start": null,
+            "end": "2026-01-25",
+            "definition": null
+          },
+          {
+            "key": "stockholders_equity",
+            "label": "Stockholders' equity",
+            "period": "prior",
+            "value": 79327000000,
+            "tag": "us-gaap:StockholdersEquity",
+            "filing": "0001045810-26-000021",
+            "start": null,
+            "end": "2025-01-26",
+            "definition": null
+          }
+        ]
+      },
+      {
+        "name": "Debt to equity",
+        "value": 0.05383583503398117,
+        "arithmetic": "(long_term_debt + current_debt) / stockholders' equity",
+        "inputs": [
+          {
+            "key": "stockholders_equity",
+            "label": "Stockholders' equity",
+            "period": "current",
+            "value": 157293000000,
+            "tag": "us-gaap:StockholdersEquity",
+            "filing": "0001045810-26-000021",
+            "start": null,
+            "end": "2026-01-25",
+            "definition": null
+          },
+          {
+            "key": "stockholders_equity",
+            "label": "Stockholders' equity",
+            "period": "prior",
+            "value": 79327000000,
+            "tag": "us-gaap:StockholdersEquity",
+            "filing": "0001045810-26-000021",
+            "start": null,
+            "end": "2025-01-26",
+            "definition": null
+          },
+          {
+            "key": "long_term_debt",
+            "label": "Long-term debt",
+            "period": "current",
+            "value": 7469000000,
+            "tag": "us-gaap:LongTermDebtNoncurrent",
+            "filing": "0001045810-26-000021",
+            "start": null,
+            "end": "2026-01-25",
+            "definition": null
+          },
+          {
+            "key": "long_term_debt",
+            "label": "Long-term debt",
+            "period": "prior",
+            "value": 8463000000,
+            "tag": "us-gaap:LongTermDebtNoncurrent",
+            "filing": "0001045810-26-000021",
+            "start": null,
+            "end": "2025-01-26",
+            "definition": null
+          },
+          {
+            "key": "current_debt",
+            "label": "Current portion of long-term debt",
+            "period": "current",
+            "value": 999000000,
+            "tag": "us-gaap:LongTermDebtCurrent",
+            "filing": "0001045810-26-000021",
+            "start": null,
+            "end": "2026-01-25",
+            "definition": null
+          },
+          {
+            "key": "current_debt",
+            "label": "Current portion of long-term debt",
+            "period": "prior",
+            "value": 0,
+            "tag": "us-gaap:LongTermDebtCurrent",
+            "filing": "0001045810-26-000021",
+            "start": null,
+            "end": "2025-01-26",
+            "definition": null
+          }
+        ]
+      },
+      {
+        "name": "Free cash flow",
+        "value": 96676000000.0,
+        "arithmetic": "cash from operations - additions to property and equipment",
+        "inputs": [
+          {
+            "key": "cash_from_operations",
+            "label": "Cash from operations",
+            "period": "current",
+            "value": 102718000000,
+            "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+            "filing": "0001045810-26-000021",
+            "start": "2025-01-27",
+            "end": "2026-01-25",
+            "definition": null
+          },
+          {
+            "key": "cash_from_operations",
+            "label": "Cash from operations",
+            "period": "prior",
+            "value": 64089000000,
+            "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+            "filing": "0001045810-26-000021",
+            "start": "2024-01-29",
+            "end": "2025-01-26",
+            "definition": null
+          },
+          {
+            "key": "capex",
+            "label": "Additions to property and equipment",
+            "period": "current",
+            "value": 6042000000,
+            "tag": "us-gaap:PaymentsToAcquireProductiveAssets",
+            "filing": "0001045810-26-000021",
+            "start": "2025-01-27",
+            "end": "2026-01-25",
+            "definition": null
+          },
+          {
+            "key": "capex",
+            "label": "Additions to property and equipment",
+            "period": "prior",
+            "value": 3236000000,
+            "tag": "us-gaap:PaymentsToAcquireProductiveAssets",
+            "filing": "0001045810-26-000021",
+            "start": "2024-01-29",
+            "end": "2025-01-26",
+            "definition": null
+          }
+        ]
+      },
+      {
+        "name": "P/E",
+        "value": null,
+        "arithmetic": "price / diluted EPS",
+        "inputs": [
+          {
+            "key": "diluted_eps",
+            "label": "Diluted EPS",
+            "period": "current",
+            "value": 4.9,
+            "tag": "us-gaap:EarningsPerShareDiluted",
+            "filing": "0001045810-26-000021",
+            "start": "2025-01-27",
+            "end": "2026-01-25",
+            "definition": null
+          },
+          {
+            "key": "diluted_eps",
+            "label": "Diluted EPS",
+            "period": "prior",
+            "value": 2.94,
+            "tag": "us-gaap:EarningsPerShareDiluted",
+            "filing": "0001045810-26-000021",
+            "start": "2024-01-29",
+            "end": "2025-01-26",
+            "definition": null
+          }
+        ]
+      }
+    ],
+    "step_6_quarter": [
+      "Total revenue quarterly values: $115.8 | $96.2 | source row: Revenue | $115.8 | $96.2 | $57.0 | 20 | % | 103 | %",
+      "Diluted EPS quarterly values: $2.70 | $2.46 | source row: Diluted earnings per share | $2.70 | $2.46 | $1.30 | 10 | % | 108 | %"
+    ],
+    "earnings_release": "8-K_exhibit_99_1.txt:L1: EX-99.1\n8-K_exhibit_99_1.txt:L2: 2\n8-K_exhibit_99_1.txt:L3: q3fy27pr.htm\n8-K_exhibit_99_1.txt:L4: EX-99.1\n8-K_exhibit_99_1.txt:L5: Document\n8-K_exhibit_99_1.txt:L6: NVIDIA Announces Financial Results for Third Quarter Fiscal 2027\n8-K_exhibit_99_1.txt:L7: \u2022\n8-K_exhibit_99_1.txt:L8: Revenue of $115.8 billion, up 103% from a year ago\n8-K_exhibit_99_1.txt:L9: \u2022\n8-K_exhibit_99_1.txt:L10: Data Center revenue of $107.6 billion, up 110% from a year ago\n8-K_exhibit_99_1.txt:L11: \u2022\n8-K_exhibit_99_1.txt:L12: Vera Rubin NVL72, the most versatile and advanced computing platform ever built, has shipped\n8-K_exhibit_99_1.txt:L13: SANTA CLARA, Calif.\u2014Nov. 17, 2026\u2015\n8-K_exhibit_99_1.txt:L14: NVIDIA (NASDAQ: NVDA) today reported revenue for the third quarter ended October 25, 2026, of $115.8 billion, up 20% from the previous quarter and up 103% from a year ago. For the quarter, GAAP and non-GAAP gross margins were 74.8% and 74.9%, respectively. GAAP and non-GAAP earnings per diluted share were $2.70 and $2.68, respectively.\n8-K_exhibit_99_1.txt:L15: \u201cOur momentum is real. NVIDIA is an exceptional technology leader, powered by the relentless innovation of our people,\u201d said Colette Kress, interim CEO and executive vice president and chief financial officer of NVIDIA. \u201cVera Rubin is off to an explosive start, our roadmap is on track and our ambition has never been greater.\u201d\n8-K_exhibit_99_1.txt:L16: In September 2026, NVIDIA\u2019s Board of Directors approved an increase of $150 billion to the company\u2019s share repurchase authorization, without expiration. During the third quarter of fiscal 2027, NVIDIA returned $28.1 billion to shareholders in the form of shares repurchased and cash dividends. As of the end of the third quarter, the company had approximately $227.3 billion remaining under its share repurchase authorization.\n8-K_exhibit_99_1.txt:L17: NVIDIA will pay its next quarterly cash dividend of $0.25 per share on December 23, 2026, to all shareholders of record on December 2, 2026.\n8-K_exhibit_99_1.txt:L18: Q3 Fiscal 2027 Summary\n8-K_exhibit_99_1.txt:L19: GAAP\n8-K_exhibit_99_1.txt:L20: ($ in billions, except earnings per share)\n8-K_exhibit_99_1.txt:L21: Q3 FY27\n8-K_exhibit_99_1.txt:L22: Q2 FY27\n8-K_exhibit_99_1.txt:L23: Q3 FY26\n8-K_exhibit_99_1.txt:L24: Q/Q*\n8-K_exhibit_99_1.txt:L25: Y/Y*\n8-K_exhibit_99_1.txt:L26: Revenue\n8-K_exhibit_99_1.txt:L27: $115.8\n8-K_exhibit_99_1.txt:L28: $96.2\n8-K_exhibit_99_1.txt:L29: $57.0\n8-K_exhibit_99_1.txt:L30: 20\n8-K_exhibit_99_1.txt:L31: %\n8-K_exhibit_99_1.txt:L32: 103\n8-K_exhibit_99_1.txt:L33: %\n8-K_exhibit_99_1.txt:L34: Gross margin\n8-K_exhibit_99_1.txt:L35: 74.8\n8-K_exhibit_99_1.txt:L36: %\n8-K_exhibit_99_1.txt:L37: 75.0\n8-K_exhibit_99_1.txt:L38: %\n8-K_exhibit_99_1.txt:L39: 73.4\n8-K_exhibit_99_1.txt:L40: %\n8-K_exhibit_99_1.txt:L41: (0.2) pts\n8-K_exhibit_99_1.txt:L42: 1.4 pts\n8-K_exhibit_99_1.txt:L43: Operating expenses\n8-K_exhibit_99_1.txt:L44: $9.2\n8-K_exhibit_99_1.txt:L45: $8.4\n8-K_exhibit_99_1.txt:L46: $5.8\n8-K_exhibit_99_1.txt:L47: 9\n8-K_exhibit_99_1.txt:L48: %\n8-K_exhibit_99_1.txt:L49: 57\n8-K_exhibit_99_1.txt:L50: %\n8-K_exhibit_99_1.txt:L51: Operating income\n8-K_exhibit_99_1.txt:L52: $77.5\n8-K_exhibit_99_1.txt:L53: $63.7\n8-K_exhibit_99_1.txt:L54: $36.0\n8-K_exhibit_99_1.txt:L55: 22\n8-K_exhibit_99_1.txt:L56: %\n8-K_exhibit_99_1.txt:L57: 115\n8-K_exhibit_99_1.txt:L58: %\n8-K_exhibit_99_1.txt:L59: Net income\n8-K_exhibit_99_1.txt:L60: $65.3\n8-K_exhibit_99_1.txt:L61: $59.7\n8-K_exhibit_99_1.txt:L62: $31.9\n8-K_exhibit_99_1.txt:L63: 9\n8-K_exhibit_99_1.txt:L64: %\n8-K_exhibit_99_1.txt:L65: 105\n8-K_exhibit_99_1.txt:L66: %\n8-K_exhibit_99_1.txt:L67: Diluted earnings per share\n8-K_exhibit_99_1.txt:L68: $2.70\n8-K_exhibit_99_1.txt:L69: $2.46\n8-K_exhibit_99_1.txt:L70: $1.30\n8-K_exhibit_99_1.txt:L71: 10\n8-K_exhibit_99_1.txt:L72: %\n8-K_exhibit_99_1.txt:L73: 108\n8-K_exhibit_99_1.txt:L74: %\n8-K_exhibit_99_1.txt:L75: *Q/Q and Y/Y calculated based on $ in millions\n[Evidence omitted from this role packet because of the model context limit.]\n8-K_exhibit_99_1.txt:L910: (4,422)\n8-K_exhibit_99_1.txt:L911: (2,677)\n8-K_exhibit_99_1.txt:L912: (1,637)\n8-K_exhibit_99_1.txt:L913: (8,856)\n8-K_exhibit_99_1.txt:L914: (4,758)\n8-K_exhibit_99_1.txt:L915: Principal payments on property and equipment and intangible assets\n8-K_exhibit_99_1.txt:L916: (54)\n8-K_exhibit_99_1.txt:L917: (59)\n8-K_exhibit_99_1.txt:L918: (24)\n8-K_exhibit_99_1.txt:L919: (147)\n8-K_exhibit_99_1.txt:L920: (97)\n8-K_exhibit_99_1.txt:L921: Free cash flow\n8-K_exhibit_99_1.txt:L922: $\n8-K_exhibit_99_1.txt:L923: 43,777\n8-K_exhibit_99_1.txt:L924: $\n8-K_exhibit_99_1.txt:L925: 21,341\n8-K_exhibit_99_1.txt:L926: $\n8-K_exhibit_99_1.txt:L927: 22,089\n8-K_exhibit_99_1.txt:L928: $\n8-K_exhibit_99_1.txt:L929: 113,672\n8-K_exhibit_99_1.txt:L930: $\n8-K_exhibit_99_1.txt:L931: 61,675\n8-K_exhibit_99_1.txt:L932: *Includes H20 charges/(releases), net, which were $4.3 billion and insignificant for the first nine months of fiscal years 2026 and 2027, respectively. For all quarters presented above, the impact was insignificant.\n8-K_exhibit_99_1.txt:L933: **Tax expense included represents impact from OBBBA (One Big Beautiful Bill Act).\n8-K_exhibit_99_1.txt:L934: (A) Acquisition-related and other costs are comprised of amortization of intangible assets, transaction costs, and certain compensation charges and are included in the following line items:\n8-K_exhibit_99_1.txt:L935: Three Months Ended\n8-K_exhibit_99_1.txt:L936: Nine Months Ended\n8-K_exhibit_99_1.txt:L937: October 25,\n8-K_exhibit_99_1.txt:L938: July 26,\n8-K_exhibit_99_1.txt:L939: October 26,\n8-K_exhibit_99_1.txt:L940: October 25,\n8-K_exhibit_99_1.txt:L941: October 26,\n8-K_exhibit_99_1.txt:L942: 2026\n8-K_exhibit_99_1.txt:L943: 2026\n8-K_exhibit_99_1.txt:L944: 2025\n8-K_exhibit_99_1.txt:L945: 2026\n8-K_exhibit_99_1.txt:L946: 2025\n8-K_exhibit_99_1.txt:L947: Cost of revenue\n8-K_exhibit_99_1.txt:L948: $\n8-K_exhibit_99_1.txt:L949: 47\n8-K_exhibit_99_1.txt:L950: $\n8-K_exhibit_99_1.txt:L951: 46\n8-K_exhibit_99_1.txt:L952: $\n8-K_exhibit_99_1.txt:L953: 48\n8-K_exhibit_99_1.txt:L954: $\n8-K_exhibit_99_1.txt:L955: 140\n8-K_exhibit_99_1.txt:L956: $\n8-K_exhibit_99_1.txt:L957: 219\n8-K_exhibit_99_1.txt:L958: Research and development\n8-K_exhibit_99_1.txt:L959: $\n8-K_exhibit_99_1.txt:L960: 193\n8-K_exhibit_99_1.txt:L961: $\n8-K_exhibit_99_1.txt:L962: 170\n8-K_exhibit_99_1.txt:L963: $\n8-K_exhibit_99_1.txt:L964: 35\n8-K_exhibit_99_1.txt:L965: $\n8-K_exhibit_99_1.txt:L966: 529\n8-K_exhibit_99_1.txt:L967: $\n8-K_exhibit_99_1.txt:L968: 93\n8-K_exhibit_99_1.txt:L969: Sales, general and administrative\n8-K_exhibit_99_1.txt:L970: $\n8-K_exhibit_99_1.txt:L971: 15\n8-K_exhibit_99_1.txt:L972: $\n8-K_exhibit_99_1.txt:L973: 6\n8-K_exhibit_99_1.txt:L974: $\n8-K_exhibit_99_1.txt:L975: 4\n8-K_exhibit_99_1.txt:L976: $\n8-K_exhibit_99_1.txt:L977: 27\n8-K_exhibit_99_1.txt:L978: $\n8-K_exhibit_99_1.txt:L979: 20\n8-K_exhibit_99_1.txt:L980: (B) Comprised of impact related to equity derivatives, equity method investments, convertible debt, dividend income, and interest expense related to accrued purchase consideration.\n8-K_exhibit_99_1.txt:L981: NVIDIA CORPORATION\n8-K_exhibit_99_1.txt:L982: RECONCILIATION OF GAAP TO NON-GAAP OUTLOOK\n8-K_exhibit_99_1.txt:L983: Q4 FY2027 Outlook\n8-K_exhibit_99_1.txt:L984: ($ in billions)\n8-K_exhibit_99_1.txt:L985: GAAP gross margin\n8-K_exhibit_99_1.txt:L986: 71.0% - 72.0%\n8-K_exhibit_99_1.txt:L987: Impact of acquisition-related costs and other costs\n8-K_exhibit_99_1.txt:L988: \u2014\n8-K_exhibit_99_1.txt:L989: Non-GAAP gross margin\n8-K_exhibit_99_1.txt:L990: 71.0% - 72.0%\n8-K_exhibit_99_1.txt:L991: GAAP operating expenses\n8-K_exhibit_99_1.txt:L992: $\n8-K_exhibit_99_1.txt:L993: 11.0\n8-K_exhibit_99_1.txt:L994: Acquisition-related costs and other costs\n8-K_exhibit_99_1.txt:L995: (0.3)\n8-K_exhibit_99_1.txt:L996: Non-GAAP operating expenses\n8-K_exhibit_99_1.txt:L997: $\n8-K_exhibit_99_1.txt:L998: 10.7",
+    "comparable_sales_table": [],
+    "step_7_peers": []
+  },
+  "expected_output": "Markdown material for Valuation Insights."
+}

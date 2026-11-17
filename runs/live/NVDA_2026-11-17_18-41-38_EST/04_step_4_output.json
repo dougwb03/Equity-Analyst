@@ -1,0 +1,231 @@
+{
+  "fiscal_year_end": "2026-01-25",
+  "prior_fiscal_year_end": "2025-01-26",
+  "concepts": {
+    "total_revenue": {
+      "label": "Total revenue",
+      "tag": "us-gaap:Revenues",
+      "current": {
+        "start": "2025-01-27",
+        "end": "2026-01-25",
+        "val": 215938000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25",
+        "frame": "CY2025"
+      },
+      "prior": {
+        "start": "2024-01-29",
+        "end": "2025-01-26",
+        "val": 130497000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25",
+        "frame": "CY2024"
+      },
+      "reported_label": "Total revenue",
+      "definition": "Consolidated total revenue as reported on the statement of operations",
+      "filing": "0001045810-26-000021"
+    },
+    "operating_income": {
+      "label": "Operating income",
+      "tag": "us-gaap:OperatingIncomeLoss",
+      "current": {
+        "start": "2025-01-27",
+        "end": "2026-01-25",
+        "val": 130387000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25",
+        "frame": "CY2025"
+      },
+      "prior": {
+        "start": "2024-01-29",
+        "end": "2025-01-26",
+        "val": 81453000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25",
+        "frame": "CY2024"
+      }
+    },
+    "net_income": {
+      "label": "Net income",
+      "tag": "us-gaap:NetIncomeLoss",
+      "current": {
+        "start": "2025-01-27",
+        "end": "2026-01-25",
+        "val": 120067000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25"
+      },
+      "prior": {
+        "start": "2024-01-29",
+        "end": "2025-01-26",
+        "val": 72880000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25"
+      }
+    },
+    "diluted_eps": {
+      "label": "Diluted EPS",
+      "tag": "us-gaap:EarningsPerShareDiluted",
+      "current": {
+        "start": "2025-01-27",
+        "end": "2026-01-25",
+        "val": 4.9,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25",
+        "frame": "CY2025"
+      },
+      "prior": {
+        "start": "2024-01-29",
+        "end": "2025-01-26",
+        "val": 2.94,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25",
+        "frame": "CY2024"
+      }
+    },
+    "stockholders_equity": {
+      "label": "Stockholders' equity",
+      "tag": "us-gaap:StockholdersEquity",
+      "current": {
+        "end": "2026-01-25",
+        "val": 157293000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25"
+      },
+      "prior": {
+        "end": "2025-01-26",
+        "val": 79327000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25"
+      }
+    },
+    "long_term_debt": {
+      "label": "Long-term debt",
+      "tag": "us-gaap:LongTermDebtNoncurrent",
+      "current": {
+        "end": "2026-01-25",
+        "val": 7469000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25"
+      },
+      "prior": {
+        "end": "2025-01-26",
+        "val": 8463000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25",
+        "frame": "CY2024Q4I"
+      }
+    },
+    "current_debt": {
+      "label": "Current portion of long-term debt",
+      "tag": "us-gaap:LongTermDebtCurrent",
+      "current": {
+        "end": "2026-01-25",
+        "val": 999000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25"
+      },
+      "prior": {
+        "end": "2025-01-26",
+        "val": 0,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25",
+        "frame": "CY2024Q4I"
+      }
+    },
+    "cash_from_operations": {
+      "label": "Cash from operations",
+      "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "current": {
+        "start": "2025-01-27",
+        "end": "2026-01-25",
+        "val": 102718000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25",
+        "frame": "CY2025"
+      },
+      "prior": {
+        "start": "2024-01-29",
+        "end": "2025-01-26",
+        "val": 64089000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25",
+        "frame": "CY2024"
+      }
+    },
+    "capex": {
+      "label": "Additions to property and equipment",
+      "tag": "us-gaap:PaymentsToAcquireProductiveAssets",
+      "current": {
+        "start": "2025-01-27",
+        "end": "2026-01-25",
+        "val": 6042000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25",
+        "frame": "CY2025"
+      },
+      "prior": {
+        "start": "2024-01-29",
+        "end": "2025-01-26",
+        "val": 3236000000,
+        "accn": "0001045810-26-000021",
+        "fy": 2026,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-25",
+        "frame": "CY2024"
+      }
+    }
+  }
+}
