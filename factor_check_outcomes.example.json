@@ -1,0 +1,9 @@
+{
+  "0000000001": {
+    "entry_date": "YYYY-MM-DD",
+    "entry_close": 0.0,
+    "exit_date": "YYYY-MM-DD",
+    "exit_close": 0.0,
+    "source": "LSEG Data Library daily-price rows saved with the factor-check run"
+  }
+}
