@@ -1,5 +1,19 @@
 # FIN 67110 — Fall 2026
 
+## Team ownership and joins
+
+We own a pre-registered spinoff factor check in `factor_check_plan.json`; it
+uses the declared factors and 90-day holding period before results are read.
+The desk uses a pipeline join: the seeker writes a registry when input is
+`screen`, the agent team saves its filing run, the worksheet reads that saved
+run, and the hook guards the worksheet and final report. No model selects the
+order or recomputes a skill result.
+
+Roles: Douglas Buckeridge is Orchestration and Verification Lead; Alex
+Lisitsas is Screening and Factor-Check Lead; Kole Williams is Market Data,
+Live Record, and Product Manual Lead. The team reviews material changes and
+live reports together, discusses evidence, and contributes ideas across roles.
+
 `equity_desk.py` runs the seven deterministic SEC-data steps in a fixed
 LangGraph workflow, followed by Research Analyst, Financial Analyst,
 Investment Advisor, Strategy Manager, and a mandatory Verifier. Role
@@ -49,22 +63,26 @@ number.
 Run the full desk for one ticker:
 
 ```bash
-python3 desk.py --ticker TICKER --live
+python3 desk.py TICKER --live
 ```
 
-Run the cited spinoff screen without selecting a name:
+Run the cited spinoff screen, then use its highest-ranked in-window ticker:
 
 ```bash
-python3 desk.py --screen --start-date YYYY-MM-DD
+python3 desk.py screen --live
 ```
 
-The `--ticker` command stops at the first failed part and keeps the saved run
-folder for replay. It prints the elapsed seconds for each pipeline part.
+Replay and recheck a completed saved run without fetching any data:
 
-On the page, enter a ticker, optional peers, and an optional share price, then
-select **Run agent team**. The page shows each node as it starts and displays
-the verified report when the mandatory Verifier completes. The terminal
-commands above continue to work unchanged.
+```bash
+python3 desk.py --replay runs/live/TICKER_YYYY-MM-DD_HH-MM-SS_ZONE
+```
+
+The desk command stops at the first failed part and keeps the saved run folder
+for replay. It prints the elapsed seconds for each pipeline part.
+
+On the page, enter a ticker or `screen`, then select **Run desk**. The page
+runs the same fixed pipeline and displays the saved final desk report.
 
 Each run creates a new company-and-time folder in `runs/`. It saves filing
 texts, `facts.json`, every node's JSON input and output, `investment_report.md`,

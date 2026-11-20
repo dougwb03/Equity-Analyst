@@ -1,0 +1,15 @@
+{
+  "name": "spinoff_factor_check",
+  "status": "pre_registered_before_results",
+  "universe": "accepted U.S. corporate spinoffs in the SEC seeker registry with a filing-backed distribution date and first regular-way closing price",
+  "entry_rule": "first regular-way close strictly after the filing-backed distribution date",
+  "holding_period_calendar_days": 90,
+  "outcome": "unadjusted price return from the entry close to the first available close on or after entry plus 90 calendar days",
+  "factors": [
+    {"name": "market_cap", "direction": "lower", "weight": 40},
+    {"name": "price_return", "direction": "lower", "weight": 35},
+    {"name": "insider_ownership_pct", "direction": "higher", "weight": 25}
+  ],
+  "comparison_rule": "For every factor with available values, compare the equal-count high-priority and low-priority groups after sorting in its declared direction. Report the group count and every comparison. Do not change the rules after observing returns.",
+  "limitations": "This is a pre-registered check, not a return claim. Missing filing facts or prices exclude a name from the affected comparison and must be reported."
+}
