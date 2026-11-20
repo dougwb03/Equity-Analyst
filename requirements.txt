@@ -8,3 +8,4 @@ langgraph>=1.0,<2
 transformers>=4.51,<6
 streamlit>=1.40,<2
 yfinance>=1.0,<2
+lseg-data>=2.0,<3

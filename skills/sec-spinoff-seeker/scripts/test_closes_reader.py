@@ -6,6 +6,11 @@ SPEC=importlib.util.spec_from_file_location("closes_reader",Path(__file__).with_
 reader=importlib.util.module_from_spec(SPEC); sys.modules["closes_reader"]=reader; SPEC.loader.exec_module(reader)
 
 class ClosesReaderRules(unittest.TestCase):
+    def test_lseg_history_is_translated_to_the_reader_close_column(self):
+        history=pd.DataFrame({"TRDPRC_1":[10.0,11.0]},index=pd.to_datetime(["2025-01-03","2025-01-06"]))
+        converted=reader.history_with_close_field(history)
+        self.assertEqual(list(converted["Close"]),[10.0,11.0])
+
     def test_skips_distribution_day_and_pre_regular_way_records(self):
         history=pd.DataFrame({"Close":[10.0,11.0,12.0]},index=pd.to_datetime(["2025-01-03","2025-01-04","2025-01-06"]))
         self.assertEqual(reader.first_regular_close(history,"2025-01-03","2025-01-06"),("2025-01-06",12.0))
