@@ -80,6 +80,7 @@ Live-record folder: <https://github.com/dougwb03/fin67110-fall2026/tree/main/run
 |---|---|---|---|---|
 | CRWV | 8-K, 0001769628-26-000461 | 2026-11-10 16:05:53 | commit `7aa2fa0` | No — late catch-up run. It is retained for the record but is not a clean live report. |
 | NVDA | 8-K, 0001045810-26-000088 | 2026-11-17 16:20:51 | commit `c62cdc4`, 2026-11-17 18:47:35 Eastern | Yes — committed about 2 hours and 27 minutes after EDGAR Accepted the filing. |
+| DELL | 8-K, 0001571996-26-000050 | 2026-11-24 16:09:13 | commit `45609ee`, 2026-11-25 11:25:47 Eastern | Yes — committed about 19 hours and 17 minutes after EDGAR Accepted the filing. |
 
 ## Evidence for the desk design
 

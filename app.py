@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import shlex
 import subprocess
 import sys
 from datetime import datetime
@@ -12,10 +13,7 @@ import streamlit as st
 
 
 ROOT = Path(__file__).resolve().parent
-NODE_PATTERN = re.compile(
-    r"^(?:Step [1-7]|Research Analyst|Financial Analyst|Investment Advisor|"
-    r"Strategy Manager|Permitted rework|Verifier) starting"
-)
+NODE_PATTERN = re.compile(r"^(?:Step [1-7]|Research Analyst|Financial Analyst|Investment Advisor|Strategy Manager|Permitted rework|Verifier) starting")
 
 
 def peers_from_text(value: str) -> list[str]:
@@ -37,13 +35,11 @@ def report_for_page(report: str) -> str:
     return re.sub(r"\s*<!--\s*\[source:.*?\]\s*-->", "", report, flags=re.I)
 
 
-def run_team(ticker: str, peers: list[str], price: float | None) -> tuple[int, str, Path | None]:
-    """Run the unchanged command and return its terminal log and report path."""
-    command = [sys.executable, "-u", str(ROOT / "agent_team.py"), ticker]
-    if peers:
-        command.extend(["--peers", ",".join(peers)])
-    if price is not None:
-        command.extend(["--price", str(price)])
+def run_desk(input_value: str, live: bool) -> tuple[int, str, Path | None]:
+    """Run the fixed pipeline command and return its assembled desk report."""
+    command = [sys.executable, "-u", str(ROOT / "desk.py"), input_value]
+    if live:
+        command.append("--live")
 
     log: list[str] = []
     report_path: Path | None = None
@@ -64,14 +60,14 @@ def run_team(ticker: str, peers: list[str], price: float | None) -> tuple[int, s
                 stages.append(line.removesuffix(" starting..."))
                 status.info(f"Running: {stages[-1]}")
                 completed.progress(min(len(stages) * 7, 98), text=f"Running: {stages[-1]}")
-            if line.startswith("Verified report:"):
-                report_path = Path(line.removeprefix("Verified report:").strip())
+            if line.startswith("Desk report:"):
+                report_path = Path(line.removeprefix("Desk report:").strip())
             terminal.code("\n".join(log[-80:]), language="text")
         exit_code = process.wait()
 
     if exit_code == 0 and report_path and report_path.exists():
-        completed.progress(100, text="Verified report complete")
-        status.success("The Verifier completed.")
+        completed.progress(100, text="Desk report complete")
+        status.success("The fixed pipeline completed.")
     else:
         completed.empty()
         status.error("The run did not complete. Copy the terminal output below for debugging.")
@@ -81,12 +77,13 @@ def run_team(ticker: str, peers: list[str], price: float | None) -> tuple[int, s
 def run_spinoff_seeker(start_date: str) -> tuple[int, str, Path | None]:
     """Run the EDGAR screen and return its saved Markdown report."""
     output_dir = ROOT / "spinoff_runs" / f"page_{datetime.now():%Y-%m-%d_%H-%M-%S}"
+    seeker_dir = ROOT / "skills" / "sec-spinoff-seeker" / "scripts"
     close_command = (
-        f"{sys.executable} /Users/douglasbuckeridge/.codex/skills/sec-spinoff-seeker/scripts/closes_reader.py "
+        f"{shlex.quote(sys.executable)} {shlex.quote(str(seeker_dir / 'closes_reader.py'))} "
         "--symbol {symbol} --distribution-date {date} --regular-way-date {regular_way_date} --mode {mode}"
     )
     command = [
-        sys.executable, "-u", "/Users/douglasbuckeridge/.codex/skills/sec-spinoff-seeker/scripts/seeker.py",
+        sys.executable, "-u", str(seeker_dir / "seeker.py"),
         "--start-date", start_date, "--env-file", str(ROOT / ".env"),
         "--output-dir", str(output_dir), "--factors", str(ROOT / "spinoff_factors.json"),
         "--closes-reader", close_command,
@@ -98,7 +95,7 @@ def run_spinoff_seeker(start_date: str) -> tuple[int, str, Path | None]:
 
 
 st.set_page_config(page_title="Equity Research Desk", page_icon="📈", layout="wide")
-desk_tab, seeker_tab = st.tabs(["Equity Research Desk", "SEC Spinoff Seeker"])
+desk_tab, seeker_tab, worksheet_tab = st.tabs(["Equity Research Desk", "SEC Spinoff Seeker", "Lab 07 Worksheet"])
 
 with seeker_tab:
     st.title("SEC Spinoff Seeker")
@@ -127,9 +124,9 @@ with seeker_tab:
 
 with desk_tab:
     st.title("Equity Research Desk")
-    st.caption("Enter a ticker, optional peer tickers, and an optional share price. The Verifier always runs.")
+    st.caption("Enter a ticker or screen. The fixed pipeline runs the team, worksheet, and hook in one shared folder.")
 
-    saved_reports = sorted((ROOT / "runs").glob("**/verified_report.md"), reverse=True)
+    saved_reports = sorted((ROOT / "runs").glob("**/desk_report.md"), reverse=True)
     if saved_reports:
         saved_options = {path.parent.name: path for path in saved_reports}
         selected_run = st.selectbox("Open a saved run", options=[""] + list(saved_options), format_func=lambda value: "Select a saved run" if not value else value)
@@ -137,24 +134,19 @@ with desk_tab:
             st.session_state["last_report"] = str(saved_options[selected_run])
 
     with st.form("run_desk"):
-        ticker = st.text_input("Ticker", placeholder="AAPL", max_chars=10).strip().upper()
-        peers_text = st.text_input("Peers (optional)", placeholder="MSFT, AMZN, META")
-        price_text = st.text_input("Share price (optional)", placeholder="354.02")
-        submitted = st.form_submit_button("Run agent team", type="primary")
+        desk_input = st.text_input("Ticker or screen", placeholder="TICKER or screen", max_chars=10).strip().upper()
+        live = st.checkbox("Save as a live run", value=True)
+        submitted = st.form_submit_button("Run desk", type="primary")
 
     if submitted:
         try:
-            if not re.fullmatch(r"[A-Z.]{1,10}", ticker):
-                raise ValueError("Enter one valid ticker symbol.")
-            peers = peers_from_text(peers_text)
-            price = float(price_text) if price_text.strip() else None
-            if price is not None and price <= 0:
-                raise ValueError("Share price must be greater than zero.")
+            if desk_input != "SCREEN" and not re.fullmatch(r"[A-Z.]{1,10}", desk_input):
+                raise ValueError("Enter one valid ticker symbol or screen.")
         except ValueError as error:
             st.error(str(error))
         else:
             st.subheader("Run progress")
-            exit_code, log, report_path = run_team(ticker, peers, price)
+            exit_code, log, report_path = run_desk(desk_input.lower(), live)
             st.session_state["last_log"] = log
             if exit_code == 0 and report_path:
                 st.session_state["last_report"] = str(report_path)
@@ -162,17 +154,26 @@ with desk_tab:
     report = Path(st.session_state["last_report"]) if st.session_state.get("last_report") else None
     if report and report.exists():
         st.divider()
+        st.subheader("Desk report")
+        st.caption(str(report))
+        st.markdown(report_for_page(report.read_text(encoding="utf-8")), unsafe_allow_html=False)
+
+with worksheet_tab:
+    st.title("Lab 07 Worksheet")
+    st.caption("Open a saved team run. The verified report and its dated worksheet remain separate, filing-backed artifacts.")
+    saved_runs = [path.parent for path in sorted((ROOT / "runs").glob("**/verified_report.md"), reverse=True)
+                  if list(path.parent.glob("worksheet_*.md"))]
+    options = {path.name: path for path in saved_runs}
+    choice = st.selectbox("Saved team run", options=[""] + list(options), format_func=lambda value: "Select a saved run" if not value else value)
+    if choice:
+        run = options[choice]
+        worksheet = sorted(run.glob("worksheet_*.md"))[-1]
         report_column, worksheet_column = st.columns(2)
         with report_column:
-            st.subheader("Verified report")
-            st.caption(str(report))
-            st.markdown(report_for_page(report.read_text(encoding="utf-8")), unsafe_allow_html=False)
+            st.subheader("Verified team report")
+            st.caption(str(run / "verified_report.md"))
+            st.markdown(report_for_page((run / "verified_report.md").read_text(encoding="utf-8")), unsafe_allow_html=False)
         with worksheet_column:
-            worksheets = sorted(report.parent.glob("worksheet_*.md"))
             st.subheader("Worksheet")
-            if worksheets:
-                worksheet = worksheets[-1]
-                st.caption(str(worksheet))
-                st.markdown(worksheet.read_text(encoding="utf-8"), unsafe_allow_html=False)
-            else:
-                st.info("No worksheet is saved with this run yet.")
+            st.caption(str(worksheet))
+            st.markdown(worksheet.read_text(encoding="utf-8"), unsafe_allow_html=False)
