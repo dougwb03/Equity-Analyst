@@ -12,7 +12,7 @@ from pathlib import Path
 
 NUMBER = re.compile(r"(?<![A-Za-z0-9.-])-?\$?[0-9][0-9,]*(?:\.\d+)?(?:e[+-]?\d+)?%?|(?<![A-Za-z0-9])\d+(?:\.\d+)?x\b", re.I)
 DATE = re.compile(r"\b\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2})?\b")
-ACCESSION = re.compile(r"\b\d{10}-\d{2}-\d{6}\b")
+ACCESSION = re.compile(r"(?<!\d)\d{10}-\d{2}-\d{6}(?!\d)")
 
 
 def numeric(token: str) -> float:
@@ -36,6 +36,16 @@ def market_values(data: dict) -> tuple[set[float], float | None]:
     return values, statistics.median(dollars) if dollars else None
 
 
+def filing_share_values(run_dir: Path) -> set[float]:
+    """Read an explicit common-share total from saved filing text."""
+    values: set[float] = set()
+    for text_file in run_dir.glob("*.txt"):
+        text = text_file.read_text(errors="replace")
+        for amount in re.findall(r"([0-9][0-9,]*)\s+shares?\s+of[^.\n]{0,120}?common stock\s+outstanding", text, re.I):
+            values.add(float(amount.replace(",", "")))
+    return values
+
+
 def supported_values(run_dir: Path, settings: dict, market: dict) -> set[float]:
     facts = json.loads((run_dir / "facts.json").read_text())
     values = facts_values(facts)
@@ -46,6 +56,7 @@ def supported_values(run_dir: Path, settings: dict, market: dict) -> set[float]:
     values |= closes
     if median is not None:
         values.add(median)
+    values |= filing_share_values(run_dir)
     # Direct statement values are allowed only when their named row is in saved filing text.
     for text_file in run_dir.glob("*.txt"):
         text = text_file.read_text(errors="replace")
@@ -61,15 +72,25 @@ def supported_values(run_dir: Path, settings: dict, market: dict) -> set[float]:
 
 
 def relevant_numbers(line: str) -> list[str]:
+    line = re.sub(r"^\s*(?:[-*]\s+)?\d+\.\s+", "", line)
+    line = re.sub(r"https?://\S+", "", line)
+    line = re.sub(r"\bCIK\s*:?[ ]*\d+\b", "", line, flags=re.I)
     line = DATE.sub("", line)
     line = ACCESSION.sub("", line)
+    # Field identifiers in a vendor source name (for example TRDPRC_1) are
+    # identifiers, not numeric claims.
+    line = re.sub(r"\b[A-Za-z][A-Za-z0-9_]*_\d+\b", "", line)
     line = re.sub(r"\b10-[KQ]\b", "", line, flags=re.I)
     return [token for token in NUMBER.findall(line) if not re.fullmatch(r"\d+", token) or not re.search(r"(?:line|section)\s+" + re.escape(token) + r"\b", line, re.I)]
 
 
 def verify(worksheet: Path, settings_path: Path, market_path: Path) -> list[str]:
     run_dir = worksheet.parent
-    values = supported_values(run_dir, json.loads(settings_path.read_text()), json.loads(market_path.read_text()))
+    settings = json.loads(settings_path.read_text())
+    market = json.loads(market_path.read_text())
+    values = supported_values(run_dir, settings, market)
+    closes, _ = market_values(market)
+    shares = filing_share_values(run_dir)
     failures = []
     for line_number, line in enumerate(worksheet.read_text().splitlines(), 1):
         if line.startswith("# ") or line.startswith("## ") or line.lstrip().startswith("- not computed") or re.search(r":\s*(?:not known|not applicable)(?:\.|;|$)", line, re.I):
@@ -84,6 +105,14 @@ def verify(worksheet: Path, settings_path: Path, market_path: Path) -> list[str]
                 values.add(result)
                 values.add(result / 1_000_000)
                 values.add(result / 1_000_000_000)
+                valuation = settings.get("valuation", {})
+                if valuation.get("method") == "owner_cash_flow_multiple":
+                    for rate in (valuation.get("low_rate"), valuation.get("mid_rate")):
+                        if isinstance(rate, (int, float)):
+                            for share_count in shares:
+                                per_share_value = result * float(rate) / share_count
+                                values.add(per_share_value)
+                                values |= {per_share_value - close for close in closes}
             continue
         for token in relevant_numbers(line):
             value = numeric(token)
@@ -93,11 +122,27 @@ def verify(worksheet: Path, settings_path: Path, market_path: Path) -> list[str]
     return failures
 
 
+def verify_final_report(report: Path, worksheet: Path, settings_path: Path, market_path: Path) -> list[str]:
+    """Check that the final artifact retains the checked worksheet and filing list."""
+    lines = report.read_text(errors="replace").splitlines()
+    if not lines or not lines[0].startswith("Filings read:") or not lines[0].removeprefix("Filings read:").strip():
+        return ["refused: final report has no first-line filing list"]
+    worksheet_text = worksheet.read_text(errors="replace").strip()
+    report_text = report.read_text(errors="replace")
+    verified = report.parent / "verified_report.md"
+    if not verified.exists() or verified.read_text(errors="replace").strip() not in report_text:
+        return ["refused: final report does not contain the saved verified report"]
+    if worksheet_text not in report_text:
+        return ["refused: final report does not contain the checked worksheet"]
+    return verify(worksheet, settings_path, market_path)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--worksheet", type=Path)
     parser.add_argument("--settings", type=Path, default=Path("worksheet_settings.json"))
     parser.add_argument("--market-data", type=Path, default=Path("worksheet_market_data.json"))
+    parser.add_argument("--final-report", type=Path)
     parser.add_argument("--latest", action="store_true")
     args = parser.parse_args()
     worksheet = args.worksheet
@@ -106,7 +151,10 @@ def main() -> None:
         worksheet = choices[-1] if choices else None
     if worksheet is None:
         return
-    failures = verify(worksheet, args.settings, args.market_data)
+    if args.final_report:
+        failures = verify_final_report(args.final_report, worksheet, args.settings, args.market_data)
+    else:
+        failures = verify(worksheet, args.settings, args.market_data)
     if failures:
         print("\n".join(failures), file=sys.stderr)
         raise SystemExit(2)

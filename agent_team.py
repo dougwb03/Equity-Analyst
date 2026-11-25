@@ -138,7 +138,11 @@ def agents_model(api_key: str, model_name: str) -> OpenAIChatCompletionsModel:
     # This course uses Purdue GenAI Studio.  An environment override still
     # permits another OpenAI-compatible endpoint without changing the code.
     base_url = os.environ.get("OPENAI_BASE_URL", "").strip() or "https://genai.rcac.purdue.edu/api"
-    client = AsyncOpenAI(api_key=api_key, base_url=base_url)
+    # A hosted-model request must fail in bounded time.  The pipeline keeps
+    # its saved run folder when a role fails, so the caller can inspect or
+    # replay completed deterministic work instead of leaving a desk run open.
+    client = AsyncOpenAI(api_key=api_key, base_url=base_url, timeout=120.0,
+                         max_retries=2)
     set_default_openai_client(client, use_for_tracing=False)
     set_tracing_disabled(True)
     return OpenAIChatCompletionsModel(model=model_name, openai_client=client)
@@ -214,9 +218,10 @@ def step_7(state: DeskState) -> dict[str, Any]:
 
 def research_node(state: DeskState) -> dict[str, Any]:
     run_dir = Path(state["run_dir"]); sources = {form: sec.filing_source(item) for form, item in state["filings"].items()}
+    periodic = run_dir / ("10-K.txt" if (run_dir / "10-K.txt").exists() else "10-Q.txt")
     packet = {"task": "Prepare cited research analysis.", "context": {"filings": sources,
-        "business_10_k": sec.bounded_evidence(sec.section_with_lines(run_dir / "10-K.txt", r"item\\s+1\\.?\\s+business", r"item\\s+1a\\.?"), 12_000),
-        "mda_10_k": sec.bounded_evidence(sec.section_with_lines(run_dir / "10-K.txt", r"item\\s*7\\.?", r"item\\s*7a\\.?"), 12_000),
+        "business_or_interim_filing": sec.bounded_evidence(sec.section_with_lines(periodic, r"item\\s+(?:1\\.?\\s+business|2\\.?\\s+management)", r"item\\s+(?:1a|3)\\.?"), 12_000),
+        "mda_or_interim_filing": sec.bounded_evidence(sec.section_with_lines(periodic, r"item\\s*(?:7|2)\\.?", r"item\\s*(?:7a|3)\\.?"), 12_000),
         "earnings_release": evidence_excerpt(run_dir / "8-K_exhibit_99_1.txt", 8_000),
         "comparable_sales_table": comparable_sales_table(run_dir / "8-K_exhibit_99_1.txt")}, "expected_output": "Markdown material for the assigned report parts."}
     output = call_role(state, "Research Analyst", packet)
@@ -518,7 +523,10 @@ def machine_mark(line: str, number: str, fields: dict[str, str], run_dir: Path, 
     if fields.get("kind") == "ratio":
         if not fields.get("definition") or not fields.get("operation") or not fields.get("inputs") or not fields.get("result"):
             return "unsupported", "ratio lacks definition, operation, inputs, or result"
-        cited_result = decimal(fields["result"])
+        try:
+            cited_result = decimal(fields["result"])
+        except InvalidOperation:
+            return "unsupported", "ratio result cannot be read"
         display_divisor = Decimal(1)
         # A prose claim may express a cash-flow result in billions while its
         # ratio record keeps exact dollars. Preserve the exact arithmetic but
@@ -779,7 +787,11 @@ def new_run_dir(company: str, suffix: str = "", base: Path | None = None) -> Pat
 
 def run_full(args: argparse.Namespace) -> None:
     bootstrap = sec.EdgarClient(); cik, company = sec.resolve_ticker(bootstrap, args.ticker.upper())
-    run_dir = new_run_dir(company, base=ROOT / "runs" / "live" if args.live else None)
+    if args.run_dir:
+        run_dir = args.run_dir.resolve()
+        run_dir.mkdir(parents=True, exist_ok=True)
+    else:
+        run_dir = new_run_dir(company, base=ROOT / "runs" / "live" if args.live else None)
     state: DeskState = {"ticker": args.ticker.upper(), "peers": sec.peer_tickers(args.peers), "price": args.price, "model": args.model, "run_dir": str(run_dir), "cik": cik, "company": company, "role_outputs": {}}
     save_json(run_dir / "run_manifest.json", {"ticker": state["ticker"], "company": company, "cik": cik, "created_at": datetime.now().astimezone().isoformat(), "live": args.live})
     full_graph().invoke(state)
@@ -811,6 +823,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--peers", nargs="+", default=[], help="Peer ticker symbols, comma-separated or space-separated")
     parser.add_argument("--price", type=float, help="Optional share price for P/E")
     parser.add_argument("--live", action="store_true", help="Save the run in runs/live for the weekly live record")
+    parser.add_argument("--run-dir", type=Path, help="Use this new folder for a pipeline-owned run")
     parser.add_argument("--verify-only", type=Path, help="Path to a saved run folder")
     parser.add_argument("--model", default=os.environ.get("OPENAI_MODEL", "qwen3.8:27b"), help="OpenAI-compatible model name")
     args = parser.parse_args()

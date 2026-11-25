@@ -1,0 +1,1592 @@
+EX-99.1
+2
+exhibit991earnings8kq3fy27.htm
+EX-99.1
+Document
+Exhibit 99.1
+Dell Technologies Delivers Third Quarter Fiscal 2027 Financial Results
+ROUND ROCK, Texas
+—
+Nov. 24, 2026
+—
+Dell Technologies (NYSE: DELL) announces financial results for its fiscal 2027 third quarter and provides guidance for its fiscal 2027 fourth quarter and full year.
+Third-Quarter Summary
+•
+Record revenue of $54.9 billion, up 103% year over year
+•
+Record diluted earnings per share (EPS) of $8.82, up 287% year over year, and record non-GAAP diluted EPS of $9.45, up 265%
+•
+Record third-quarter cash flow from operations of $4.5 billion
+•
+Full-year FY27 revenue guidance of $202.0 billion, up 78% year over year
+•
+Full-year FY27 diluted EPS guidance of $28.24 and non-GAAP diluted EPS guidance of $29.68, up 225% and 188% year over year, respectively
+“We expect record full-year revenue of
+$202 billion
+, up 78%. We are now a different company, with
+Infrastructure Solutions Group (ISG) driving the vast majority of our profit and growth
+,” said Jeff Clarke, vice chairman and chief operating officer, Dell Technologies. “We ended the quarter with a record
+$132.3 billion
+AI backlog after booking
+$60.2 billion
+of orders, each
+rigorously vetted
+for customer quality and access to capital
+,
+land and power. Customers turn that backlog into revenue sooner because we test the complete rack before it ships and stand it up within six hours of delivery, which shortens time-to-first-token. Demand continues to accelerate and broaden
+globally,
+with more than 7,500 customers
+deploying
+Dell AI Factories.”
+“
+The team executed exceptionally well, driving record revenue of $54.9 billion, record EPS and a record $4.9 billion returned to shareholders
+,” said David Kennedy, chief financial officer, Dell Technologies. “Operating expenses as a percentage of revenue continues to decline, while non-GAAP operating expenses fell to 7% of revenue, the lowest in our 42-year history. We’ve continued to run the company more efficiently as we’ve grown, and that is driving higher profitability, even as AI servers become a larger part of our business. We’ve generated record year-to-date cash flow from operations of
+$10.8 billion
+, and the Board approved a
+$25 billion
+increase to our repurchase authorization, reflecting confidence in long-term value creation.”
+Infrastructure Solutions Group
+(ISG)
+•
+Record revenue: $42.0 billion, up 198% year over year
+•
+Record AI-Optimized Servers revenue: $22.0 billion, up 291% year over year
+•
+Record Traditional Servers and Networking revenue: $15.0 billion, up 235% year over year
+•
+Record third-quarter Storage revenue: $4.9 billion, up 24% year over year
+•
+Record operating income: $7.1 billion, up 308% year over year
+1
+Client Solutions Group
+(CSG)
+•
+Revenue: $12.9 billion, up 3% year over year
+•
+Operating income: $704 million, down 6% year over year
+Capital Return
+Dell Technologies returned a record $4.9 billion to shareholders in the third quarter through share repurchases and dividends.
+The Company’s Board of Directors has also approved the repurchase of an additional $25.0 billion
+of shares of the Company’s Class C common stock under the stock repurchase program previously approved by the Board of Directors.
+Guidance Summary
+(in billions, except percentages and per share amounts)
+Fourth-Quarter Guidance
+Q4FY27 (% Y/Y)
+Revenue
+$
+56.3
+69
+%
+GAAP diluted EPS
+$
+7.90
+134
+%
+Non-GAAP diluted EPS
+$
+8.40
+116
+%
+Full-Year Guidance
+FY27 Previous
+FY27 Updated (% Y/Y)
+Revenue
+$
+192.0
+$
+202.0
+78
+%
+AI-Optimized Servers revenue
+$
+74.0
+$
+78.0
+216
+%
+GAAP diluted EPS
+$
+24.37
+$
+28.24
+225
+%
+Non-GAAP diluted EPS
+$
+25.50
+$
+29.68
+188
+%
+2
+Third Quarter Fiscal 2027 Financial Results
+Three Months Ended
+Nine Months Ended
+October 30, 2026
+October 31, 2025
+Change
+October 30, 2026
+October 31, 2025
+Change
+(in millions, except per share amounts and percentages; unaudited)
+Net revenue
+$
+54,937
+$
+27,005
+103%
+$
+145,750
+$
+80,159
+82%
+Operating income
+$
+7,442
+$
+2,119
+251%
+$
+16,483
+$
+5,057
+226%
+Net income
+$
+5,673
+$
+1,548
+266%
+$
+13,244
+$
+3,677
+260%
+Change in cash from operating activities
+$
+4,459
+$
+1,172
+280%
+$
+10,765
+$
+6,511
+65%
+Earnings per share — diluted
+$
+8.82
+$
+2.28
+287%
+$
+20.38
+$
+5.34
+282%
+Non-GAAP operating income
+$
+7,826
+$
+2,503
+213%
+$
+17,990
+$
+6,453
+179%
+Non-GAAP net income
+$
+6,074
+$
+1,762
+245%
+$
+13,855
+$
+4,439
+212%
+Adjusted free cash flow
+$
+4,288
+$
+1,670
+157%
+$
+15,602
+$
+6,420
+143%
+Non-GAAP earnings per share — diluted
+$
+9.45
+$
+2.59
+265%
+$
+21.32
+$
+6.44
+231%
+Information about Dell Technologies’ non-GAAP financial measures is provided under “Non-GAAP Financial Measures” below. All comparisons in this press release are year over year unless otherwise noted.
+Operating Segments Results
+Three Months Ended
+Nine Months Ended
+October 30, 2026
+October 31, 2025
+Change
+October 30, 2026
+October 31, 2025
+Change
+(in millions, except percentages; unaudited)
+Infrastructure Solutions Group (ISG):
+Net revenue:
+AI-Optimized Servers
+$
+22,031
+$
+5,641
+291%
+$
+54,564
+$
+15,731
+247%
+Traditional Servers and Networking
+15,013
+4,484
+235%
+34,087
+13,659
+150%
+Storage
+4,930
+3,982
+24%
+14,114
+11,834
+19%
+Total ISG net revenue
+$
+41,974
+$
+14,107
+198%
+$
+102,765
+$
+41,224
+149%
+Operating income:
+ISG operating income
+$
+7,118
+$
+1,743
+308%
+$
+14,954
+$
+4,211
+255%
+% of ISG net revenue
+17.0
+%
+12.4
+%
+14.6
+%
+10.2
+%
+% of total reportable segment operating income
+91
+%
+70
+%
+83
+%
+66
+%
+Client Solutions Group (CSG):
+Net revenue:
+Commercial
+$
+11,300
+$
+10,621
+6%
+$
+37,512
+$
+32,448
+16%
+Consumer
+1,586
+1,857
+(15)%
+5,017
+5,042
+—%
+Total CSG net revenue
+$
+12,886
+$
+12,478
+3%
+$
+42,529
+$
+37,490
+13%
+Operating income:
+CSG operating income
+$
+704
+$
+748
+(6)%
+$
+3,016
+$
+2,204
+37%
+% of CSG net revenue
+5.5
+%
+6.0
+%
+7.1
+%
+5.9
+%
+% of total reportable segment operating income
+9
+%
+30
+%
+17
+%
+34
+%
+3
+Conference call information
+As previously announced, the company will hold a conference call to discuss its performance and financial guidance on Nov. 24
+at 3:30 p.m. CST. Prior to the start of the conference call, prepared remarks and a presentation containing additional financial and operating information
+may be downloaded from investors.delltechnologies.com. The conference call will be presented live over the internet and can be accessed at https://investors.delltechnologies.com/news-events/upcoming-events.
+For those unable to listen to the live presentation, the final remarks and presentation with additional financial and operating information will be available following the presentation, and an archived version will be available at the same location for one year.
+About Dell Technologies
+Dell Technologies (NYSE: DELL) helps organizations and individuals build their digital future and transform how they work, live and play. The company provides customers with the industry’s broadest
+and most innovative technology and services portfolio for the AI era.
+Contacts
+Investors: Investor_Relations@Dell.com
+Media: Media.Relations@Dell.com
+# # #
+Copyright ©
+2026
+Dell Inc. or its subsidiaries. All Rights Reserved. Dell Technologies, Dell, EMC and Dell EMC are trademarks of Dell Inc. or its subsidiaries. Other trademarks may be trademarks of their respective owners.
+Non-GAAP Financial Measures:
+This press release presents information about non-GAAP gross margin, non-GAAP operating expenses, non-GAAP operating income, non-GAAP net income, non-GAAP earnings per share  – diluted, free cash flow, and adjusted free cash flow, all of which are non-GAAP financial measures provided as a supplement to the results provided in accordance with generally accepted accounting principles in the United States of America (“GAAP”). A reconciliation of each non-GAAP financial measure to the most directly comparable GAAP financial measure is provided in the attached tables for each of the fiscal periods indicated.
+Special Note on Forward-Looking Statements:
+Statements in this press release that relate to future results and events are forward-looking statements within the meaning of Section 21E of the Securities Exchange Act of 1934 and Section 27A of the Securities Act of 1933 and are based on Dell Technologies’ current expectations. In some cases, you can identify these statements by such forward-looking words as “anticipate,” “believe,” “confidence,” “could,” “estimate,” “expect,” “guidance,” “intend,” “may,” “objective,” “outlook,” “plan,” “project,” “possible,” “potential,” “should,” “will” and “would,” or similar words or expressions that refer to future events or outcomes.
+Forward-looking statements include, among others, any statements regarding Dell Technologies’ expectations for fourth-quarter and full-year fiscal 2027 revenue, GAAP diluted earnings per share and non-GAAP diluted earnings per share, and for full-year fiscal 2027 AI-optimized servers revenue, as well as any other statements regarding Dell Technologies’ prospects and its future operations, financial condition, volumes, cash flows, expenses or other financial items, including management’s plans or strategies and objectives for any of the foregoing and any assumptions, expectations or beliefs underlying any of the foregoing.
+Dell Technologies’ results or events in future periods could differ materially from those expressed or implied by these forward-looking statements because of risks, uncertainties, and other factors that include, but are not limited to, the following: adverse global economic conditions; competitive pressures; Dell Technologies’ ability to successfully execute its strategy; Dell Technologies’ relationships with third-party suppliers for products and components; Dell Technologies’ use of single-source or limited-source suppliers; effects on Dell Technologies’ operating performance related to demand for AI solutions; management of Dell Technologies’ AI solutions and use of AI in internal functions and operations; Dell Technologies’ ability to deliver high-quality products, software, and services and to manage solutions and products and services transitions in an effective manner; Dell Technologies’ ability to successfully implement its cost efficiency plans; security incidents, including cyber-attacks; Dell Technologies’ foreign operations and ability to generate substantial non-U.S. net revenue; Dell Technologies’ product, services, customer, and geographic sales mix, and seasonal sales trends; the performance of Dell Technologies’ sales channel partners; Dell Technologies’ ability to successfully execute on strategic initiatives including acquisitions and divestitures; access to the capital markets by Dell Technologies or its customers; weak economic conditions, changing customer mix, and the effect of additional regulation on Dell Technologies’ financial services activities; counterparty default risks; material impairment of the value of
+4
+goodwill or intangible assets; the loss by Dell Technologies of any contracts for ISG services and solutions and its ability to perform such contracts at their estimated costs; loss by Dell Technologies of government contracts; Dell Technologies’ ability to develop and protect its proprietary intellectual property or obtain licenses to intellectual property developed by others on commercially reasonable and competitive terms; disruptions in Dell Technologies’ infrastructure; Dell Technologies’ ability to hedge effectively its exposure to fluctuations in foreign currency exchange rates and interest rates; adverse legislative or regulatory tax changes, expiration of tax holidays or favorable tax rate structures, or unfavorable outcomes in tax audits and other tax compliance matters; declines in fair value or impairment of portfolio investments; unfavorable results of legal proceedings; evolving and varied expectations and regulatory requirements relating to sustainability issues; the effect of global climate change and related legal, regulatory or market measures; compliance with environmental and safety laws; compliance requirements of anti-corruption laws, economic sanctions and other trade laws, human rights laws, or other laws regulating its international operations; Dell Technologies’ dependence on the services of Michael Dell and key employees; Dell Technologies’ level of indebtedness; and business and financial factors and legal restrictions affecting continuation of Dell Technologies’ quarterly cash dividend policy and dividend rate.
+This list of risks, uncertainties, and other factors is not complete. Dell Technologies discusses some of these matters more fully, as well as certain risk factors that could affect Dell Technologies’ business, financial condition, results of operations, and prospects, in its reports filed with the SEC, including Dell Technologies’ annual report on Form 10-K for the fiscal year ended January 30, 2026, quarterly reports on Form 10-Q, and current reports on Form 8-K. These filings are available for review through the SEC’s website at www.sec.gov. Any or all forward-looking statements Dell Technologies makes may turn out to be wrong and can be affected by inaccurate assumptions Dell Technologies might make or by known or unknown risks, uncertainties, and other factors, including those identified in this press release. Accordingly, you should not place undue reliance on the forward-looking statements made in this press release, which speak only as of its date. Dell Technologies does not undertake to update, and expressly disclaims any duty to update, its forward-looking statements, whether as a result of circumstances or events that arise after the date they are made, new information, or otherwise.
+5
+DELL TECHNOLOGIES INC.
+Condensed Consolidated Statements of Income and Related Financial Highlights
+(in millions, except per share amounts and percentages; unaudited)
+Three Months Ended
+Nine Months Ended
+October 30, 2026
+October 31, 2025
+Change
+October 30, 2026
+October 31, 2025
+Change
+Net revenue:
+Products
+$
+48,925
+$
+21,255
+130%
+$
+128,142
+$
+62,789
+104%
+Services
+6,012
+5,750
+5%
+17,608
+17,370
+1%
+Total net revenue
+54,937
+27,005
+103%
+145,750
+80,159
+82%
+Cost of net revenue:
+Products
+40,100
+18,279
+119%
+106,942
+54,439
+96%
+Services
+3,278
+3,133
+5%
+9,637
+9,743
+(1)%
+Total cost of revenue
+43,378
+21,412
+103%
+116,579
+64,182
+82%
+Gross margin
+11,559
+5,593
+107%
+29,171
+15,977
+83%
+Operating expenses:
+Selling, general, and administrative
+3,144
+2,722
+16%
+9,623
+8,575
+12%
+Research and development
+973
+752
+29%
+3,065
+2,345
+31%
+Total operating expenses
+4,117
+3,474
+19%
+12,688
+10,920
+16%
+Operating income
+7,442
+2,119
+251%
+16,483
+5,057
+226%
+Interest and other, net
+(355)
+(178)
+(99)%
+(317)
+(593)
+47%
+Income before income taxes
+7,087
+1,941
+265%
+16,166
+4,464
+262%
+Income tax expense
+1,414
+393
+260%
+2,922
+787
+271%
+Net income
+$
+5,673
+$
+1,548
+266%
+$
+13,244
+$
+3,677
+260%
+Earnings per share:
+Basic
+$
+8.93
+$
+2.31
+287%
+$
+20.60
+$
+5.41
+281%
+Diluted
+$
+8.82
+$
+2.28
+287%
+$
+20.38
+$
+5.34
+282%
+Weighted average shares:
+Basic
+635
+671
+(5)%
+643
+680
+(5)%
+Diluted
+643
+680
+(5)%
+650
+689
+(6)%
+Percentage of Total Net Revenue:
+Gross margin
+21.0
+%
+20.7
+%
+20.0
+%
+19.9
+%
+Selling, general, and administrative
+5.7
+%
+10.1
+%
+6.6
+%
+10.7
+%
+Research and development
+1.8
+%
+2.8
+%
+2.1
+%
+2.9
+%
+Operating expenses
+7.5
+%
+12.9
+%
+8.7
+%
+13.6
+%
+Operating income
+13.5
+%
+7.8
+%
+11.3
+%
+6.3
+%
+Income before income taxes
+12.9
+%
+7.2
+%
+11.1
+%
+5.6
+%
+Net income
+10.3
+%
+5.7
+%
+9.1
+%
+4.6
+%
+Income tax rate
+20.0
+%
+20.2
+%
+18.1
+%
+17.6
+%
+Amounts are based on underlying data and may not visually foot due to rounding.
+6
+DELL TECHNOLOGIES INC.
+Condensed Consolidated Statements of Financial Position
+(in millions; unaudited)
+October 30, 2026
+January 30, 2026
+ASSETS
+Current assets:
+Cash and cash equivalents
+$
+13,553
+$
+11,528
+Accounts receivable, net of allowance of $54 and $77
+28,948
+17,585
+Short-term financing receivables, net of allowance of $233 and $121
+13,182
+8,458
+Inventories
+29,444
+10,437
+Other current assets
+13,168
+9,594
+Total current assets
+98,295
+57,602
+Property, plant, and equipment, net
+7,698
+6,676
+Long-term investments
+2,703
+1,730
+Long-term financing receivables, net of allowance of $140 and $92
+7,758
+5,822
+Goodwill
+19,400
+19,547
+Intangible assets, net
+4,251
+4,533
+Other non-current assets
+5,107
+5,376
+Total assets
+$
+145,212
+$
+101,286
+LIABILITIES AND SHAREHOLDERS’ EQUITY
+Current liabilities:
+Short-term debt
+$
+6,492
+$
+7,990
+Accounts payable
+57,799
+33,630
+Accrued and other
+12,774
+8,315
+Short-term deferred revenue
+16,602
+13,334
+Total current liabilities
+93,667
+63,269
+Long-term debt
+31,205
+23,513
+Long-term deferred revenue
+16,249
+13,596
+Other non-current liabilities
+4,547
+3,378
+Total liabilities
+145,668
+103,756
+Shareholders’ equity (deficit):
+Common stock and capital in excess of $0.01 par value
+9,450
+9,457
+Treasury stock at cost
+(24,491)
+(14,533)
+Retained earnings
+15,332
+3,325
+Accumulated other comprehensive loss
+(747)
+(719)
+Total shareholders' equity (deficit)
+(456)
+(2,470)
+Total liabilities and shareholders' equity
+$
+145,212
+$
+101,286
+7
+DELL TECHNOLOGIES INC.
+Condensed Consolidated Statements of Cash Flows
+(in millions; unaudited)
+Three Months Ended
+Nine Months Ended
+October 30, 2026
+October 31, 2025
+October 30, 2026
+October 31, 2025
+Cash flows from operating activities:
+Net income
+$
+5,673
+$
+1,548
+$
+13,244
+$
+3,677
+Adjustments to reconcile net income to net cash provided by operating activities
+(1,214)
+(376)
+(2,479)
+2,834
+Change in cash from operating activities
+4,459
+1,172
+10,765
+6,511
+Cash flows from investing activities:
+Purchases of investments
+(101)
+(46)
+(436)
+(171)
+Sales of investments
+134
+71
+224
+130
+Capital expenditures and capitalized software development costs
+(985)
+(669)
+(3,187)
+(1,912)
+Divestitures of businesses and assets, net
+—
+—
+—
+533
+Other
+27
+27
+70
+60
+Change in cash from investing activities
+(925)
+(617)
+(3,329)
+(1,360)
+Cash flows from financing activities:
+Repurchases of common stock
+(4,379)
+(1,247)
+(9,803)
+(4,167)
+Repurchases of common stock for employee tax withholdings
+(12)
+(22)
+(567)
+(379)
+Payments of dividends and dividend equivalents
+(398)
+(351)
+(1,267)
+(1,113)
+Proceeds from debt
+7,851
+6,502
+14,702
+13,772
+Repayments of debt
+(4,528)
+(3,977)
+(8,333)
+(7,401)
+Debt-related costs and other, net
+(41)
+(48)
+(75)
+(83)
+Change in cash from financing activities
+(1,507)
+857
+(5,343)
+629
+Effect of exchange rate changes on cash, cash equivalents, and restricted cash
+(34)
+30
+(69)
+134
+Change in cash, cash equivalents, and restricted cash
+1,993
+1,442
+2,024
+5,914
+Cash, cash equivalents, and restricted cash at beginning of the period
+11,737
+8,291
+11,706
+3,819
+Cash, cash equivalents, and restricted cash at end of the period
+$
+13,730
+$
+9,733
+$
+13,730
+$
+9,733
+8
+DELL TECHNOLOGIES INC.
+Segment Information
+(in millions, except percentages; unaudited; continued on next page)
+Three Months Ended
+Nine Months Ended
+October 30, 2026
+October 31, 2025
+Change
+October 30, 2026
+October 31, 2025
+Change
+Infrastructure Solutions Group (ISG):
+Net revenue:
+AI-Optimized Servers
+$
+22,031
+$
+5,641
+291%
+$
+54,564
+$
+15,731
+247%
+Traditional Servers and Networking
+15,013
+4,484
+235%
+34,087
+13,659
+150%
+Storage
+4,930
+3,982
+24%
+14,114
+11,834
+19%
+Total ISG net revenue
+$
+41,974
+$
+14,107
+198%
+$
+102,765
+$
+41,224
+149%
+Operating income:
+ISG operating income
+$
+7,118
+$
+1,743
+308%
+$
+14,954
+$
+4,211
+255%
+% of ISG net revenue
+17.0
+%
+12.4
+%
+14.6
+%
+10.2
+%
+% of total reportable segment operating income
+91
+%
+70
+%
+83
+%
+66
+%
+Client Solutions Group (CSG):
+Net revenue:
+Commercial
+$
+11,300
+$
+10,621
+6%
+$
+37,512
+$
+32,448
+16%
+Consumer
+1,586
+1,857
+(15)%
+5,017
+5,042
+—%
+Total CSG net revenue
+$
+12,886
+$
+12,478
+3%
+$
+42,529
+$
+37,490
+13%
+Operating income:
+CSG operating income
+$
+704
+$
+748
+(6)%
+$
+3,016
+$
+2,204
+37%
+% of CSG net revenue
+5.5
+%
+6.0
+%
+7.1
+%
+5.9
+%
+% of total reportable segment operating income
+9
+%
+30
+%
+17
+%
+34
+%
+Amounts are based on underlying data and may not visually foot due to rounding.
+9
+DELL TECHNOLOGIES INC.
+Segment Information
+(in millions; unaudited; continued)
+Three Months Ended
+Nine Months Ended
+October 30, 2026
+October 31, 2025
+October 30, 2026
+October 31, 2025
+Reconciliation to consolidated net revenue:
+Reportable segment net revenue
+$
+54,860
+$
+26,585
+$
+145,294
+$
+78,714
+Corporate and other (a)
+77
+420
+456
+1,445
+Total consolidated net revenue
+$
+54,937
+$
+27,005
+$
+145,750
+$
+80,159
+Reconciliation to consolidated operating income:
+Reportable segment operating income (b)
+$
+7,822
+$
+2,491
+$
+17,970
+$
+6,415
+Corporate and other (a)
+4
+12
+20
+38
+Amortization of intangibles (c)
+(101)
+(121)
+(294)
+(372)
+Stock-based compensation expense (d)
+(184)
+(165)
+(557)
+(534)
+Other corporate expenses (e)
+(99)
+(98)
+(656)
+(490)
+Total consolidated operating income (f)
+$
+7,442
+$
+2,119
+$
+16,483
+$
+5,057
+_________________
+(a)
+Corporate and other includes VMware Resale and other items that are managed at the corporate level and are not allocated to reportable segments.
+(b)
+Depreciation expense directly attributable to each reportable segment is included in the operating results of each segment. However, the Chief Operating Decision Maker does not evaluate depreciation expense by operating segment, and therefore such expense is not separately presented.
+(c)
+Amortization of intangibles includes non-cash purchase accounting adjustments that are primarily related to the EMC merger transaction completed in September 2016.
+(d)
+Stock-based compensation expense consists of equity awards granted based on the estimated fair value of those awards at grant date.
+(e)
+Other corporate expenses includes severance expenses, payroll taxes associated with stock-based compensation, incentive charges related to equity investments, transaction-related expenses, and impairment charges.
+(f)
+Income and expenses within Interest and other, net, is not allocated to the reportable segments. Therefore, the company only reports reportable segment operating income.
+10
+SUPPLEMENTAL SELECTED NON-GAAP FINANCIAL MEASURES
+These tables present information about the company’s non-GAAP gross margin, non-GAAP operating expenses, non-GAAP operating income, non-GAAP net income, non-GAAP earnings per share - diluted, free cash flow and adjusted free cash flow, all of which are non-GAAP financial measures provided as a supplement to the results provided in accordance with generally accepted accounting principles in the United States of America (“GAAP”). A detailed discussion of Dell Technologies’ reasons for including certain of these non-GAAP financial measures, the limitations associated with these measures, the items excluded from these measures, and the company’s reason for excluding those items are presented in “Management’s Discussion and Analysis of Financial Condition and Results of Operations — Non-GAAP Financial Measures” in the company’s periodic reports filed with the SEC. Dell Technologies encourages investors to review the non-GAAP discussion in these reports in conjunction with the presentation of non-GAAP financial measures.
+11
+DELL TECHNOLOGIES INC.
+Selected Financial Measures
+(in millions, except per share amounts and percentages; unaudited)
+Three Months Ended
+Nine Months Ended
+October 30, 2026
+October 31, 2025
+Change
+October 30, 2026
+October 31, 2025
+Change
+Net revenue
+$
+54,937
+$
+27,005
+103%
+$
+145,750
+$
+80,159
+82%
+Non-GAAP gross margin
+$
+11,659
+$
+5,686
+105%
+$
+29,535
+$
+16,315
+81%
+% of net revenue
+21.2
+%
+21.1
+%
+20.3
+%
+20.4
+%
+Non-GAAP operating expenses
+$
+3,833
+$
+3,183
+20%
+$
+11,545
+$
+9,862
+17%
+% of net revenue
+7.0
+%
+11.8
+%
+7.9
+%
+12.3
+%
+Non-GAAP operating income
+$
+7,826
+$
+2,503
+213%
+$
+17,990
+$
+6,453
+179%
+% of net revenue
+14.2
+%
+9.3
+%
+12.3
+%
+8.1
+%
+Non-GAAP net income
+$
+6,074
+$
+1,762
+245%
+$
+13,855
+$
+4,439
+212%
+% of net revenue
+11.1
+%
+6.5
+%
+9.5
+%
+5.5
+%
+Non-GAAP earnings per share — diluted
+$
+9.45
+$
+2.59
+265%
+$
+21.32
+$
+6.44
+231%
+Amounts are based on underlying data and may not visually foot due to rounding.
+12
+DELL TECHNOLOGIES INC.
+Reconciliation of Selected Non-GAAP Financial Measures
+(in millions, except percentages; unaudited; continued on next page)
+Three Months Ended
+Nine Months Ended
+October 30, 2026
+October 31, 2025
+Change
+October 30, 2026
+October 31, 2025
+Change
+Gross margin
+$
+11,559
+$
+5,593
+107%
+$
+29,171
+$
+15,977
+83%
+Non-GAAP adjustments:
+Amortization of intangibles
+30
+41
+87
+121
+Stock-based compensation expense
+46
+38
+133
+114
+Other corporate expenses
+24
+14
+144
+103
+Non-GAAP gross margin
+$
+11,659
+$
+5,686
+105%
+$
+29,535
+$
+16,315
+81%
+Operating expenses
+$
+4,117
+$
+3,474
+19%
+$
+12,688
+$
+10,920
+16%
+Non-GAAP adjustments:
+Amortization of intangibles
+(71)
+(80)
+(207)
+(251)
+Stock-based compensation expense
+(138)
+(127)
+(424)
+(420)
+Other corporate expenses
+(75)
+(84)
+(512)
+(387)
+Non-GAAP operating expenses
+$
+3,833
+$
+3,183
+20%
+$
+11,545
+$
+9,862
+17%
+Operating income
+$
+7,442
+$
+2,119
+251%
+$
+16,483
+$
+5,057
+226%
+Non-GAAP adjustments:
+Amortization of intangibles
+101
+121
+294
+372
+Stock-based compensation expense
+184
+165
+557
+534
+Other corporate expenses
+99
+98
+656
+490
+Non-GAAP operating income
+$
+7,826
+$
+2,503
+213%
+$
+17,990
+$
+6,453
+179%
+Net income
+$
+5,673
+$
+1,548
+266%
+$
+13,244
+$
+3,677
+260%
+Non-GAAP adjustments:
+Amortization of intangibles
+101
+121
+294
+372
+Stock-based compensation expense
+184
+165
+557
+534
+Other corporate expenses
+92
+95
+640
+237
+Fair value adjustments on equity investments
+(57)
+(173)
+(761)
+(194)
+Aggregate adjustment for income taxes (a)
+81
+6
+(119)
+(187)
+Non-GAAP net income
+$
+6,074
+$
+1,762
+245%
+$
+13,855
+$
+4,439
+212%
+____________________
+(a)
+The company’s non-GAAP income tax is calculated using a fixed estimated annual tax rate.
+13
+DELL TECHNOLOGIES INC.
+Reconciliation of Selected Non-GAAP Financial Measures
+(unaudited; continued)
+Three Months Ended
+Nine Months Ended
+October 30, 2026
+October 31, 2025
+Change
+October 30, 2026
+October 31, 2025
+Change
+Earnings per share — diluted
+$
+8.82
+$
+2.28
+287
+%
+$
+20.38
+$
+5.34
+282
+%
+Non-GAAP adjustments:
+Amortization of intangibles
+0.16
+0.18
+0.45
+0.54
+Stock-based compensation expense
+0.29
+0.24
+0.86
+0.78
+Other corporate expenses
+0.14
+0.14
+0.99
+0.35
+Fair value adjustments on equity investments
+(0.09)
+(0.25)
+(1.17)
+(0.28)
+Aggregate adjustment for income taxes (a)
+0.13
+—
+(0.19)
+(0.29)
+Non-GAAP earnings per share — diluted
+$
+9.45
+$
+2.59
+265
+%
+$
+21.32
+$
+6.44
+231
+%
+____________________
+(a)
+The company’s non-GAAP income tax is calculated using a fixed estimated annual tax rate.
+14
+DELL TECHNOLOGIES INC.
+Reconciliation of Selected Non-GAAP Financial Measures
+(in millions, except percentages; unaudited; continued)
+Three Months Ended
+Nine Months Ended
+October 30, 2026
+October 31, 2025
+Change
+October 30, 2026
+October 31, 2025
+Change
+Cash flow from operations
+$
+4,459
+$
+1,172
+280
+%
+$
+10,765
+$
+6,511
+65
+%
+Non-GAAP adjustments:
+Capital expenditures and capitalized software development costs, net (a)
+(985)
+(666)
+(3,187)
+(1,909)
+Free cash flow
+$
+3,474
+$
+506
+587
+%
+$
+7,578
+$
+4,602
+65
+%
+Free cash flow
+$
+3,474
+$
+506
+587
+%
+$
+7,578
+$
+4,602
+65
+%
+Non-GAAP adjustments:
+Financing receivables (b)
+661
+1,135
+7,065
+1,704
+Equipment under operating leases (c)
+153
+29
+959
+114
+Adjusted free cash flow
+$
+4,288
+$
+1,670
+157
+%
+$
+15,602
+$
+6,420
+143
+%
+____________________
+(a)
+Capital expenditures and capitalized software development costs, net includes proceeds from sales of facilities, land, and other assets.
+(b)
+Financing receivables represent the operating cash flow impact from the change in financing receivables.
+(c)
+Equipment under operating leases represents the net impact of capital expenditures and depreciation expense for leases and contractually embedded leases identified within flexible consumption arrangements.
+15
+DELL TECHNOLOGIES INC.
+Reconciliation of Non-GAAP Financial Measures in Summary Guidance
+(unaudited)
+Three Months Ending
+Fiscal Year Ending
+January 29, 2027
+January 29, 2027
+Previous
+Updated
+Earnings per share — diluted
+$
+7.90
+$
+24.37
+$
+28.24
+Non-GAAP adjustments:
+Amortization of intangibles (a)
+0.15
+0.60
+0.61
+Stock-based compensation
+0.30
+1.16
+1.15
+Other corporate expenses (b)
+—
+0.84
+0.99
+Fair value adjustments on equity investments (c)
+—
+(1.08)
+(1.18)
+Aggregate adjustment for income taxes (d)
+0.05
+(0.39)
+(0.13)
+Non-GAAP earnings per share — diluted
+$
+8.40
+$
+25.50
+$
+29.68
+____________________
+(a)
+Amortization of intangibles represents an estimate for acquisitions completed as of October 30, 2026 and does not include estimates for potential acquisitions, if any, during fiscal 2027.
+(b)
+Consists primarily of severance expenses, payroll taxes associated with stock-based compensation, transaction-related expenses, impairment charges, and incentive charges related to equity investments. No estimate is included for severance expense as such expense cannot be reasonably estimated at this time.
+(c)
+No estimates are included for potential fair value adjustments on strategic investments given the potential volatility of either gains or losses on those equity investments.
+(d)
+The fiscal 2027 aggregate adjustment to reconcile non-GAAP income tax expense to GAAP income tax expense is approximately $0.1 billion. The aggregate adjustment for income taxes is the estimated combined income tax effect for the adjustments shown above as well as an adjustment for discrete tax items. The company’s non-GAAP income tax is calculated using a fixed estimated annual tax rate.
+16

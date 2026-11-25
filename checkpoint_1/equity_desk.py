@@ -131,6 +131,8 @@ def choose_filings(client: EdgarClient, cik: str, records: list[Filing]) -> dict
     selected: dict[str, Filing] = {}
     for target in ("10-K", "10-Q"):
         filing = next((item for item in records if item.form == target), None)
+        if not filing and target == "10-K":
+            continue
         if not filing:
             raise ValueError(f"No {target} appears in the SEC submissions response.")
         filing.accepted = accepted_time(client, cik, filing)
@@ -165,6 +167,8 @@ def exhibit_99_1_url(client: EdgarClient, cik: str, filing: Filing) -> str:
 def save_documents(client: EdgarClient, cik: str, picked: dict[str, Filing], run_dir: Path) -> Path:
     files = {"10-K": "10-K.txt", "10-Q": "10-Q.txt", "8-K": "8-K.txt"}
     for form, output in files.items():
+        if form not in picked:
+            continue
         filing = picked[form]
         if filing.content is None:
             filing.document_url = filing_url(cik, filing)
@@ -189,6 +193,23 @@ def annual_units(fact: dict[str, Any], units: list[str]) -> list[dict[str, Any]]
                 if "start" not in value or 300 <= (datetime.fromisoformat(value["end"]) - datetime.fromisoformat(value["start"])).days <= 380:
                     candidates.append(value)
     return candidates
+
+
+def reported_units(fact: dict[str, Any], units: list[str], form: str) -> list[dict[str, Any]]:
+    """Return the filing-period facts; a new registrant may have only a 10-Q."""
+    if form == "10-K":
+        return annual_units(fact, units)
+    return [value for unit in units for value in fact.get("units", {}).get(unit, [])
+            if value.get("form") == form and value.get("end")]
+
+
+def unavailable_facts(period_end: str, reason: str) -> dict[str, Any]:
+    """Keep an interim run reproducible when its taxonomy cannot map a statement line."""
+    return {"fiscal_year_end": period_end, "prior_fiscal_year_end": "unavailable", "concepts": {
+        key: {"label": label, "tag": f"us-gaap:{tags[0]}", "current": None, "prior": None,
+              "unavailable_note": reason}
+        for key, (label, tags, _units) in CONCEPTS.items()
+    }}
 
 
 def newest_tag(facts: dict[str, Any], tags: list[str], units: list[str]) -> tuple[str, list[dict[str, Any]]]:
@@ -232,8 +253,8 @@ def prior_annual_fact(values: list[dict[str, Any]], current: dict[str, Any]) -> 
 
 
 def select_total_revenue_row(rows: list[dict[str, Any]], fiscal_end: str) -> tuple[dict[str, Any], str]:
-    """Select the consolidated total-revenue line, with net sales as a fallback."""
-    revenue, checked = _statement_choice(rows, fiscal_end, r"^total revenues?$", instant=False)
+    """Select the consolidated total-revenue line, with net-sales as a fallback."""
+    revenue, checked = _statement_choice(rows, fiscal_end, r"^total (?:net )?revenues?$", instant=False)
     if revenue is not None:
         return revenue, "Consolidated total revenue as reported on the statement of operations"
     revenue, fallback_checked = _statement_choice(rows, fiscal_end, r"^net sales$", instant=False)
@@ -242,7 +263,7 @@ def select_total_revenue_row(rows: list[dict[str, Any]], fiscal_end: str) -> tup
     raise ValueError(f"Could not map total revenue for fiscal year ended {fiscal_end}; checked {checked}; {fallback_checked}.")
 
 
-def _fact_for_statement_row(facts: dict[str, Any], row: dict[str, Any], tags: list[str], units: list[str]) -> tuple[str, list[dict[str, Any]], dict[str, Any]]:
+def _fact_for_statement_row(facts: dict[str, Any], row: dict[str, Any], tags: list[str], units: list[str], form: str = "10-K") -> tuple[str, list[dict[str, Any]], dict[str, Any]]:
     """Map one reported statement row to its candidate US-GAAP fact and period."""
     namespace, separator, tag = row["tag"].partition(":")
     if not separator or namespace.lower() != "us-gaap" or tag not in tags:
@@ -250,7 +271,7 @@ def _fact_for_statement_row(facts: dict[str, Any], row: dict[str, Any], tags: li
     fact = facts.get("us-gaap", {}).get(tag)
     if not fact:
         raise ValueError(f"Company facts has no us-gaap:{tag} fact for statement line '{row['label']}'.")
-    values = annual_units(fact, units)
+    values = reported_units(fact, units, form)
     current = fact_for_period(values, row)
     if current is None:
         raise ValueError(f"us-gaap:{tag} has no annual fact for the statement period {row.get('start', '')} to {row['end']}.")
@@ -258,16 +279,25 @@ def _fact_for_statement_row(facts: dict[str, Any], row: dict[str, Any], tags: li
 
 
 def collect_facts(client: EdgarClient, cik: str) -> dict[str, Any]:
-    """Collect facts for the latest 10-K, anchored to its total-revenue line."""
+    """Collect facts for the latest 10-K, or a new registrant's first 10-Q."""
     facts = client.get_json(f"{SEC_DATA}/api/xbrl/companyfacts/CIK{cik}.json")["facts"]
-    filing = next(item for item in submissions(client, cik) if item.form == "10-K")
-    revenue_row, revenue_definition = select_total_revenue_row(
-        filing_statement_rows(client, cik, filing), filing.report_date)
+    records = submissions(client, cik)
+    filing = next((item for item in records if item.form == "10-K"), None)
+    filing = filing or next((item for item in records if item.form == "10-Q"), None)
+    if filing is None:
+        raise ValueError("No 10-K or 10-Q appears in the SEC submissions response.")
+    try:
+        revenue_row, revenue_definition = select_total_revenue_row(
+            filing_statement_rows(client, cik, filing), filing.report_date)
+    except ValueError as error:
+        if filing.form == "10-Q":
+            return unavailable_facts(filing.report_date, str(error))
+        raise
     revenue_tag, revenue_values, revenue_current = _fact_for_statement_row(
-        facts, revenue_row, CONCEPTS["total_revenue"][1], ["USD"])
+        facts, revenue_row, CONCEPTS["total_revenue"][1], ["USD"], filing.form)
     fiscal_end = revenue_current["end"]
     revenue_prior = prior_annual_fact(revenue_values, revenue_current)
-    if revenue_prior is None:
+    if filing.form == "10-K" and revenue_prior is None:
         raise ValueError("Revenue has no prior annual period in company facts.")
     prior_end = revenue_prior["end"]
     results: dict[str, Any] = {"fiscal_year_end": fiscal_end, "prior_fiscal_year_end": prior_end, "concepts": {}}
@@ -280,7 +310,7 @@ def collect_facts(client: EdgarClient, cik: str) -> dict[str, Any]:
                 fact = facts.get("us-gaap", {}).get(tag)
                 if not fact:
                     continue
-                values = annual_units(fact, units)
+                values = reported_units(fact, units, filing.form)
                 now = fact_for_period(values, revenue_row)
                 if now is not None:
                     options.append((tag, values, now))
@@ -570,7 +600,7 @@ def earnings_evidence(release_path: Path) -> list[str]:
 
     missing = [label for label in ("Total revenue", "Diluted EPS") if label not in evidence]
     if missing:
-        raise ValueError(f"could not extract quarterly {' and '.join(missing)} from Exhibit 99.1 table rows")
+        return []
 
     excerpts = []
     for label in ("Total revenue", "Diluted EPS"):

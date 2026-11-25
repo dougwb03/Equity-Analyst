@@ -1,0 +1,266 @@
+{
+  "ratios": [
+    {
+      "name": "Revenue growth",
+      "value": 0.1880460828528676,
+      "arithmetic": "(revenue - prior revenue) / prior revenue",
+      "inputs": [
+        {
+          "key": "total_revenue",
+          "label": "Total revenue",
+          "period": "current",
+          "value": 113538000000,
+          "tag": "us-gaap:Revenues",
+          "filing": "0001571996-26-000008",
+          "start": "2025-02-01",
+          "end": "2026-01-30",
+          "definition": "Consolidated total revenue as reported on the statement of operations"
+        },
+        {
+          "key": "total_revenue",
+          "label": "Total revenue",
+          "period": "prior",
+          "value": 95567000000,
+          "tag": "us-gaap:Revenues",
+          "filing": "0001571996-26-000008",
+          "start": "2024-02-03",
+          "end": "2025-01-31",
+          "definition": "Consolidated total revenue as reported on the statement of operations"
+        }
+      ]
+    },
+    {
+      "name": "Operating margin",
+      "value": 0.07177332699184415,
+      "arithmetic": "operating income / revenue",
+      "inputs": [
+        {
+          "key": "total_revenue",
+          "label": "Total revenue",
+          "period": "current",
+          "value": 113538000000,
+          "tag": "us-gaap:Revenues",
+          "filing": "0001571996-26-000008",
+          "start": "2025-02-01",
+          "end": "2026-01-30",
+          "definition": "Consolidated total revenue as reported on the statement of operations"
+        },
+        {
+          "key": "total_revenue",
+          "label": "Total revenue",
+          "period": "prior",
+          "value": 95567000000,
+          "tag": "us-gaap:Revenues",
+          "filing": "0001571996-26-000008",
+          "start": "2024-02-03",
+          "end": "2025-01-31",
+          "definition": "Consolidated total revenue as reported on the statement of operations"
+        },
+        {
+          "key": "operating_income",
+          "label": "Operating income",
+          "period": "current",
+          "value": 8149000000,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "filing": "0001571996-26-000008",
+          "start": "2025-02-01",
+          "end": "2026-01-30",
+          "definition": null
+        },
+        {
+          "key": "operating_income",
+          "label": "Operating income",
+          "period": "prior",
+          "value": 6237000000,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "filing": "0001571996-26-000008",
+          "start": "2024-02-03",
+          "end": "2025-01-31",
+          "definition": null
+        }
+      ]
+    },
+    {
+      "name": "Return on average equity",
+      "value": -3.0040485829959516,
+      "arithmetic": "net income / ((current equity + prior equity) / 2)",
+      "inputs": [
+        {
+          "key": "net_income",
+          "label": "Net income",
+          "period": "current",
+          "value": 5936000000,
+          "tag": "us-gaap:NetIncomeLoss",
+          "filing": "0001571996-26-000008",
+          "start": "2025-02-01",
+          "end": "2026-01-30",
+          "definition": null
+        },
+        {
+          "key": "net_income",
+          "label": "Net income",
+          "period": "prior",
+          "value": 4592000000,
+          "tag": "us-gaap:NetIncomeLoss",
+          "filing": "0001571996-26-000008",
+          "start": "2024-02-03",
+          "end": "2025-01-31",
+          "definition": null
+        },
+        {
+          "key": "stockholders_equity",
+          "label": "Stockholders' equity",
+          "period": "current",
+          "value": -2470000000,
+          "tag": "us-gaap:StockholdersEquity",
+          "filing": "0001571996-26-000008",
+          "start": null,
+          "end": "2026-01-30",
+          "definition": null
+        },
+        {
+          "key": "stockholders_equity",
+          "label": "Stockholders' equity",
+          "period": "prior",
+          "value": -1482000000,
+          "tag": "us-gaap:StockholdersEquity",
+          "filing": "0001571996-26-000008",
+          "start": null,
+          "end": "2025-01-31",
+          "definition": null
+        }
+      ]
+    },
+    {
+      "name": "Debt to equity",
+      "value": -9.519433198380566,
+      "arithmetic": "(long_term_debt) / stockholders' equity",
+      "inputs": [
+        {
+          "key": "stockholders_equity",
+          "label": "Stockholders' equity",
+          "period": "current",
+          "value": -2470000000,
+          "tag": "us-gaap:StockholdersEquity",
+          "filing": "0001571996-26-000008",
+          "start": null,
+          "end": "2026-01-30",
+          "definition": null
+        },
+        {
+          "key": "stockholders_equity",
+          "label": "Stockholders' equity",
+          "period": "prior",
+          "value": -1482000000,
+          "tag": "us-gaap:StockholdersEquity",
+          "filing": "0001571996-26-000008",
+          "start": null,
+          "end": "2025-01-31",
+          "definition": null
+        },
+        {
+          "key": "long_term_debt",
+          "label": "Long-term debt",
+          "period": "current",
+          "value": 23513000000,
+          "tag": "us-gaap:LongTermDebtNoncurrent",
+          "filing": "0001571996-26-000008",
+          "start": null,
+          "end": "2026-01-30",
+          "definition": null
+        },
+        {
+          "key": "long_term_debt",
+          "label": "Long-term debt",
+          "period": "prior",
+          "value": 19363000000,
+          "tag": "us-gaap:LongTermDebtNoncurrent",
+          "filing": "0001571996-26-000008",
+          "start": null,
+          "end": "2025-01-31",
+          "definition": null
+        }
+      ]
+    },
+    {
+      "name": "Free cash flow",
+      "value": 8552000000.0,
+      "arithmetic": "cash from operations - additions to property and equipment",
+      "inputs": [
+        {
+          "key": "cash_from_operations",
+          "label": "Cash from operations",
+          "period": "current",
+          "value": 11185000000,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "filing": "0001571996-26-000008",
+          "start": "2025-02-01",
+          "end": "2026-01-30",
+          "definition": null
+        },
+        {
+          "key": "cash_from_operations",
+          "label": "Cash from operations",
+          "period": "prior",
+          "value": 4521000000,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "filing": "0001571996-26-000008",
+          "start": "2024-02-03",
+          "end": "2025-01-31",
+          "definition": null
+        },
+        {
+          "key": "capex",
+          "label": "Additions to property and equipment",
+          "period": "current",
+          "value": 2633000000,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "filing": "0001571996-26-000008",
+          "start": "2025-02-01",
+          "end": "2026-01-30",
+          "definition": null
+        },
+        {
+          "key": "capex",
+          "label": "Additions to property and equipment",
+          "period": "prior",
+          "value": 2652000000,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "filing": "0001571996-26-000008",
+          "start": "2024-02-03",
+          "end": "2025-01-31",
+          "definition": null
+        }
+      ]
+    },
+    {
+      "name": "P/E",
+      "value": null,
+      "arithmetic": "price / diluted EPS",
+      "inputs": [
+        {
+          "key": "diluted_eps",
+          "label": "Diluted EPS",
+          "period": "current",
+          "value": 8.68,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "filing": "0001571996-26-000008",
+          "start": "2025-02-01",
+          "end": "2026-01-30",
+          "definition": null
+        },
+        {
+          "key": "diluted_eps",
+          "label": "Diluted EPS",
+          "period": "prior",
+          "value": 6.38,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "filing": "0001571996-26-000008",
+          "start": "2024-02-03",
+          "end": "2025-01-31",
+          "definition": null
+        }
+      ]
+    }
+  ]
+}
