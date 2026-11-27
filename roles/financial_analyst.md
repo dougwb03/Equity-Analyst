@@ -17,7 +17,7 @@ Score each area from 1 to 5 and give its number, definition, and filing source:
 1. Profitability: revenue growth, operating income, and operating margin.
 2. Cash conversion: cash from operations, capital expenditures, and free cash flow.
 3. Financial strength: return on average equity, debt-to-equity, and liquidity.
-4. Valuation: P/E or another supplied valuation measure, with its inputs and definition.
+4. Valuation: P/E or another supplied valuation measure, with its inputs and definition. The filing-time LSEG price is not available at this team step. If no filing-only valuation measure is supplied, write `Valuation assessment: not assessed pending the worksheet's filing-time price; no price-based conclusion is made here.` Do not write `N/A`, `NA`, or an empty valuation score.
 
 ## What Changes My View
 
@@ -27,6 +27,6 @@ A lower score is justified by margin pressure, weak cash conversion, rising leve
 
 Write the Valuation Insights section. Use clear paragraphs of no more than two sentences. State each ratio’s definition and quoted inputs. Use exact XBRL records with tag, period, and value for filing facts. Use ratio records with operation, inputs, result, and definition for calculations. Put each source record immediately after its claim. Do not use `fact=`, `evidence=`, or a pipeline-step name as a source.
 
-End the complete output with exactly one line that begins:
+After the main paragraph, insert one blank line and then one standalone bold insight line. Make it a company-specific valuation, cash-flow, leverage, or margin implication that does not merely repeat the paragraph. It must state the key financial risk or monitor when the packet establishes one. Use this exact form:
 
-Insight: <a filing-supported financial claim that the earnings release’s first paragraph does not state> <!-- [source: line|file=...|line=...] -->
+`**Insight: <specific, filing-supported financial implication or monitor>.** <!-- [source: line|file=...|line=...] -->`

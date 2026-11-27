@@ -86,6 +86,7 @@ support. Do not invent another citation format. Do not use `file=`, `fact=`,
 `evidence=`, a comma-separated source list, or a source-line range.
 
 * Filing text: `<!-- [source: line|file=8-K_exhibit_99_1.txt|line=44] -->`
+* Saved company call: `<!-- [source: line|file=conference_call.txt|line=44] -->`
 * XBRL fact: `<!-- [source: xbrl|tag=us-gaap:NetIncomeLoss|period=2025-09-01:2026-08-30|value=9226000000] -->`
 * Calculation: `<!-- [source: ratio|operation=divide|inputs=11685000000;303154000000|result=0.0385|definition=operating income / total revenue] -->`
 
@@ -219,10 +220,14 @@ def step_7(state: DeskState) -> dict[str, Any]:
 def research_node(state: DeskState) -> dict[str, Any]:
     run_dir = Path(state["run_dir"]); sources = {form: sec.filing_source(item) for form, item in state["filings"].items()}
     periodic = run_dir / ("10-K.txt" if (run_dir / "10-K.txt").exists() else "10-Q.txt")
+    call = run_dir / "conference_call.txt"
+    call_source = run_dir / "conference_call_source.json"
     packet = {"task": "Prepare cited research analysis.", "context": {"filings": sources,
         "business_or_interim_filing": sec.bounded_evidence(sec.section_with_lines(periodic, r"item\\s+(?:1\\.?\\s+business|2\\.?\\s+management)", r"item\\s+(?:1a|3)\\.?"), 12_000),
         "mda_or_interim_filing": sec.bounded_evidence(sec.section_with_lines(periodic, r"item\\s*(?:7|2)\\.?", r"item\\s*(?:7a|3)\\.?"), 12_000),
         "earnings_release": evidence_excerpt(run_dir / "8-K_exhibit_99_1.txt", 8_000),
+        "company_call": evidence_excerpt(call, 8_000) if call.exists() else "not supplied; do not claim conference-call evidence",
+        "company_call_source": json.loads(call_source.read_text()) if call_source.exists() else "not supplied",
         "comparable_sales_table": comparable_sales_table(run_dir / "8-K_exhibit_99_1.txt")}, "expected_output": "Markdown material for the assigned report parts."}
     output = call_role(state, "Research Analyst", packet)
     roles = dict(state.get("role_outputs", {})); roles["Research Analyst"] = output
@@ -242,8 +247,8 @@ def financial_node(state: DeskState) -> dict[str, Any]:
 
 
 def advisor_node(state: DeskState) -> dict[str, Any]:
-    packet = {"task": "Create the thesis and rating.", "context": {"research_analyst": state["role_outputs"]["Research Analyst"], "financial_analyst": state["role_outputs"]["Financial Analyst"]},
-              "expected_output": "Markdown Investment Recommendation material."}
+    packet = {"task": "Create filing-backed investment context with a specific risk and measurable monitor, not a price-based rating.", "context": {"research_analyst": state["role_outputs"]["Research Analyst"], "financial_analyst": state["role_outputs"]["Financial Analyst"]},
+              "expected_output": "Markdown Investment Recommendation context that defers the final Buy, Hold, or Sell rating to the worksheet."}
     output = call_role(state, "Investment Advisor", packet)
     roles = dict(state["role_outputs"]); roles["Investment Advisor"] = output
     return record(state, "10_investment_advisor", packet, {"output": output}) | {"role_outputs": roles}
@@ -255,30 +260,69 @@ def parse_rework(text: str) -> dict[str, str] | None:
     return {"role": match.group(1), "part": match.group(2), "feedback": match.group(3)}
 
 
+def insight_lines(text: str) -> list[str]:
+    """Return standalone formatted insights without treating prose as an insight."""
+    return [line.strip() for line in text.splitlines()
+            if re.match(r"^\*\*Insight:\s*.+\*\*\s*(?:<!--.*-->)?$", line.strip())]
+
+
 def insight_line(text: str) -> str | None:
-    """Return the required final Insight line, if the role supplied one."""
-    nonempty = [line.strip() for line in text.splitlines() if line.strip()]
-    if not nonempty or not nonempty[-1].startswith("Insight:"):
-        return None
-    return nonempty[-1]
+    """Return the final formatted Insight line, if the role supplied one."""
+    lines = insight_lines(text)
+    return lines[-1] if lines else None
+
+
+def section_has_insight(text: str) -> bool:
+    return len(insight_lines(text)) == 1
+
+
+def placeholder_failure(role_outputs: dict[str, str]) -> dict[str, str] | None:
+    """Reject a score placeholder rather than passing an empty required section."""
+    for part in REQUIRED_PARTS:
+        role = PART_ROLE[part]
+        content = section_text(role_outputs.get(role, ""), part) or ""
+        if re.search(r"\bN\s*/?\s*A\b", content, re.I):
+            return {"role": role, "part": part,
+                    "feedback": "Replace N/A with filing-backed analysis or state exactly which required input is not assessed and why."}
+    return None
+
+
+def replace_section(prior: str, part: str, replacement: str) -> str:
+    """Replace only the failed H2 section; never leave the earlier version active."""
+    content = section_text(replacement, part) or replacement.strip()
+    block = f"## {part}\n\n{content}".strip()
+    match = re.search(rf"(?m)^#{{1,2}}\s+{re.escape(part)}\s*$", prior)
+    if not match:
+        return prior.rstrip() + "\n\n" + block
+    following = re.search(r"(?m)^#{1,2}\s+", prior[match.end():])
+    end = match.end() + following.start() if following else len(prior)
+    return prior[:match.start()].rstrip() + "\n\n" + block + "\n" + prior[end:].lstrip()
 
 
 def insight_failure(role_outputs: dict[str, str], release_first_paragraph: str) -> dict[str, str] | None:
     """Apply the two required Insight checks without adding a graph branch."""
     release_numbers = {token.rstrip("%") for token in NUMBER.findall(release_first_paragraph)}
+    expected_counts = {"Research Analyst": 3, "Financial Analyst": 1, "Investment Advisor": 1}
+    seen_claims: set[str] = set()
     for role in ("Research Analyst", "Financial Analyst", "Investment Advisor"):
-        line = insight_line(role_outputs.get(role, ""))
+        lines = insight_lines(role_outputs.get(role, ""))
         part = next(part for part, mapped_role in PART_ROLE.items() if mapped_role == role)
-        if line is None:
-            return {"role": role, "part": part, "feedback": "Add one final Insight: line with a filing and line source."}
-        sources = [source_fields(source) for source in SOURCE.findall(line)]
-        if not any(source.get("kind") == "line" and source.get("file") and source.get("line", "").isdigit() for source in sources):
-            return {"role": role, "part": part, "feedback": "The final Insight line must name a saved filing and one exact line."}
-        claim = SOURCE.sub("", line)
-        claim_numbers = {token.rstrip("%") for token in NUMBER.findall(claim)}
-        if claim_numbers and claim_numbers.issubset(release_numbers):
-            return {"role": role, "part": part,
-                    "feedback": "Use an Insight number that the earnings release first paragraph does not state."}
+        if len(lines) != expected_counts[role]:
+            required = "three distinct bold Insight lines" if expected_counts[role] == 3 else "one bold Insight line"
+            return {"role": role, "part": part, "feedback": f"Add {required}, each with a saved filing and one exact line source."}
+        for line in lines:
+            sources = [source_fields(source) for source in SOURCE.findall(line)]
+            if not any(source.get("kind") == "line" and source.get("file") and source.get("line", "").isdigit() for source in sources):
+                return {"role": role, "part": part, "feedback": "Each bold Insight line must name a saved filing and one exact line."}
+            claim = SOURCE.sub("", line).lower()
+            claim = re.sub(r"[^a-z0-9]+", " ", claim).strip()
+            if claim in seen_claims:
+                return {"role": role, "part": part, "feedback": "Make each Insight company-specific and distinct; do not repeat an earlier insight."}
+            seen_claims.add(claim)
+            claim_numbers = {token.rstrip("%") for token in NUMBER.findall(claim)}
+            if claim_numbers and claim_numbers.issubset(release_numbers):
+                return {"role": role, "part": part,
+                        "feedback": "Use an Insight number that the earnings release first paragraph does not state."}
     return None
 
 
@@ -311,7 +355,7 @@ def guaranteed_report(manager_text: str, role_outputs: dict[str, str]) -> tuple[
         # The Manager compiles the report, but must not discard source records
         # while it makes the prose shorter.
         if (not content or source_count(content) < source_count(specialist or "")
-                or (insight_line(specialist or "") and not insight_line(content))):
+                or (section_has_insight(specialist or "") and not section_has_insight(content))):
             repaired = True
             content = specialist
         if not content:
@@ -327,7 +371,7 @@ def manager_node(state: DeskState) -> dict[str, Any]:
               "earnings_release_first_paragraph": release_first_paragraph},
               "expected_output": "Exactly one REWORK ROLE line when one part fails; otherwise exactly APPROVED."}
     output = call_role(state, "Strategy Manager", packet)
-    rework = insight_failure(state["role_outputs"], release_first_paragraph) or parse_rework(output)
+    rework = placeholder_failure(state["role_outputs"]) or insight_failure(state["role_outputs"], release_first_paragraph) or parse_rework(output)
     # Keep the graph moving if a provider adds prose around APPROVED. The raw
     # review is saved for inspection; the fixed compile node still runs next.
     result: dict[str, Any] = {"manager_review": output, "rework": rework,
@@ -342,21 +386,20 @@ def rework_node(state: DeskState) -> dict[str, Any]:
     role = rework["role"]
     # One retry is the only code path that can call a specialist twice.
     packet = {"task": "Revise only the failing part once.", "context": {"prior_output": state["role_outputs"][role], "manager_feedback": rework},
-              "expected_output": f"One replacement Markdown section named '{rework['part']}', in 180 words or fewer, retaining valid citations. End the output with one valid Insight: line. Do not revise any other part."}
+              "expected_output": f"One replacement Markdown section named '{rework['part']}', in 180 words or fewer, retaining valid citations. Put a blank line after the main paragraph, then one bold **Insight:** line with an exact filing and line citation. Do not revise any other part."}
     output = call_role(state, role, packet, attempt=2)
     # A retry replaces only one report part.  Preserve all other material from
     # the first role call so the compiling Manager still has every required
     # section available.
     roles = dict(state["role_outputs"])
-    roles[role] = (state["role_outputs"][role].rstrip() + "\n\n"
-                   + f"## Revised {rework['part']}\n\n" + output.strip())
+    roles[role] = replace_section(state["role_outputs"][role], rework["part"], output)
     return record(state, "12_rework", packet, {"role": role, "output": output}) | {"role_outputs": roles}
 
 
 def compile_node(state: DeskState) -> dict[str, Any]:
     print("Strategy Manager compile starting...")
     packet = {"task": "Compile the final report after the one permitted rework.", "context": {"role_outputs": state["role_outputs"], "required_parts": REQUIRED_PARTS},
-              "expected_output": "One final Markdown report with exactly the five required H2 headings and all three analyst Insight lines."}
+              "expected_output": "One final Markdown report with exactly the five required H2 headings and five standalone bold **Insight:** lines: one beneath each section's main paragraph."}
     manager_body = call_role(state, "Strategy Manager", packet, attempt=2)
     body, repaired = guaranteed_report(manager_body, state["role_outputs"])
     result = {"report_body": body, "manager_output_repaired": repaired}
@@ -494,7 +537,7 @@ def machine_mark(line: str, number: str, fields: dict[str, str], run_dir: Path, 
         return ("correct", "exact XBRL fact match") if display_match(quoted, expected, number) else ("wrong", f"facts value is {expected}")
     if fields.get("kind") == "line":
         file = fields.get("file", ""); line_number = fields.get("line", "")
-        if file not in {"10-K.txt", "10-Q.txt", "8-K.txt", "8-K_exhibit_99_1.txt"}:
+        if file not in {"10-K.txt", "10-Q.txt", "8-K.txt", "8-K_exhibit_99_1.txt", "conference_call.txt"}:
             return "unsupported", "source is not a saved filing text"
         target = run_dir / file
         if not target.exists() or not line_number.isdigit(): return "unsupported", "missing filing file or line"
@@ -684,7 +727,7 @@ def verification_rows(report: str, run_dir: Path, facts: dict[str, Any]) -> list
         if line.startswith("Filings read:"):
             continue
         if line.startswith("## "): in_advisor = line.strip() == "## Investment Recommendation"
-        if in_advisor and not line.strip().startswith("Insight:"):
+        if in_advisor and not re.match(r"^\*\*Insight:", line.strip()):
             continue  # Skip the Advisor thesis but always verify its Insight.
         sources = sources_by_line.get(line_number - 1, [source_fields(item) for item in SOURCE.findall(line)])
         score_numbers = {value for match in re.finditer(r"(?:score\s*:\s*|\()\s*(\d+)\s*/\s*(\d+)\b", line, re.I)
@@ -717,7 +760,7 @@ def cited_filing_texts(report: str, run_dir: Path) -> dict[str, str]:
         if fields.get("kind") == "line" and fields.get("file") and fields.get("line", "").isdigit():
             requested.setdefault(fields["file"], set()).add(int(fields["line"]))
     texts: dict[str, str] = {}
-    allowed = {"10-K.txt", "10-Q.txt", "8-K.txt", "8-K_exhibit_99_1.txt"}
+    allowed = {"10-K.txt", "10-Q.txt", "8-K.txt", "8-K_exhibit_99_1.txt", "conference_call.txt"}
     for name, numbers in requested.items():
         if name not in allowed or not (run_dir / name).exists():
             continue
@@ -736,7 +779,7 @@ def verifier_model(state: DeskState, report: str, texts: dict[str, str], facts: 
     print("Verifier model check starting...")
     api_key = os.environ.get("API_KEY", "").strip()
     if not api_key: raise ValueError("API_KEY is required in .env.")
-    instructions = """You are the Verifier. Use only the JSON packet. Skip the Investment Recommendation thesis, but do verify every Insight line, including an Investment Advisor Insight. Check whether each sourced number has the correct period and definition. Focus on semantic errors that arithmetic and exact text matching cannot detect, such as adjusted versus unadjusted values. For each semantic error, give a correction only when the supplied filing text or facts supports it, with the actual filing line or XBRL tag and period. If no correction is supported, say so. Do not repeat correct claims, do not use outside knowledge, and write 350 words or fewer."""
+    instructions = """You are the Verifier. Use only the JSON packet. Skip the Investment Recommendation thesis, but do verify every bold Insight line, including an Investment Advisor Insight. Check whether each sourced number has the correct period and definition. Focus on semantic errors that arithmetic and exact text matching cannot detect, such as adjusted versus unadjusted values. For each semantic error, give a correction only when the supplied filing text or facts supports it, with the actual filing line or XBRL tag and period. If no correction is supported, say so. Do not repeat correct claims, do not use outside knowledge, and write 350 words or fewer."""
     packet = {"task": "Semantically verify sourced numbers and provide corrections.", "context": {"compiled_report": report, "filing_texts": texts, "facts": facts}, "expected_output": "Markdown semantic verification and corrections."}
     agent = Agent(name="Verifier", instructions=instructions, model=agents_model(api_key, state["model"]),
                   model_settings=ModelSettings(max_tokens=4_000,

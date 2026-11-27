@@ -138,7 +138,7 @@ def text_fact(texts: dict[str, str], labels: tuple[str, ...]) -> tuple[int | Non
     """Read one reported number from the saved statement text, never infer it."""
     for name, text in texts.items():
         for label in labels:
-            hit = re.search(re.escape(label) + r"\s*(?:\n|\s){1,80}\(?\s*([0-9][0-9,]*)", text, re.I)
+            hit = re.search(re.escape(label) + r"(?:\s|\n|\$|\(|\)){1,80}([0-9][0-9,]*)", text, re.I)
             if hit:
                 return int(hit.group(1).replace(",", "")) * 1_000_000, {"filing": name, "section": nearby_section(text, hit.start())}
     return None, None
@@ -146,7 +146,7 @@ def text_fact(texts: dict[str, str], labels: tuple[str, ...]) -> tuple[int | Non
 
 def extract_shares(texts: dict[str, str]) -> tuple[int | None, dict[str, str] | None]:
     cover = re.compile(r"as of .{0,300}?outstanding\s+([0-9][0-9,]*)\s+shares?\s+of\s+Class\s+A\s+common stock,?\s+([0-9][0-9,]*)\s+shares?\s+of\s+Class\s+B\s+common stock", re.I | re.S)
-    ordered = sorted(texts, key=lambda name: (not name.startswith("10-Q"), name))
+    ordered = sorted((name for name in texts if name.startswith(("10-Q", "10-K"))), key=lambda name: (not name.startswith("10-Q"), name))
     for name in ordered:
         text = texts[name]
         hit = cover.search(text)
@@ -194,7 +194,7 @@ def fetch_information_statement(run_dir: Path, row: dict[str, Any], client: Edga
 def spinoff_detail(texts: dict[str, str], row: dict[str, Any], label: str, patterns: tuple[str, ...]) -> tuple[str | None, dict[str, str] | None]:
     """Return only an express filing statement; an unmatched fact stays unknown."""
     accession = row.get("registration", {}).get("accession", "Form 10")
-    amount = r"(?:\$\s*)?[0-9][0-9,]*(?:\.\d+)?\s*(?:million|billion|thousand)?"
+    amount = r"(?:\$\s*[0-9][0-9,]*(?:\.\d+)?|[0-9][0-9,]*(?:\.\d+)?\s+(?:million|billion|thousand))"
     for name, text in texts.items():
         if not name.startswith("spinoff_"):
             continue
@@ -264,11 +264,37 @@ def market_inputs(path: Path | None) -> tuple[dict[str, Any] | None, dict[str, A
     if not rows:
         return None, None, None
     rows.sort(key=lambda row: row["date"])
-    latest = rows[-1]
-    price = {"value": latest["close"], "date": latest["date"], "source": data.get("source", str(path))}
+    selected = data.get("valuation_price")
+    if isinstance(selected, dict) and isinstance(selected.get("close"), (int, float)) and selected.get("date"):
+        price = {"value": selected["close"], "date": selected["date"],
+                 "source": data.get("source", str(path)), "selection": selected.get("selection", "filing-time selection")}
+    else:
+        latest = rows[-1]
+        price = {"value": latest["close"], "date": latest["date"], "source": data.get("source", str(path)),
+                 "selection": "latest saved daily close; no EDGAR Accepted time was supplied"}
     values = [float(row["close"]) * float(row["volume"]) for row in rows if isinstance(row.get("volume"), (int, float))]
     liquidity = None if not values else {"value": statistics.median(values), "start_date": rows[0]["date"], "end_date": rows[-1]["date"], "source": data.get("source", str(path))}
     return price, liquidity, {"rows": len(rows), "source": data.get("source", str(path))}
+
+
+def period_context(run_dir: Path, facts: dict[str, Any]) -> list[str]:
+    """State the periods used and prevent an implicit annual/quarterly mix."""
+    selected = load_json(run_dir / "02_step_2_output.json") if (run_dir / "02_step_2_output.json").exists() else {}
+    annual, interim, release = selected.get("10-K", {}), selected.get("10-Q", {}), selected.get("8-K", {})
+    lines = [
+        f"- Owner-cash-flow valuation period: fiscal year ended {facts.get('fiscal_year_end', annual.get('report_period', 'not known'))}; "
+        f"10-K {annual.get('accession', 'not known')}. The worksheet uses annual reported inputs for this calculation.",
+        f"- Latest saved interim filing: 10-Q {interim.get('accession', 'not known')}; period ended {interim.get('report_period', 'not known')}.",
+        f"- Latest saved earnings release: 8-K {release.get('accession', 'not known')}; report date {release.get('report_period', 'not known')}.",
+        "- Period rule: the worksheet does not mix annual owner-cash-flow inputs with a quarterly earnings-release figure. It leaves a current-period adjustment not computed unless saved filings establish every required input.",
+    ]
+    call_source = run_dir / "conference_call_source.json"
+    if call_source.exists() and (run_dir / "conference_call.txt").exists():
+        details = load_json(call_source)
+        lines.append(f"- Company-call evidence: saved user-supplied transcript; source URL {details.get('source_url', 'not known')}. The report cites this file only when a claim names its exact saved line.")
+    else:
+        lines.append("- Company-call evidence: not included. EDGAR does not normally supply earnings-call transcripts, and no saved company transcript with a source URL is available for this run.")
+    return lines
 
 
 def valuation(owner_cash_flow: float | None, shares: int | None, config: dict[str, Any]) -> dict[str, Any]:
@@ -293,6 +319,20 @@ def valuation(owner_cash_flow: float | None, shares: int | None, config: dict[st
 def conviction(config: dict[str, Any], available: dict[str, bool]) -> str:
     required = config["conviction"]["high_if_all_of"]
     return "high" if all(available.get(key, False) for key in required) else "low"
+
+
+def recommendation(price: float | None, low_value: float | None) -> tuple[str, str]:
+    """Return one reproducible client action from the worksheet's stated low case.
+
+    This is deliberately not a model decision: the price and low value are
+    already printed, and missing evidence must lead to Hold rather than an
+    estimate.  The recommendation does not predict a return.
+    """
+    if price is None or low_value is None:
+        return ("Hold", "The saved filing packet does not establish both a filing-time regular-way price and a low owner-cash-flow value, so the desk does not estimate an action.")
+    if low_value > price:
+        return ("Buy", "The filing-time regular-way price is below the worksheet's stated low owner-cash-flow value; the decision uses the printed price and valuation inputs only.")
+    return ("Sell", "The filing-time regular-way price is above the worksheet's stated low owner-cash-flow value; the decision uses the printed price and valuation inputs only.")
 
 
 def call_judgment(persona_path: Path, packet: dict[str, Any], env: dict[str, str], model_name: str) -> str:
@@ -329,7 +369,7 @@ def build_worksheet(run_dir: Path, settings: dict[str, Any], registry: Path | No
     net_income, net_source = concept_fact(facts, texts, ("net_income", "after_tax_earnings"))
     depreciation, depreciation_source = concept_fact(facts, texts, ("depreciation", "depreciation_and_amortization"))
     if depreciation is None:
-        depreciation, depreciation_source = text_fact(texts, ("depreciation and amortization",))
+        depreciation, depreciation_source = text_fact(texts, ("depreciation and amortization", "depreciation, amortization, and other"))
     capex, capex_source = concept_fact(facts, texts, ("capex", "capital_expenditures"))
     shares, shares_source = extract_shares(texts)
     owner_cash_flow = None if None in (net_income, depreciation, capex) else float(net_income) + float(depreciation) - float(capex)
@@ -352,39 +392,59 @@ def build_worksheet(run_dir: Path, settings: dict[str, Any], registry: Path | No
               "capital_spending": capex, "owner_cash_flow": owner_cash_flow, "value": value,
               "price": price}, "instruction": "Write judgment only; no numeric calculation or new number."}
     judgment = test_judgment if test_judgment is not None else call_judgment(persona, packet, env, model_name)
-    lines = [f"# {manifest.get('company', manifest.get('ticker', 'Unknown'))}: worksheet, {dt.datetime.now().isoformat(timespec='seconds')}",
-             "Screens to look at, not a recommendation.", "", "## Facts", *spin_lines,
-             filing_line("Revenue", revenue, revenue_source, filing_basis),
-             filing_line("Operating income", operating_income, operating_income_source, filing_basis),
-             filing_line("After-tax earnings", net_income, net_source, filing_basis),
-             filing_line("Depreciation", depreciation, depreciation_source, filing_basis),
-             filing_line("Capital spending", capex, capex_source, filing_basis),
-             filing_line("Filing-sourced shares outstanding", shares, shares_source, filing_basis),
-             filing_line("Open-market insider purchases (Form 4, code P only)", purchase_count, purchase_source, filing_basis), "",
-             "## Owner cash flow"]
+    distribution_lines, parent_lines = spin_lines[:4], spin_lines[4:]
+    period_lines = period_context(run_dir, facts)
+    financial_lines = [
+        filing_line("Revenue", revenue, revenue_source, filing_basis),
+        filing_line("Operating income", operating_income, operating_income_source, filing_basis),
+        filing_line("After-tax earnings", net_income, net_source, filing_basis),
+        filing_line("Depreciation", depreciation, depreciation_source, filing_basis),
+        filing_line("Capital spending", capex, capex_source, filing_basis),
+        filing_line("Filing-sourced shares outstanding", shares, shares_source, filing_basis),
+    ]
+    status = "applicable: a registry row matched the saved run" if row else "not applicable: no registry row matched the saved run"
+    lines = [
+        f"# {manifest.get('company', manifest.get('ticker', 'Unknown'))}: worksheet, {dt.datetime.now().isoformat(timespec='seconds')}",
+        "Screens to look at, not a recommendation.", "", "## Filing scope",
+        f"- Ticker: {manifest.get('ticker', 'not known')}; CIK: {manifest.get('cik', 'not known')}.",
+        "- Evidence used: saved SEC filing text, the run facts file, the registry when applicable, and the supplied closes-and-volumes file.",
+        f"- Spinoff status: {status}.",
+        "- Evidence rule: a fact stays not known when the saved filing packet does not establish it; this worksheet does not estimate missing facts.",
+        "", "## Distribution mechanics", *distribution_lines,
+        "", "## What the parent pushed into it", *parent_lines,
+        "", "## Period alignment", *period_lines,
+        "", "## Financial facts and accounting basis",
+        f"- Statement basis: {filing_basis}.", *financial_lines,
+        "", "## Owner cash flow",
+        "- Formula: after-tax earnings + depreciation - capital spending.",
+    ]
     if owner_cash_flow is None:
         lines.append("- not computed: after-tax earnings, depreciation, or capital spending is not known.")
     else:
         lines.append(f"- {amount_string(net_income)} + {amount_string(depreciation)} - {amount_string(capex)} = {amount_string(owner_cash_flow)}.")
-    lines += ["", "## Value range"]
+    lines += ["", "## Price, value, and liquidity",
+              f"- Valuation method selected in worksheet settings: {settings['valuation']['method']}; low input: {settings['valuation']['low_rate']}; mid input: {settings['valuation']['mid_rate']}."]
     if value["low"] is None:
         lines.append(f"- not computed: {value['reason']}.")
     else:
-        lines += [f"- Method: {value['method']}; low rate: {value['low_rate']}; mid rate: {value['mid_rate']}.",
-                  f"- Low value per share: {value['low']:.4f}; Mid value per share: {value['mid']:.4f}."]
+        lines += [f"- Low value per share: {value['low']:.4f}; mid value per share: {value['mid']:.4f}.",
+                  f"- Recomputable arithmetic: owner cash flow × low or mid input ÷ filing-sourced shares outstanding ({value['shares']})."]
     if price is None:
         lines.append("- Price and price against low value: not computed; close is not available.")
     elif value["low"] is None:
-        lines.append(f"- Price: {price['value']} on {price['date']}; price against low value: not computed.")
+        lines.append(f"- Price: {price['value']} on {price['date']}; source: {price['source']}; selection: {price['selection']}; price against low value: not computed.")
     else:
-        lines.append(f"- Price: {price['value']} on {price['date']}; low-value difference: {value['low'] - price['value']:.4f}.")
-    lines += ["", "## Judgment", judgment, "", "## Liquidity"]
+        lines.append(f"- Price: {price['value']} on {price['date']}; source: {price['source']}; selection: {price['selection']}; low-value difference: {value['low'] - price['value']:.4f}.")
     if liquidity is None:
         lines.append("- Median daily dollar volume: not known.")
     else:
         comparison = "meets or exceeds" if liquidity["value"] >= settings["client_purchase_size"] else "is below"
         lines.append(f"- Median daily dollar volume: {liquidity['value']:.2f}; {liquidity['start_date']} through {liquidity['end_date']}; {liquidity['source']}; {comparison} client purchase size of {settings['client_purchase_size']}.")
-    lines += ["", "## View"]
+        lines.append(f"- Can you buy it: {comparison} the stated purchase size using the saved median daily dollar-volume calculation.")
+    lines += ["", "## Insiders and catalysts",
+              filing_line("Open-market insider purchases (Form 4, code P only)", purchase_count, purchase_source, filing_basis),
+              "- Next filing to read: the next SEC report or earnings release, for reported operating results, cash flow, and any stated catalyst.",
+              "", "## Judgment", judgment, "", "## View"]
     if price is None or value["low"] is None:
         lines.append("- not computed; close or low value is not available.")
     else:
@@ -393,7 +453,15 @@ def build_worksheet(run_dir: Path, settings: dict[str, Any], registry: Path | No
     available = {"owner_cash_flow": owner_cash_flow is not None, "low_value_per_share": value["low"] is not None,
                  "price": price is not None, "liquidity": liquidity is not None}
     lines.append(f"- Conviction: {conviction(settings, available)}; rule: all of {', '.join(settings['conviction']['high_if_all_of'])} are available.")
-    lines += ["", "## Not known"] + [f"- {item}." for item in sorted(set(unknown))]
+    limits = sorted(set(unknown)) or ["No missing input was identified by the worksheet rules."]
+    action, action_reason = recommendation(None if price is None else price["value"], value["low"])
+    lines += ["", "## Recommendation",
+              f"- **Recommendation: {action}.** {action_reason}",
+              "- Key risks and monitors: use the cited operating, cash-flow, leverage, and guidance evidence in the team report. The next filing can change this conclusion only if it establishes a different supported valuation input or operating evidence.",
+              "", "## Evidence limits",
+              "- This worksheet does not establish that a price move proves forced selling, insider intent, or future performance.",
+              "- A model supplied only the judgment text. Code selected facts, performed arithmetic, and applied the conviction rule.",
+              "", "## Not known"] + [f"- {item}." for item in limits]
     output = run_dir / f"worksheet_{dt.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.md"
     output.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return output

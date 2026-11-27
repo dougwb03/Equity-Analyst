@@ -86,6 +86,16 @@ class WorksheetHookTests(unittest.TestCase):
     def test_numbered_list_markers_are_not_numeric_claims(self):
         self.assertEqual(checker.relevant_numbers("2. A narrative condition."), [])
 
+    def test_sec_form_identifiers_are_not_numeric_claims(self):
+        self.assertEqual(checker.relevant_numbers("Latest saved earnings release: 8-K 0000000000-00-000001."), [])
+
+    def test_saved_cash_flow_depreciation_line_supports_extended_label(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); run = self.fixture(root); sheet = run / "worksheet.md"
+            (run / "10-K.txt").write_text("CASH FLOWS\nDepreciation, amortization, and other\n$\n38,534\n")
+            sheet.write_text("Depreciation: 38534000000\n")
+            self.assertEqual(checker.verify(sheet, root / "settings.json", root / "market.json"), [])
+
 
 if __name__ == "__main__":
     unittest.main()

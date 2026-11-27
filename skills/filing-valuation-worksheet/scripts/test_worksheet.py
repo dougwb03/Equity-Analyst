@@ -51,8 +51,15 @@ class WorksheetTests(unittest.TestCase):
             self.assertIn("Revenue: not known", text)
             self.assertIn("Median daily dollar volume: 3500.00", text)
             self.assertIn("View: more than the price", text)
+            self.assertIn("**Recommendation: Buy.**", text)
             self.assertIn("Conviction: high", text)
             self.assertIn("Parent: not applicable", text)
+            self.assertIn("## Filing scope", text)
+            self.assertIn("## Distribution mechanics", text)
+            self.assertIn("## What the parent pushed into it", text)
+            self.assertIn("## Price, value, and liquidity", text)
+            self.assertIn("## Insiders and catalysts", text)
+            self.assertIn("## Evidence limits", text)
 
     def test_no_close_makes_price_and_view_not_computed(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -62,7 +69,44 @@ class WorksheetTests(unittest.TestCase):
             text = output.read_text()
             self.assertIn("Price and price against low value: not computed; close is not available.", text)
             self.assertIn("- not computed; close or low value is not available.", text)
+            self.assertIn("**Recommendation: Hold.**", text)
             self.assertIn("Conviction: low", text)
+
+    def test_recommendation_follows_only_the_supported_low_value_and_price(self):
+        self.assertEqual(worksheet.recommendation(0.25, 0.36)[0], "Buy")
+        self.assertEqual(worksheet.recommendation(0.36, 0.25)[0], "Sell")
+        self.assertEqual(worksheet.recommendation(None, 0.36)[0], "Hold")
+
+    def test_uses_filing_time_selected_price_not_the_latest_series_row(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            run, market, _ = self.make_run(root)
+            market.write_text(json.dumps({
+                "source": "test reader", "rows": [
+                    {"date": "2026-01-02", "close": 0.20, "volume": 10000},
+                    {"date": "2026-01-03", "close": 0.25, "volume": 20000},
+                ],
+                "valuation_price": {"date": "2026-01-02", "close": 0.20,
+                                    "selection": "last daily regular-session close available before EDGAR Accepted time"},
+            }))
+            price, _, _ = worksheet.market_inputs(market)
+            self.assertEqual(price["value"], 0.20)
+            self.assertEqual(price["date"], "2026-01-02")
+
+    def test_period_context_labels_the_annual_valuation_and_saved_current_filings(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            run = Path(temporary)
+            (run / "02_step_2_output.json").write_text(json.dumps({
+                "10-K": {"accession": "annual", "report_period": "2025-12-31"},
+                "10-Q": {"accession": "quarter", "report_period": "2026-09-30"},
+                "8-K": {"accession": "release", "report_period": "2026-11-20"},
+            }))
+            lines = worksheet.period_context(run, {"fiscal_year_end": "2025-12-31"})
+            text = "\n".join(lines)
+            self.assertIn("annual", text)
+            self.assertIn("quarter", text)
+            self.assertIn("release", text)
+            self.assertIn("does not mix", text)
 
     def test_form4_does_not_count_other_transaction_codes(self):
         texts = {"4-sample.txt": "<nonDerivativeTransaction><transactionCode>S</transactionCode><transactionShares><value>99</value></transactionShares></nonDerivativeTransaction>"}
@@ -81,9 +125,25 @@ class WorksheetTests(unittest.TestCase):
         self.assertIn("debt raised", missing)
         self.assertIn("restrictions left by parent", missing)
 
+    def test_spinoff_detail_does_not_treat_a_section_number_as_a_money_amount(self):
+        value, source = worksheet.spinoff_detail(
+            {"spinoff_sample.txt": "The company will incur debt as described in Section 6."}, {}, "Debt raised",
+            (r"(?:will |expect to )?(?:incur|raise|borrow)[^.]{0,300}?(?:debt|indebtedness|borrowings)",),
+        )
+        self.assertIsNone(value)
+        self.assertIsNone(source)
+
     def test_depreciation_can_come_from_a_saved_statement_table(self):
         value, source = worksheet.text_fact({"10-K.txt": "CASH FLOWS\nDepreciation and amortization\n2,454\n863"}, ("depreciation and amortization",))
         self.assertEqual(value, 2454000000)
+        self.assertEqual(source["filing"], "10-K.txt")
+
+    def test_depreciation_table_allows_currency_marker_and_extended_label(self):
+        value, source = worksheet.text_fact(
+            {"10-K.txt": "CASH FLOWS\nDepreciation, amortization, and other\n$\n38,534\n29,433"},
+            ("depreciation, amortization, and other",),
+        )
+        self.assertEqual(value, 38534000000)
         self.assertEqual(source["filing"], "10-K.txt")
 
     def test_share_count_adds_disclosed_common_share_classes(self):
@@ -98,6 +158,11 @@ class WorksheetTests(unittest.TestCase):
         shares, source = worksheet.extract_shares({"10-K.txt": older, "10-Q.txt": newer})
         self.assertEqual(shares, 140)
         self.assertEqual(source["filing"], "10-Q.txt")
+
+    def test_share_count_does_not_use_a_parent_share_count_in_an_information_statement(self):
+        shares, source = worksheet.extract_shares({"spinoff_form10.txt": "4,529,517 shares of Parent Class B common stock outstanding."})
+        self.assertIsNone(shares)
+        self.assertIsNone(source)
 
     def test_negative_owner_cash_flow_has_no_multiple_based_value(self):
         result = worksheet.valuation(-10, 100, SETTINGS)

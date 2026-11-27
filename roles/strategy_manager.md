@@ -4,10 +4,19 @@ Required report parts are: Overview; Market Positioning and Growth Outlook;
 Valuation Insights; Future Developments and Strategic Recommendations; and
 Investment Recommendation. Check that all five are present and consistent.
 
-Each analyst role must end with one `Insight:` line. It must name a saved
-filing and one exact line. It must state a numeric claim that the earnings
-release's first paragraph does not state. A missing Insight, or one that only
-repeats a first-paragraph figure, fails that role's part.
+Each section must contain one standalone bold `**Insight:**` line immediately
+after its main paragraph, with a blank line before the Insight. Each Insight
+must name a saved filing and one exact line. The Research Analyst supplies
+three distinct Insights, one for each assigned section; the Financial Analyst
+and Investment Advisor each supply one. Insights must be specific to the
+company and filing packet. Do not repeat an earlier Insight, restate the main
+paragraph, or use generic wording. An Insight that only repeats a number from
+the earnings release's first paragraph fails that part.
+
+No required section may use `N/A` or `NA` as a score or conclusion. When the
+saved packet lacks an input, preserve the section and state the specific
+missing input, why it prevents that assessment, and what later worksheet or
+filing evidence can resolve it.
 
 For a review request, return `APPROVED` when all five parts pass. Otherwise,
 return one line in this exact format:
@@ -24,4 +33,8 @@ immediately after that paragraph. Do not move a source line to the end of a
 section. Preserve the citations, definitions, and arithmetic needed to support
 the text. Keep exact source records unchanged; do not create line ranges,
 change a saved filing filename, or use a pipeline label as a filing source.
-Include the three analyst Insight lines in the final report.
+Retain one bold, company-specific Insight line beneath each section. In the
+Investment Recommendation section, preserve the pre-price investment context,
+the company-specific risk, and the measurable monitor; do not manufacture the
+final Buy, Hold, or Sell rating because the worksheet determines it after it
+uses the filing-time LSEG price.

@@ -37,6 +37,36 @@ class AgentTeamTests(unittest.TestCase):
         self.assertEqual(mark, "unsupported")
         self.assertIn("cannot be read", detail)
 
+    def test_pre_price_advisor_defers_the_final_rating_to_the_worksheet(self):
+        instructions = (Path(__file__).parents[1] / "roles" / "investment_advisor.md").read_text()
+        self.assertIn("must not issue the final Buy, Hold, or Sell rating", instructions)
+        self.assertIn("sole authoritative client view", instructions)
+
+    def test_roles_require_distinct_bold_insights_for_each_section(self):
+        research = (Path(__file__).parents[1] / "roles" / "research_analyst.md").read_text()
+        financial = (Path(__file__).parents[1] / "roles" / "financial_analyst.md").read_text()
+        advisor = (Path(__file__).parents[1] / "roles" / "investment_advisor.md").read_text()
+        self.assertIn("three distinct standalone bold insight lines", research)
+        self.assertIn("**Insight:", financial)
+        self.assertIn("**Insight:", advisor)
+
+    def test_n_a_score_placeholder_requires_rework(self):
+        outputs = {
+            "Research Analyst": "## Overview\nEvidence.\n\n**Insight: Distinct overview.** <!-- [source: line|file=8-K.txt|line=2] -->\n\n## Market Positioning and Growth Outlook\nEvidence.\n\n**Insight: Distinct market.** <!-- [source: line|file=8-K.txt|line=3] -->\n\n## Future Developments and Strategic Recommendations\nEvidence.\n\n**Insight: Distinct future.** <!-- [source: line|file=8-K.txt|line=4] -->",
+            "Financial Analyst": "## Valuation Insights\n**Valuation: N/A**\n\n**Insight: Distinct financial.** <!-- [source: line|file=8-K.txt|line=5] -->",
+            "Investment Advisor": "## Investment Recommendation\nEvidence.\n\n**Insight: Distinct advisor.** <!-- [source: line|file=8-K.txt|line=6] -->",
+        }
+        failure = agent_team.placeholder_failure(outputs)
+        self.assertEqual(failure["role"], "Financial Analyst")
+        self.assertIn("N/A", failure["feedback"])
+
+    def test_replace_section_replaces_instead_of_appending_a_failed_section(self):
+        prior = "## Valuation Insights\nValuation: N/A\n\n**Insight: Old.** <!-- [source: line|file=8-K.txt|line=5] -->"
+        revised = "## Valuation Insights\nValuation evidence is limited.\n\n**Insight: New.** <!-- [source: line|file=8-K.txt|line=6] -->"
+        replacement = agent_team.replace_section(prior, "Valuation Insights", revised)
+        self.assertNotIn("N/A", replacement)
+        self.assertIn("Insight: New", replacement)
+
 
 if __name__ == "__main__":
     unittest.main()

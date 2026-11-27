@@ -60,7 +60,7 @@ def supported_values(run_dir: Path, settings: dict, market: dict) -> set[float]:
     # Direct statement values are allowed only when their named row is in saved filing text.
     for text_file in run_dir.glob("*.txt"):
         text = text_file.read_text(errors="replace")
-        for amount in re.findall(r"depreciation and amortization\s+([0-9][0-9,]*)", text, re.I):
+        for amount in re.findall(r"(?:depreciation\s+and\s+amortization|depreciation,\s+amortization,\s+and\s+other)(?:\s|\n|\$|\(|\)){1,80}([0-9][0-9,]*)", text, re.I):
             values.add(float(amount.replace(",", "")) * 1_000_000)
         cover = re.search(r"outstanding\s+([0-9][0-9,]*)\s+shares?\s+of\s+Class\s+A\s+common stock,?\s+([0-9][0-9,]*)\s+shares?\s+of\s+Class\s+B\s+common stock", text, re.I | re.S)
         if cover:
@@ -80,7 +80,8 @@ def relevant_numbers(line: str) -> list[str]:
     # Field identifiers in a vendor source name (for example TRDPRC_1) are
     # identifiers, not numeric claims.
     line = re.sub(r"\b[A-Za-z][A-Za-z0-9_]*_\d+\b", "", line)
-    line = re.sub(r"\b10-[KQ]\b", "", line, flags=re.I)
+    # SEC form names identify a document; their leading number is not a claim.
+    line = re.sub(r"\b(?:\d{1,3}-[A-Z](?:/[A-Z])?|S-\d+|20-F|40-F)\b", "", line, flags=re.I)
     return [token for token in NUMBER.findall(line) if not re.fullmatch(r"\d+", token) or not re.search(r"(?:line|section)\s+" + re.escape(token) + r"\b", line, re.I)]
 
 
